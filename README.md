@@ -27,6 +27,7 @@ cd new repository
 git remote add upstream https://github.com/jvnhrn/event-finder
 
 //pull all code from the original repository
+
 git pull upstream main
 
 ### Note: adding git remote
