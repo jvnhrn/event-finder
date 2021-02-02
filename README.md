@@ -22,11 +22,11 @@ Pull From Origin
 
 //clone your new repository
 
-git clone <new repository>.git
+git clone new repository.git
 
 //navigate to the repository root
 
-cd <new repository>
+cd new repository
 
 //add a reference to your original repository
 
