@@ -30,7 +30,7 @@ cd <new repository>
 
 //add a reference to your original repository
 
-git remote add upstream <original repository>.git
+git remote add upstream https://github.com/jvnhrn/event-finder
 
 //pull all code from the original repository
 git pull upstream main
