@@ -1,6 +1,15 @@
 {
   "name": "event-finder",
   "version": "0.1.0",
+  "description": "Find your perfect event!",
+  "keywords": [
+    "event",
+    "finder",
+    "funtime",
+    "spendingtime",
+    "location"
+  ],
+  "author": "Jessica, Alex, Claudio, Johanna",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.9",
