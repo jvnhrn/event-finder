@@ -29,13 +29,13 @@ git remote add upstream https://github.com/jvnhrn/event-finder
 //pull all code from the original repository
 git pull upstream main
 
-# Notice adding git remote
+### Note: adding git remote
 
 Adding 
 **$ git remote add upstream https://github.com/jvnhrn/event-finder**
 
 
-# Notice pull the lates version of the main repo 
+### Note: pull the lates version of the main repo 
 
 Pull from Origin 
 **$ git pull upstream main**
