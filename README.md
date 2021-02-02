@@ -12,28 +12,23 @@ This project is developed within the Codemaster Bootcamp from Talent Garden Aust
 
 # Set up Team GitRepo
 
-// fork this repo 
+1. fork this repo 
 
-//clone your new repository
+2. clone your new repository
 
-git clone new repository.git
+git clone new-repository.git
 
-//navigate to the repository root
+3. navigate to the repository root
 
-cd new repository
+cd new-repository
 
-//add a reference to your original repository
+4. add a reference to your original repository
 
 git remote add upstream https://github.com/jvnhrn/event-finder
 
-//pull all code from the original repository
+5.pull all code from the original repository
 
 git pull upstream main
-
-### Note: adding git remote
-
-Adding 
-**$ git remote add upstream https://github.com/jvnhrn/event-finder**
 
 
 ### Note: pull the lates version of the main repo 
