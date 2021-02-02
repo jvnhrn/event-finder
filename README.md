@@ -2,6 +2,7 @@
 This project is developed within the Codemaster Bootcamp from Talent Garden Austria. 
 
 ## Team Avangers Initiative
+
 **Product Owner:** Jessica 
 
 **Scrum Master:** Johanna Horn
