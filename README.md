@@ -12,12 +12,6 @@ This project is developed within the Codemaster Bootcamp from Talent Garden Aust
 
 # Set up Team GitRepo
 
-Adding 
-**$ git remote add upstream https://github.com/jvnhrn/event-finder**
-
-Pull From Origin 
-**$ git pull upstream main**
-
 // fork this repo 
 
 //clone your new repository
@@ -34,3 +28,14 @@ git remote add upstream https://github.com/jvnhrn/event-finder
 
 //pull all code from the original repository
 git pull upstream main
+
+# Notice adding git remote
+
+Adding 
+**$ git remote add upstream https://github.com/jvnhrn/event-finder**
+
+
+# Notice pull the lates version of the main repo 
+
+Pull from Origin 
+**$ git pull upstream main**
