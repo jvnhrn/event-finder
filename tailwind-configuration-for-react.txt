@@ -1,0 +1,62 @@
+
+Tailwind configuration for React app:
+
+After creating your react app
+
+1) npm i -D tailwindcss postcss autoprefixer. (saved as dev dependencies).
+
+2) npx tailwind init tailwind.js --full (initialise tailwind and create a tailwind.js file which has all the 
+configurations that tailwind has which is screensize, colors, boarders etc in project folder(where the package.json files are)
+
+3) create a postcss.config.js file and in the file, paste the following: 
+
+const tailwindcss = require('tailwindcss');
+module.exports = {
+    plugins: [
+        tailwindcss('./tailwind.js'),
+        require('autoprefixer')
+    ],
+};
+
+4) in src folder create a folder called assets
+
+5) in assets create two files:
+
+tailwind.css
+main.css
+
+6) in tailwind.css write/ import the following:
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+...this basically compiles into the main.css which we use in our react app
+
+
+7) in package.json file, your script file should look like this:
+
+"scripts": {
+  "start": "npm run watch:css && react-scripts start",
+  "build": "npm run build:css && react-scripts build",
+  "test": "react-scripts test",
+  "eject": "react-scripts eject",
+  "build:css": "postcss src/assets/tailwind.css -o src/assets/main.css",
+  "watch:css": "postcss src/assets/tailwind.css -o src/assets/main.css"
+}
+
+
+8)run npm start 
+
+...this generates all the tailwind classes into the main.css file. 
+After running npm start you should be able to see all the base, components and utilities from tailwind inside your main.css file. 
+React app should also start on the server as usual
+
+9)inside your index.js file in your src folder, change the css-file import to: import './assets/main.css';
+
+
+
+
+
