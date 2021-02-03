@@ -10,7 +10,7 @@ This project is developed within the Codemaster Bootcamp from Talent Garden Aust
 **Tester:** Claudio Capitao, Alexander Wieser
 
 
-# Set up Team GitRepo
+### Set up Team GitRepo
 
 1. fork this repo 
 
