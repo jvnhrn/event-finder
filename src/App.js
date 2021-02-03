@@ -7,21 +7,14 @@ import ReduxResetPage from './components/ReduxResetPage/ReduxResetPage'
 function App() {
     return (
 
-        <
-        div className = "App" >
-        <
-        Router >
-        <
-        Switch >
-        <
-        Route path = "/resetredux"
-        component = { ReduxResetPage }
-        /> <
-        /Switch> <
-        /Router> <
-        ExplorePage / >
-        <
-        /div>
+        <div className = "App" >
+            <Router >
+                <Switch >
+                    <Route path = "/resetredux" component = { ReduxResetPage } /> 
+                </Switch>
+            </Router>
+            <ExplorePage />
+        </div>
 
     );
 }
