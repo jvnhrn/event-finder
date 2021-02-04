@@ -5,6 +5,7 @@ import { NavLink } from 'react-router-dom';
 function Navigation() {
 
     const [show, setShow] = useState(false); 
+    const [open, setOpen] = useState(false);
     const drop = useRef(null);
 
     function handleClick (e){
@@ -62,18 +63,19 @@ function Navigation() {
                                         
                                         {show && 
                                             <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+                                                <NavLink to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</NavLink>
 
-                                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+                                                <NavLink to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</NavLink>
 
-                                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
+                                                <NavLink to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</NavLink>
                                             </div>
                                         }
                                     </div>
                                 </div>
                             </div>
-                        <div class="-mr-2 flex md:hidden">      
-                            <button class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
+                        <div className="dropdown" ref={drop} class="-mr-2 flex md:hidden">      
+                            <button class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                onClick={() => setShow(show => !show)}>
                                 <span class="sr-only">Open main menu</span>
                                         
                                 <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
@@ -87,19 +89,20 @@ function Navigation() {
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="hidden md:hidden">
+        
                             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             
-                                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+                                <NavLink to='/' class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</NavLink>
 
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
+                                <NavLink to="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</NavLink>
 
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                                <NavLink to="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</NavLink>
 
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+                                <NavLink to="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</NavLink>
 
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</a>
+                                <NavLink to="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</NavLink>
                             </div>
                             <div class="pt-4 pb-3 border-t border-gray-700">
                                 <div class="flex items-center px-5">
@@ -123,8 +126,8 @@ function Navigation() {
                                         <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
 
                                         <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</a>
-                                    </div>
-                    </div>
+                                    </div> 
+                            </div>
             </div>
         </nav>
     </div>
