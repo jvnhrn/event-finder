@@ -14,22 +14,12 @@ function App() {
             <Router>
                 <TopNav />
                 <Switch >
-<<<<<<< HEAD
-                    <Route path = "/resetredux" component = { ReduxResetPage } />
-                    <Route path="/search" component={ SearchPage } /> 
-                    <Route path="/explore" component={ ExplorePage } />
-                    <Route path="/hostevent" component={ CardInputForm} />
-                </Switch>
-            </Router>
-            
-=======
                     <Route path="/resetredux" component={ReduxResetPage} />
                     <Route path="/search" component={SearchPage} />
                     <Route path="/explore" component={ExplorePage} />
                     <Route path="/hostevent" component={HostEventPage} />
                 </Switch>
             </Router>
->>>>>>> 93f5287ab9e837b67086d3fabf7fce4e453c3aa0
         </div>
 
     );
