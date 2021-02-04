@@ -9,17 +9,16 @@ import HostEventPage from './components/HostEventPage/HosteEventPage';
 
 function App() {
     return (
-        <div className = "App" >
+        <div className="App" >
             <Router>
                 <TopNav />
                 <Switch >
-                    <Route path = "/resetredux" component = { ReduxResetPage } />
-                    <Route path="/search" component={ SearchPage } /> 
-                    <Route path="/explore" component={ ExplorePage } />
-                    <Route path="/hostevent" component={ HostEventPage} />
+                    <Route path="/resetredux" component={ReduxResetPage} />
+                    <Route path="/search" component={SearchPage} />
+                    <Route path="/explore" component={ExplorePage} />
+                    <Route path="/hostevent" component={HostEventPage} />
                 </Switch>
             </Router>
-            <ExplorePage />
         </div>
 
     );
