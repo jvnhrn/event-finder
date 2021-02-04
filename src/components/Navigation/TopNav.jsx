@@ -73,9 +73,8 @@ function Navigation() {
                                     </div>
                                 </div>
                             </div>
-                        <div className="dropdown" ref={drop} class="-mr-2 flex md:hidden">      
-                            <button class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                                onClick={() => setShow(show => !show)}>
+                        <div class="-mr-2 flex md:hidden">      
+                            <button class="bg-gray-800 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white">
                                 <span class="sr-only">Open main menu</span>
                                         
                                 <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
