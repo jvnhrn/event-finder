@@ -1,18 +1,24 @@
-import React, {useState} from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 
 function Navigation() {
 
     const [show, setShow] = useState(false); 
+    const [open, setOpen] = useState(false);
+    const drop = useRef(null);
 
-    const showDropdown = (e) => {
-        setShow(!show);
-    };
-
-    const hideDropdown = (e) => {
-        setShow(false);
-    };
+    function handleClick (e){
+        if (!e.target.closest(`.${drop.current.className}`) && show){
+            setShow(false);
+        }
+    }
+    useEffect(() => {
+        document.addEventListener("click", handleClick);
+        return () => {
+            document.removeEventListener("click", handleClick);
+        };
+    });
 
     return (
         <div>
@@ -47,23 +53,23 @@ function Navigation() {
                                     </button>
 
                                
-                                    <div class="ml-3 relative">
-                                        <div>
+                                    <div className="dropdown" ref={drop} class="ml-3 relative">
+                                        
                                             <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true"
-                                            onMouseEnter={showDropdown}
-                                            onMouseLeave={hideDropdown}>
+                                             onClick={()=> setShow(show => !show)} >
                                                 <span class="sr-only">Open user menu</span>
                                                 <img class="h-8 w-8 rounded-full" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt=""/>
                                             </button>
-                                        </div>
-                                            
-                                        <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
-                                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</a>
+                                        
+                                        {show && 
+                                            <div class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" role="menu" aria-orientation="vertical" aria-labelledby="user-menu">
+                                                <NavLink to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Your Profile</NavLink>
 
-                                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</a>
+                                                <NavLink to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Settings</NavLink>
 
-                                                <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</a>
-                                        </div>
+                                                <NavLink to="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100" role="menuitem">Sign out</NavLink>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
                             </div>
@@ -82,19 +88,20 @@ function Navigation() {
                         </div>
                     </div>
                 </div>
-
+                
                 <div class="hidden md:hidden">
+        
                             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
             
-                                <a href="#" class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</a>
+                                <NavLink to='/' class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Dashboard</NavLink>
 
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</a>
+                                <NavLink to="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Team</NavLink>
 
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</a>
+                                <NavLink to="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Projects</NavLink>
 
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</a>
+                                <NavLink to="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Calendar</NavLink>
 
-                                <a href="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</a>
+                                <NavLink to="#" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Reports</NavLink>
                             </div>
                             <div class="pt-4 pb-3 border-t border-gray-700">
                                 <div class="flex items-center px-5">
@@ -118,8 +125,8 @@ function Navigation() {
                                         <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Settings</a>
 
                                         <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-400 hover:text-white hover:bg-gray-700">Sign out</a>
-                                    </div>
-                    </div>
+                                    </div> 
+                            </div>
             </div>
         </nav>
     </div>

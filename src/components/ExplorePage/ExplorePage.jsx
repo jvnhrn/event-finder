@@ -1,44 +1,77 @@
-import React, { Component } from 'react';
-import Link from 'react-router-dom';
-import Random from '../Categories/Random/random';
+
 import Yoga from '../Categories/Yoga/yoga';
+import React, { Component, useState, useEffect } from 'react';
+import ExploreCard from './ExploreCard';
+const axios = require('axios');
 
+function ExplorePage() {
 
+    const [cardsData, setCardsData] = useState([]);
 
+    useEffect(() => {
+        getAllCardsData();
+    }, [])
 
-
-
-export class ExplorePage extends Component {
-    render() {
-        return (
-            <div>
-
-                <div>
-                        <form className="content-center px-24 pt-10" onSubmit="event.preventDefault();" role="search">
-                            <input className="bg-gray-100 rounded-md px-4 py-4 container focus:ring-purple-600 outline-none" id="search" type="search" placeholder="find out what's popping" />
-                            <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>    
-                        </form>
-                </div>
-
-                <div class="container hidden md:block md:ml-24 md:pr-12 md:space-x-8 py-10 font-bold text-gray-600 text-center tracking-tighter">
-                    <a href="../Categories/Yoga/yoga.jsx" class="text-2xl font-light text-grey-500 hover:text-gray-900">Yoga</a>
-                    <a href="#" class="text-2xl font-light text-grey-500 hover:text-gray-900">Literature</a>
-                    <a href="#" class="text-2xl font-light text-grey-500 hover:text-gray-900">Architecture/Culture</a>
-                    <a href="#" class="text-2xl font-light text-grey-500 hover:text-gray-900">Music</a>
-                    <a href="#" class="text-2xl font-light text-grey-500 hover:text-gray-900">Artsy-Crafty</a>
-                    <a href="#" class="text-2xl font-light text-grey-500 hover:text-gray-900">Random</a>
-                 </div>
-
-                <div className = "overflox-x-hidden">
-                <Yoga/>
-                </div>
-                    
-
-              
-                
-            </div>
-        )
+    const getAllCardsData = async () => {
+        try {
+            const allCardsData = await axios.get('http://localhost:8080/explorer');
+            await setCardsData(allCardsData.data);
+        } catch (error) {
+            console.error(error);
+        }
     }
+
+    return (
+        
+
+        <div>
+
+        <div>
+                <form className="content-center px-24 pt-10" onSubmit="event.preventDefault();" role="search">
+                    <input className="bg-gray-100 rounded-md px-4 py-4 container focus:ring-purple-600 outline-none" id="search" type="search" placeholder="find out what's popping" />
+                    <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>    
+                </form>
+        </div>
+
+        <div class="container hidden md:block md:ml-24 md:pr-12 md:space-x-8 py-10 font-bold text-gray-600 text-center tracking-tighter">
+            <a href="../Categories/Yoga/yoga.jsx" class="text-2xl font-light text-grey-500 hover:text-gray-900">Yoga</a>
+            <a href="#" class="text-2xl font-light text-grey-500 hover:text-gray-900">Literature</a>
+            <a href="#" class="text-2xl font-light text-grey-500 hover:text-gray-900">Architecture/Culture</a>
+            <a href="#" class="text-2xl font-light text-grey-500 hover:text-gray-900">Music</a>
+            <a href="#" class="text-2xl font-light text-grey-500 hover:text-gray-900">Artsy-Crafty</a>
+            <a href="#" class="text-2xl font-light text-grey-500 hover:text-gray-900">Random</a>
+         </div>
+
+        <div className = "overflox-x-hidden">
+        <Yoga/>
+        </div>
+            
+
+      
+        
+    </div>
+
+        <div class="grid grid-cols-3 gap-2">
+            {cardsData.map((card) => {
+                console.log(cardsData);
+                return < ExploreCard
+                    event_category={card.event_category}
+                    event_title={card.event_title}
+                    event_description={card.event_description}
+                    event_location={card.event_location}
+                    event_country={card.event_country}
+                    event_city={card.event_city}
+                    event_postalcode={card.event_postalcode}
+                    event_address={card.event_address}
+                    event_host_phone={card.event_host_phone}
+                    event_host_email={card.event_host_email}
+                    event_price={card.event_price}
+                    event_date={card.event_date}
+                    open_spots={card.open_spots}
+                />
+            })}
+        </div>
+    )
 }
 
 export default ExplorePage
