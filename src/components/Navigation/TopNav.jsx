@@ -14,7 +14,7 @@ function Navigation() {
     function handleClick (e){
         if (!e.target.closest(`.${drop.current.className}`) && show){
             setShow(false);
-        }
+        } 
     }
     useEffect(() => {
         document.addEventListener("click", handleClick);
