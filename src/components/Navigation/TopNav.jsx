@@ -38,13 +38,13 @@ function Navigation() {
                                 <div class="hidden md:block">
                                     <div class="ml-10 flex items-baseline space-x-4">
                     
-                                        <NavLink to='/' class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium">Home</NavLink>
+                                        <NavLink to='/' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium active:bg-gray-900 active:text-white px-3 py-2 rounded-md text-sm font-medium">Home</NavLink>
 
-                                        <NavLink to='/search' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Search</NavLink>
+                                        <NavLink to='/search' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium active:bg-gray-900 active:text-white">Search</NavLink>
 
-                                        <NavLink to='/explore' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Explore</NavLink>
+                                        <NavLink to='/explore' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium active:bg-gray-900 active:text-white px-3 py-2 rounded-md text-sm font-medium">Explore</NavLink>
 
-                                        <NavLink to='/hostevent' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Host an Event</NavLink>
+                                        <NavLink to='/hostevent' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium active:bg-gray-900 active:text-white px-3 py-2 rounded-md text-sm font-medium">Host an Event</NavLink>
                                     </div>
                                 </div>
                         </div>
@@ -56,11 +56,13 @@ function Navigation() {
                                     <div className="dropdown" ref={drop} class="ml-3 relative">
                                         
                                             <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true"
-                                             onClick={()=> setShow(show => !show)} >
+                                                onClick={()=> setShow(show => !show)} >
                                                 <ProfilIcon />
                                             </button>
-                                        
-                                        {show && <ProfilDropdown /> }
+                                            {/* Click outside the ProfilDropdown -> close Dropdown*/}
+                                            <button onClick={() => setShow(show => !show)} className={(show ? "block" : "hidden")} class="fixed my-16 left-0 h-full w-full"></button>
+                                            {/* Show Profil Dropdown*/}
+                                            {show && <ProfilDropdown /> }  
                                     </div>
                                 </div>
                             </div>
