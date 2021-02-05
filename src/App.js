@@ -5,15 +5,17 @@ import TopNav from './components/Navigation/TopNav';
 import SearchPage from './components/SearchPage/SearchPage';
 import HostEventPage from './components/HostEventPage/HosteEventPage';
 import ExplorePage from './components/ExplorePage/ExplorePage';
+import LandingPage from './components/LandingPage/LandingPage';
+import 'leaflet/dist/leaflet.css';
+import '../src/App.css'
 import Footer from './components/Footer/Footer';
-
 
 
 function App() {
     return (
         <div class='flex flex-col h-full' >
             <Router>
-                <TopNav />
+            <TopNav/>
                 <Switch >
                     <Route path="/resetredux" component={ReduxResetPage} />
                     <Route path="/search" component={SearchPage} />
@@ -22,6 +24,7 @@ function App() {
                 </Switch>
                 <Footer /> 
             </Router>
+            <LandingPage />
         </div>
 
     );
