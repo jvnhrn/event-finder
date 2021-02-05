@@ -65,7 +65,7 @@ function Navigation() {
                                 </div>
                             </div>
                         {/* MobileMenu */}
-                        <div class="md:hidden">      
+                        <div class="md:hidden block">      
                             <MobileMenu /> 
                         </div>
                     </div>

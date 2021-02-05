@@ -5,12 +5,13 @@ import TopNav from './components/Navigation/TopNav';
 import SearchPage from './components/SearchPage/SearchPage';
 import HostEventPage from './components/HostEventPage/HosteEventPage';
 import ExplorePage from './components/ExplorePage/ExplorePage';
+import Footer from './components/Footer/Footer';
 
 
 
 function App() {
     return (
-        <div className="App" >
+        <div class='flex flex-col h-full' >
             <Router>
                 <TopNav />
                 <Switch >
@@ -19,6 +20,7 @@ function App() {
                     <Route path="/explore" component={ExplorePage} />
                     <Route path="/hostevent" component={HostEventPage} />
                 </Switch>
+                <Footer /> 
             </Router>
         </div>
 
