@@ -3,12 +3,13 @@ import { NavLink } from 'react-router-dom';
 import ProfilDropdown from './ProfilDropdown';
 import Notification from './Notification';
 import MobileMenu from './MobileMenu';
+import Logo from './Logo';
 
 
 function Navigation() {
 
     const [show, setShow] = useState(false); 
-    const [open, setOpen] = useState(false);
+
     const drop = useRef(null);
 
     function handleClick (e){
@@ -30,9 +31,9 @@ function Navigation() {
                     <div class="flex items-center justify-between">
                         {/* large Menu */}
                         <div class="flex items-center">
-                            <div class="flex-shrink-0">
-                                <img class="h-8 w-8" src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg" alt="Workflow"/>
-                            </div>
+                            {/* Logo */}
+                            <Logo />
+                            {/* large Menu - NavLinks */}
                                 <div class="hidden md:block">
                                     <div class="ml-10 flex items-baseline space-x-4">
                     
