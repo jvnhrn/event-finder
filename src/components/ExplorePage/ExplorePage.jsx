@@ -27,6 +27,22 @@ function ExplorePage() {
 
     return (
         <div>
+            <div>
+                <form className="content-center px-24 pt-10" onSubmit="event.preventDefault();" role="search">
+                    <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" id="search" type="search" placeholder="find out what's popping" />
+                    <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
+                </form>
+            </div>
+
+            {/* <div class="container hidden md:block md:ml-24 md:pr-12 md:space-x-8 py-6 font-bold text-gray-600 text-center tracking-tighter">
+                <a href="../Categories/Yoga/yoga.jsx" class="text-md font-light text-grey-500 hover:text-gray-900">Yoga</a>
+                <a href="#" class="text-md font-light text-grey-500 hover:text-gray-900">Literature</a>
+                <a href="#" class="text-md font-light text-grey-500 hover:text-gray-900">Architecture/Culture</a>
+                <a href="#" class="text-md font-light text-grey-500 hover:text-gray-900">Music</a>
+                <a href="#" class="text-md font-light text-grey-500 hover:text-gray-900">Artsy-Crafty</a>
+                <a href="#" class="text-md font-light text-grey-500 hover:text-gray-900">Random</a>
+            </div> */}
+
             <div className="grid grid-cols-7 gap-2">
                 <Button variant="primary" onClick={() => setCategoryName('all')}>All</Button>
                 <Button variant="primary" onClick={() => setCategoryName('Yoga')}>Yoga</Button>
