@@ -5,7 +5,7 @@ import TopNav from './components/Navigation/TopNav';
 import SearchPage from './components/SearchPage/SearchPage';
 import HostEventPage from './components/HostEventPage/HosteEventPage';
 import ExplorePage from './components/ExplorePage/ExplorePage';
-import CardInputForm from './components/ExplorePage/CardInputForm';
+
 
 
 function App() {
