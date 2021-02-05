@@ -8,14 +8,12 @@ import ExplorePage from './components/ExplorePage/ExplorePage';
 import LandingPage from './components/LandingPage/LandingPage';
 import 'leaflet/dist/leaflet.css';
 import '../src/App.css'
-
-
-
+import Footer from './components/Footer/Footer';
 
 
 function App() {
     return (
-        <div className="App" >
+        <div class='flex flex-col h-full' >
             <Router>
             <TopNav/>
                 <Switch >
@@ -24,6 +22,7 @@ function App() {
                     <Route path="/explore" component={ExplorePage} />
                     <Route path="/hostevent" component={HostEventPage} />
                 </Switch>
+                <Footer /> 
             </Router>
             <LandingPage />
         </div>
