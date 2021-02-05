@@ -5,6 +5,11 @@ import TopNav from './components/Navigation/TopNav';
 import SearchPage from './components/SearchPage/SearchPage';
 import HostEventPage from './components/HostEventPage/HosteEventPage';
 import ExplorePage from './components/ExplorePage/ExplorePage';
+import LandingPage from './components/LandingPage/LandingPage';
+import 'leaflet/dist/leaflet.css';
+import '../src/App.css'
+
+
 
 
 
@@ -12,7 +17,7 @@ function App() {
     return (
         <div className="App" >
             <Router>
-                <TopNav />
+            <TopNav/>
                 <Switch >
                     <Route path="/resetredux" component={ReduxResetPage} />
                     <Route path="/search" component={SearchPage} />
@@ -20,6 +25,7 @@ function App() {
                     <Route path="/hostevent" component={HostEventPage} />
                 </Switch>
             </Router>
+            <LandingPage />
         </div>
 
     );

@@ -12,7 +12,7 @@ function ExplorePage() {
         const getCategory = async () => {
             try {
                 let allCardsData = false;
-                if (categoryName == 'all') {
+                if (categoryName === 'all') {
                     allCardsData = await axios.get('http://localhost:8080/explorer');
                 } else {
                     allCardsData = await axios.get(`http://localhost:8080/category/?category=${categoryName}`);
@@ -73,6 +73,8 @@ function ExplorePage() {
                     })
                 }
             </div >
+
+        
         </div >
     )
 }
