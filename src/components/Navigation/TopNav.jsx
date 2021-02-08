@@ -70,7 +70,7 @@ function Navigation() {
                                 </div>
                             </div>
                         {/* MobileMenu */}
-                        <div class="-mr-2 md:hidden flex"> 
+                        <div class="md:hidden flex"> 
                             <MobileMenu /> 
                         </div>
                     </div>

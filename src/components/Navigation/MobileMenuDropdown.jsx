@@ -4,8 +4,8 @@ import { NavLink } from 'react-router-dom';
 const MobileMenuDropDown = () =>{
 
     return (
-        <div class="block">
-            <div class="px-2 pt-4 pb-3">
+        <div class="block bg-gray-800">
+            <div class="px-2 pt-14 pb-3">
 
                     <NavLink to='/' class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Home</NavLink>
 
