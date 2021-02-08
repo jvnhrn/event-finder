@@ -9,6 +9,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import 'leaflet/dist/leaflet.css';
 import '../src/App.css'
 import Footer from './components/Footer/Footer';
+import ProfilPage from './components/ProfilPage/ProfilPage';
 
 
 function App() {
@@ -21,10 +22,11 @@ function App() {
                     <Route path="/search" component={SearchPage} />
                     <Route path="/explore" component={ExplorePage} />
                     <Route path="/hostevent" component={HostEventPage} />
+                    <Route path="/profilpage" component={ProfilPage} />
                 </Switch>
                 <Footer /> 
             </Router>
-            <LandingPage />
+            {/* <LandingPage /> */}
         </div>
 
     );

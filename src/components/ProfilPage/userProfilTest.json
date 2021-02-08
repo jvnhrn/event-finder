@@ -1,0 +1,14 @@
+[
+    {
+        "userid": 1,
+        "firstname": "John",
+        "lastname": "Doe",
+        "email": "test@testmail.com",
+        "password":"test",
+        "img": "https://www.vecteezy.com/vector-art/1833963-woman-profile-faceless-portrait", 
+        "favouritecategories": [], 
+        "upcomingevents": [],
+        "passedevents":[]
+
+    }
+]

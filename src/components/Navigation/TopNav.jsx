@@ -18,7 +18,7 @@ function Navigation() {
     /* Handle the isActive State for Navigation  */
 
     function handleNavigation(e){
-        if(e.target && isActive || isActiveExplore || isActiveHost){
+        if(e.target){
             setIsActive(false);
             setIsActiveHost(false);
             setIsActiveExplore(false); 
