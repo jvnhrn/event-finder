@@ -9,28 +9,28 @@ function Footer() {
                 
             </div>
 
-            <div class="grid grid-cols-3 gap-4 mx-auto text-gray-300 my-4 lg:w-full lg:px-10 md:w-full">
+            <div class="grid grid-cols-3 gap-4 mx-auto text-gray-400 my-4 lg:w-full lg:px-10 md:w-full">
                 <div class="..."> <Logo/> </div>
                 <div class="... text-center hidden md:block">Contact</div>
-                <div class="... text-right hidden md:block">Sidemap</div>
+                <div class="... text-right hidden md:block ">Sidemap</div>
                 <div class="..."> 
-                    <div class="text-left hidden md:block md:my-4 items-center"> 
+                    <div class="text-left md:my-4 md:col-span-2 items-center"> 
                         Eventment:
                         This project is developed within the Codemaster Bootcamp from Talent Garden Austria.
                     </div>
                 </div>
-                <div class="... text-center hidden md:block">Contact</div>
+                <div class="... text-center hidden md:block">Rainbow Road 7</div>
                 <div class="... hidden md:block">
 
                     <div class="grid grid-cols-1 gap-4 text-right flex items-baseline">
 
-                        <Link to='/' class="text-gray-300 hover:bg-gray-700 hover:text-white py-2 rounded-md text-sm font-medium">Home</Link>
+                        <Link to='/' class="text-gray-400 hover:text-gray-100 py-2 rounded-md text-sm font-regular">Home</Link>
 
-                        <Link to='/search' class="text-gray-300 hover:bg-gray-700 hover:text-white py-2 rounded-md text-sm font-medium">Search</Link>
+                        <Link to='/search' class="text-gray-400 hover:text-gray-100 py-2 rounded-md text-sm font-regular">Search</Link>
 
-                        <Link to='/explore' class="text-gray-300 hover:bg-gray-700 hover:text-white py-2 rounded-md text-sm font-medium">Explore</Link>
+                        <Link to='/explore' class="text-gray-400 hover:text-gray-100 py-2 rounded-md text-sm font-regular">Explore</Link>
 
-                        <Link to='/hostevent' class="text-gray-300 hover:bg-gray-700 hover:text-white py-2 rounded-md text-sm font-medium">Host an Event</Link>
+                        <Link to='/hostevent' class="text-gray-400 hover:text-gray-100 py-2 rounded-md text-sm font-regular">Host an Event</Link>
                     </div>
                 </div>
             </div>

@@ -33,7 +33,10 @@ function Navigation() {
                         {/* large Menu */}
                         <div class="flex items-center">
                             {/* Logo */}
+                          
                             <Logo />
+                           
+                            
                             {/* large Menu - NavLinks */}
                                 <div class="hidden md:block">
                                     <div class="ml-10 flex items-baseline space-x-4">
@@ -60,14 +63,14 @@ function Navigation() {
                                                 <ProfilIcon />
                                             </button>
                                             {/* Click outside the ProfilDropdown -> close Dropdown*/}
-                                            <button onClick={() => setShow(show => !show)} className={(show ? "block" : "hidden")} class="fixed my-16 left-0 h-full w-full"></button>
+                                            <button onClick={() => setShow(show => !show)} className={(show ? "block" : "hidden")} class="fixed my-16 left-0 h-full w-full cursor-default"></button>
                                             {/* Show Profil Dropdown*/}
                                             {show && <ProfilDropdown /> }  
                                     </div>
                                 </div>
                             </div>
                         {/* MobileMenu */}
-                        <div class="md:hidden block">      
+                        <div class="-mr-2 md:hidden flex"> 
                             <MobileMenu /> 
                         </div>
                     </div>
