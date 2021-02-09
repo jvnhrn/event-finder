@@ -22,6 +22,7 @@ function ExplorePage() {
 
     useEffect(() => {
         console.log(category);
+
         const getCategory = async () => {
             let categoryData = false
             try {
@@ -35,7 +36,11 @@ function ExplorePage() {
                 console.error(error);
             }
         }
-        getCategory()
+
+        if (!!category) {
+            getCategory()
+            setCategory('')
+        }
     }, [category]);
 
     useEffect(() => {
@@ -48,11 +53,6 @@ function ExplorePage() {
             }
         }
         getSearch()
-        if (!searchText) {
-            return function cleanup() {
-                setCategory('');
-            }
-        }
     }, [searchText]);
 
     return (
