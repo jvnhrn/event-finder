@@ -19,8 +19,8 @@ function MobileMenu () {
                 </svg>
 
             </button>
-
-            {hamburgerOpen && <MobileMenuDropDown /> }
+            
+            {<MobileMenuDropDown show={hamburgerOpen} /> }
         </div> 
     )
 }

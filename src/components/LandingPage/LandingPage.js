@@ -21,7 +21,7 @@ function LandingPage() {
         })
       
         return position === null ? null : (
-          <Marker 
+          <Marker
           position={position}>
             <Popup>You are here</Popup>
           </Marker>
@@ -30,10 +30,16 @@ function LandingPage() {
    
     return (
         <div class="container">
+
+            <div>
+                <form className="content-center pl-8 ml-12 pt-6" onSubmit="event.preventDefault();" role="search">
+                    <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" id="search" type="search" placeholder="find out what's popping" />  
+                </form>
+            </div>
     
         <MapContainer
             className="map"
-            center={{ lat: 51.505, lng: -0.09 }} 
+            center={{ lat:  48.210033, lng: 16.363449}} 
             zoom={13}
              scrollWheelZoom={false}>
             <TileLayer
@@ -41,12 +47,27 @@ function LandingPage() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
         <LocationMarker />
+
+        <Marker position={[48.210033, 16.363449]}> color coordinated
+          <Popup className="bbg-gray-100">
+            An Event Card pops up
+          </Popup>
+        </Marker>
+
+        <Marker position={[48.216470, 16.399818]}>
+          <Popup className="bbg-gray-100">
+            An Event Card pops up
+          </Popup>
+        </Marker>
+
         </MapContainer>
+
                     
             
         </div>
     )
 }
+
 
 export default LandingPage
 
