@@ -16,7 +16,7 @@ function App() {
     return (
         <div class='flex flex-col h-full' >
             <Router>
-            <TopNav/>
+                <TopNav />
                 <Switch >
                     <Route path="/resetredux" component={ReduxResetPage} />
                     <Route path="/search" component={SearchPage} />
@@ -24,7 +24,7 @@ function App() {
                     <Route path="/hostevent" component={HostEventPage} />
                     <Route path="/profilpage" component={ProfilPage} />
                 </Switch>
-                <Footer /> 
+                {/* <Footer /> */}
             </Router>
             {/* <LandingPage /> */}
         </div>
