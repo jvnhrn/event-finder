@@ -47,12 +47,21 @@ function LandingPage() {
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
         <LocationMarker />
-        <Marker position={[48.210033, 16.363449]}>
+
+        <Marker position={[48.210033, 16.363449]}> color coordinated
           <Popup className="bbg-gray-100">
             An Event Card pops up
           </Popup>
         </Marker>
+
+        <Marker position={[48.216470, 16.399818]}>
+          <Popup className="bbg-gray-100">
+            An Event Card pops up
+          </Popup>
+        </Marker>
+
         </MapContainer>
+
                     
             
         </div>

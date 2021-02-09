@@ -18,9 +18,8 @@ function App() {
             <Router>
                 <TopNav />
                 <Switch >
+                    <Route exact path="/" component={LandingPage} />
                     <Route path="/resetredux" component={ReduxResetPage} />
-                    <Route path="/home" component={LandingPage} />
-                    <Route path="/search" component={SearchPage} />
                     <Route path="/explore" component={ExplorePage} />
                     <Route path="/hostevent" component={HostEventPage} />
                     <Route path="/profilpage" component={ProfilPage} />
@@ -29,7 +28,7 @@ function App() {
 
                 {/* <Footer /> */}
             </Router>
-            {/* <LandingPage /> */}
+           
 
         </div>
 
