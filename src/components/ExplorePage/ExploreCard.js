@@ -1,8 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import hotpodyoga from '../Categories/Yoga/hotpodyoga.png';
+/* import ArchitectureCulture from '../Categories/Architecture-Culture/wiener brutalismus.png';
+import Literature from '../Categories/Literature/1.png';
+import Music from '../Categories/Music/funk.png';
+import Pottery from '../Categories/Pottery/1.png';
+import Random from '../Categories/Random/drawing.png';
+import Yoga from '../Categories/Yoga/hotpodyoga.png';
+import Festival from '../Categories/Music/funk.png';
+import Restaurant from '../Categories/Pottery/1.png'; */
 
 function ExploreCard(props) {
-
+    const [imageToUse, setImageToUse] = useState(false);
     const [openSpotsColor, setOpenSpotsColor] = useState("text-gray-400 px-6 font-semibold tracking-tighter")
 
     console.log(!!props.open_spots)
@@ -14,13 +21,35 @@ function ExploreCard(props) {
         }
     }, [])
 
+    /*     useEffect(() => {
+            console.log(props.event_category)
+            switch (props.event_category) {
+                case ('Yoga'):
+                    setImageToUse(Yoga)
+                    break;
+                case ('Literature'):
+                    setImageToUse(Literature)
+                    break;
+                case ('Restaurant'):
+                    setImageToUse(Restaurant)
+                    break;
+                case ('Festival'):
+                    setImageToUse(Festival)
+                    break;
+            }
+        }, [props.event_category]) */
+
     return (
         <div class="px-10 py-6 flex-wrap flex ">
             <div class="max-w-sm rounded-3xl overflow-hidden shadow-lg mr-10 mb-10">
-                <img src={hotpodyoga} alt="hotpodyoga" />
+                <img src={`http://localhost:7777/events/${props.event_id}.jpg`} />
                 <div className="px-10 py-4">
-                    <div className="font-bold text-gray-600 text-xl my-4 text-left tracking-tighter">
-                        {props.event_date.substr(0, 10)}
+
+                    <div className="font-bold text-gray-600 my-4 text-left tracking-tighter">
+                        From: {' '}{props.event_start_date.substr(0, 10)}{' '}{props.event_start_date.substr(11, 5)}
+                    </div>
+                    <div className="font-bold text-gray-600 my-4 text-left tracking-tighter">
+                        To: {' '}{props.event_end_date.substr(0, 10)}{' '}{props.event_end_date.substr(11, 5)}
                     </div>
                     <div className="font-bold text-purple-600 text-xl my-4 text-left tracking-tighter">
                         {props.event_title}

@@ -9,22 +9,28 @@ import LandingPage from './components/LandingPage/LandingPage';
 import 'leaflet/dist/leaflet.css';
 import '../src/App.css'
 import Footer from './components/Footer/Footer';
+import ProfilPage from './components/ProfilPage/ProfilPage';
 
 
 function App() {
     return (
         <div class='flex flex-col h-full' >
             <Router>
-            <TopNav/>
+                <TopNav />
                 <Switch >
                     <Route path="/resetredux" component={ReduxResetPage} />
                     <Route path="/home" component={LandingPage} />
                     <Route path="/search" component={SearchPage} />
                     <Route path="/explore" component={ExplorePage} />
                     <Route path="/hostevent" component={HostEventPage} />
+                    <Route path="/profilpage" component={ProfilPage} />
                 </Switch>
-                
+
+
+                {/* <Footer /> */}
             </Router>
+            {/* <LandingPage /> */}
+
         </div>
 
     );

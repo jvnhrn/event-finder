@@ -9,6 +9,30 @@ import ProfilIcon from './ProfilIcon';
 
 function Navigation() {
 
+    /* isActive State for Navigation  */
+
+    const [isActive, setIsActive] = useState(false);
+    const [isActiveExplore, setIsActiveExplore] = useState(false);
+    const [isActiveHost, setIsActiveHost] = useState(false); 
+
+    /* Handle the isActive State for Navigation  */
+
+    function handleNavigation(e){
+        if(e.target){
+            setIsActive(false);
+            setIsActiveHost(false);
+            setIsActiveExplore(false); 
+        }
+    }
+
+    useEffect(() => {
+        document.addEventListener("click", handleNavigation);
+        return () => {
+            document.removeEventListener("click", handleNavigation);
+        };
+    }); 
+    
+    /* show State for Dropdown */ 
     const [show, setShow] = useState(false); 
 
     const drop = useRef(null);
@@ -33,18 +57,37 @@ function Navigation() {
                         {/* large Menu */}
                         <div class="flex items-center">
                             {/* Logo */}
+                          
                             <Logo />
+                           
+                            
                             {/* large Menu - NavLinks */}
                                 <div class="hidden md:block">
                                     <div class="ml-10 flex items-baseline space-x-4">
                     
-                                        <NavLink to='/home' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium active:bg-gray-900 active:text-white px-3 py-2 rounded-md text-sm font-medium">Home</NavLink>
 
-                                        <NavLink to='/search' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium active:bg-gray-900 active:text-white">Search</NavLink>
+                                        <NavLink to='/'
+                                            onClick={() => setIsActive(isActive => !isActive)} 
+                                        className={(isActive ? "bg-gray-900 text-white rounded-md text-sm font-medium px-3 py-2 " : "text-gray-300 text-sm rounded-md font-medium px-3 py-2")} 
+                                        class="text-gray-300 hover:bg-gray-700 hover:text-white visited:text-gray-300 px-3 py-2 rounded-md text-sm">
+                                            Home
+                                        </NavLink>
 
-                                        <NavLink to='/explore' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium active:bg-gray-900 active:text-white px-3 py-2 rounded-md text-sm font-medium">Explore</NavLink>
 
-                                        <NavLink to='/hostevent' class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium active:bg-gray-900 active:text-white px-3 py-2 rounded-md text-sm font-medium">Host an Event</NavLink>
+            
+                                        <NavLink to='/explore' 
+                                            onClick={() => setIsActiveExplore(isActiveExplore => !isActiveExplore)}
+                                        className={(isActiveExplore ? "bg-gray-900 text-white rounded-md text-sm font-medium px-3 py-2 " : "text-gray-300 text-sm rounded-md font-medium px-3 py-2")}
+                                        class="text-gray-300 hover:bg-gray-700 hover:text-white visited:text-gray-300 px-3 py-2 rounded-md text-sm">
+                                            Explore
+                                        </NavLink>
+
+                                        <NavLink to='/hostevent' 
+                                            onClick={() => setIsActiveHost(isActiveHost => !isActiveHost)}
+                                        className={(isActiveHost ? "bg-gray-900 text-white rounded-md text-sm font-medium px-3 py-2 " : "text-gray-300 text-sm rounded-md font-medium px-3 py-2")}
+                                        class="text-gray-300 hover:bg-gray-700 hover:text-white visited:text-gray-300 px-3 py-2 rounded-md text-sm">
+                                            Host an Event
+                                        </NavLink>
                                     </div>
                                 </div>
                         </div>
@@ -60,14 +103,14 @@ function Navigation() {
                                                 <ProfilIcon />
                                             </button>
                                             {/* Click outside the ProfilDropdown -> close Dropdown*/}
-                                            <button onClick={() => setShow(show => !show)} className={(show ? "block" : "hidden")} class="fixed my-16 left-0 h-full w-full"></button>
+                                            <button onClick={() => setShow(show => !show)} className={(show ? "block" : "hidden")} class="fixed left-0 h-full w-full cursor-default"></button>
                                             {/* Show Profil Dropdown*/}
                                             {show && <ProfilDropdown /> }  
                                     </div>
                                 </div>
                             </div>
                         {/* MobileMenu */}
-                        <div class="md:hidden block">      
+                        <div class="md:hidden flex"> 
                             <MobileMenu /> 
                         </div>
                     </div>

@@ -9,8 +9,6 @@ function Yoga() {
     return (
 
         <div class="px-10 py-6 flex-wrap flex ">
-
-
             <div class ="max-w-sm rounded-3xl overflow-hidden shadow-lg mr-10 mb-10">
                 <img src={hotpodyoga} alt="hotpodyoga"/>  
                 <div className="px-10 py-4">
@@ -51,8 +49,6 @@ function Yoga() {
                     </span>
                 </div>
             </div> 
-
-
         </div>
     )
 }
