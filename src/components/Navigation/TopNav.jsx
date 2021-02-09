@@ -67,12 +67,14 @@ function Navigation() {
                                 <div class="hidden md:block">
                                     <div class="ml-10 flex items-baseline space-x-4">
                     
+
                                         <NavLink to='/'
                                             onClick={() => setActiveMenu("Home")} 
                                         className={(activeMenu === "Home" ? "bg-gray-900 text-white rounded-md text-sm font-medium px-3 py-2 " : "text-gray-300 text-sm rounded-md font-medium px-3 py-2")} 
                                         class="text-gray-300 hover:bg-gray-700 hover:text-white visited:text-gray-300 px-3 py-2 rounded-md text-sm">
                                             Home
                                         </NavLink>
+
 
             
                                         <NavLink to='/explore' 
