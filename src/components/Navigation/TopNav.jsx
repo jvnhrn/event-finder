@@ -101,7 +101,7 @@ function Navigation() {
                                                 <ProfilIcon />
                                             </button>
                                             {/* Click outside the ProfilDropdown -> close Dropdown*/}
-                                            <button onClick={() => setShow(show => !show)} className={(show ? "block" : "hidden")} class="fixed my-16 left-0 h-full w-full cursor-default"></button>
+                                            <button onClick={() => setShow(show => !show)} className={(show ? "block" : "hidden")} class="fixed left-0 h-full w-full cursor-default"></button>
                                             {/* Show Profil Dropdown*/}
                                             {show && <ProfilDropdown /> }  
                                     </div>

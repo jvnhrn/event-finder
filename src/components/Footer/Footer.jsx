@@ -4,7 +4,7 @@ import LogoFooter from './LogoFooter';
 
 function Footer() {
     return (
-        <div class="bg-gray-800 w-full mx-auto px-4 py-6 lg:h-22 md:h-22 sm:h-auto absolute bottom-0 left-0">
+        <div class="fixed bg-gray-800 w-full mx-auto px-4 py-6 lg:h-22 md:h-22 sm:h-auto static bottom-0 left-0">
             <div class="flex items-center justify-between max-w-7xl mx-auto space-x-8">
             <div class="grid md:grid-cols-3 md:gap-4 mx-auto text-gray-400 my-4 lg:w-full lg:px-10 md:w-full sm:grid-cols-none">
                 <div class="..."> <LogoFooter/> </div>
