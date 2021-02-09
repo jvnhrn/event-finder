@@ -15,16 +15,16 @@ function App() {
     return (
         <div class='flex flex-col h-full' >
             <Router>
-            <TopNav/>
+                <TopNav />
                 <Switch >
                     <Route path="/resetredux" component={ReduxResetPage} />
                     <Route path="/search" component={SearchPage} />
                     <Route path="/explore" component={ExplorePage} />
                     <Route path="/hostevent" component={HostEventPage} />
                 </Switch>
-                <Footer /> 
+                {/* <Footer /> */}
             </Router>
-            <LandingPage />
+            {/* <LandingPage /> */}
         </div>
 
     );
