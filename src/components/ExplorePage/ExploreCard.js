@@ -46,10 +46,10 @@ function ExploreCard(props) {
                 <div className="px-10 py-4">
 
                     <div className="font-bold text-gray-600 my-4 text-left tracking-tighter">
-                        From: {' '}{props.event_start_date.substr(0, 10)}{' '}{props.event_start_date.substr(11, 5)}
+                        STARTS: {' '}{((new Date(props.event_start_date) + new Date().getTimezoneOffset()).toString()).substr(0, 21)}
                     </div>
                     <div className="font-bold text-gray-600 my-4 text-left tracking-tighter">
-                        To: {' '}{props.event_end_date.substr(0, 10)}{' '}{props.event_end_date.substr(11, 5)}
+                        ENDS: {' '}{((new Date(props.event_end_date) + new Date().getTimezoneOffset()).toString()).substr(0, 21)}
                     </div>
                     <div className="font-bold text-purple-600 text-xl my-4 text-left tracking-tighter">
                         {props.event_title}

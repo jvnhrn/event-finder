@@ -10,6 +10,8 @@ import 'leaflet/dist/leaflet.css';
 import '../src/App.css'
 import Footer from './components/Footer/Footer';
 import ProfilPage from './components/ProfilPage/ProfilPage';
+import RegisterModal from './components/RegisterModal/RegisterModal';
+import LoginModal from './components/LoginModal/LoginModal';
 
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
                     <Route path="/explore" component={ExplorePage} />
                     <Route path="/hostevent" component={HostEventPage} />
                     <Route path="/profilpage" component={ProfilPage} />
+                    <Route path="/register" component={RegisterModal} />
+                    <Route path="/login" component={LoginModal} />
                 </Switch>
                 {/* <Footer /> */}
             </Router>
