@@ -28,9 +28,8 @@ function ExplorePage() {
     return (
         <div>
             <div>
-                <form className="content-center px-24 pt-10" onSubmit="event.preventDefault();" role="search">
-                    <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" id="search" type="search" placeholder="find out what's popping" />
-                    <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
+                <form className="content-center px-24 pt-6" onSubmit="event.preventDefault();" role="search">
+                    <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" id="search" type="search" placeholder="find out what's popping" />  
                 </form>
             </div>
 

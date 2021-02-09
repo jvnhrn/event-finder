@@ -18,13 +18,13 @@ function App() {
             <TopNav/>
                 <Switch >
                     <Route path="/resetredux" component={ReduxResetPage} />
+                    <Route path="/home" component={LandingPage} />
                     <Route path="/search" component={SearchPage} />
                     <Route path="/explore" component={ExplorePage} />
                     <Route path="/hostevent" component={HostEventPage} />
                 </Switch>
-                <Footer /> 
+                
             </Router>
-            <LandingPage />
         </div>
 
     );

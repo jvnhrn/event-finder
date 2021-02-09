@@ -6,10 +6,7 @@ function HosteEventPage() {
     return (
         <div>
 
-             <form className="content-center px-24 pt-6" onSubmit="event.preventDefault();" role="search">
-                <h1 class="tracking-tighter font-light text-3xl text-grey-500 hover:text-gray-900 py-6">
-                    Host an Event
-                </h1>
+             <form className="content-center px-24" onSubmit="event.preventDefault();" role="search">
 
                 <div class="grid grid-cols-4 gap-5 object-center">
                 
@@ -63,7 +60,7 @@ function HosteEventPage() {
                     </div>
 
 
-                    <div class=" tracking-tighter container outline-none pb-6 relative">
+                    <div class=" tracking-tighter container outline-none pb-4 relative">
                     <input type="date" id="date" name="event_date"
                         value="event date"
                         min="2021-01-17" max="2100-12-31" class="bg-gray-100 rounded-md px-4 py-2 focus:ring-purple-600 outline-none"/>
@@ -81,7 +78,7 @@ function HosteEventPage() {
                     
 
 
-                <div className= "py-6">
+                <div className= "py-4">
                     <textarea rows="5" className="tracking-tighter bg-gray-100 rounded-md px-4 py-6 container focus:ring-purple-600 outline-none" id="search" type="search" placeholder="max. 175 characters" />
                 </div>
 
