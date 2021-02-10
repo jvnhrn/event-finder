@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import ProfilDropdownLogin from './ProfilDropdownLogin';
 import Notification from './Notification';
-import MobileHamburgerMenu from './MobileHamburgerMenu';
+import MobileHamburgerMenu from './MobileMenu';
 import Logo from './Logo';
 import ProfilIcon from './ProfilIcon';
 
