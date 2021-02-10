@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
+
 function HosteEventPage() {
     const [event_category, setEvent_category] = useState('');
     const [event_title, setEvent_title] = useState('');
@@ -14,11 +16,41 @@ function HosteEventPage() {
     const [event_price, setEvent_price] = useState(0);
     const [event_start_date, setEvent_start_date] = useState('');
     const [event_end_date, setEvent_end_date] = useState('');
-    const [event_image, setEvent_image] = useState(null);
+    const [event_image, setEvent_image] = useState('');
     const [event_max_participants, setEvent_max_participants] = useState(0);
+
+    // Drag and Drop
+    const onDrop = useCallback(acceptedFile => {
+        /* console.log(acceptedFile)
+        console.log(acceptedFile[0])
+ */
+        setEvent_image(Object.assign(acceptedFile[0], {
+            preview: URL.createObjectURL(acceptedFile[0])
+        }))
+        /* console.log(acceptedFile[0]) */
+        /* console.log(event_image[0]) */
+
+    }, [])
+
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({ accept: 'image/*', onDrop })
+
+
+    /*         const {getRootProps, getInputProps} = useDropzone({
+              accept: 'image/*',
+              onDrop: acceptedFiles => {
+                setFiles(acceptedFiles.map(file => Object.assign(file, {
+                  preview: URL.createObjectURL(file)
+                })));
+              }
+            }); */
+
+    // Check event in console
     useEffect(() => {
         console.log(event_image)
     }, [event_image])
+
+    //Send event data and image. Image is just sent if the event data is save first
+
     const sendEventData = async () => {
         try {
             const eventData = {
@@ -58,6 +90,7 @@ function HosteEventPage() {
             console.error(error);
         }
     }
+
     return (
         <div>
             {/* <form className="content-center px-24 pt-6"  onSubmit="event.preventDefault();"  role="search"> */}
@@ -70,12 +103,13 @@ function HosteEventPage() {
                 </div>
                 <div class=" outline-none mt-7 pt-6 ">
                     <select onChange={(e) => { setEvent_category(e.target.value) }} id="country" name="country" autocomplete="country" class="tracking-tighter bg-gray-100 container mt-1 block py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text">
-                        <option>choose category</option>
-                        <option>Yoga / Sports</option>
+                        <option>Choose category</option>
+                        <option>Yoga</option>
                         <option>Literature</option>
-                        <option>Architecture/Culture</option>
+                        <option>Food</option>
+                        <option>Architecture</option>
                         <option>Music</option>
-                        <option>Artsy-Crafty</option>
+                        <option>Pottery</option>
                         <option>Random</option>
                     </select>
                 </div>
@@ -127,33 +161,47 @@ function HosteEventPage() {
                 <div onChange={(e) => { setEvent_city(e.target.value) }} className="py-2"><input type="text" name="city" id="city" autocomplete="city" class="tracking-tighter bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none" placeholder="City" /></div>
                 <div onChange={(e) => { setEvent_postalcode(e.target.value) }} className="py-2"><input type="text" name="postal_code" id="postal_code" autocomplete="postal-code" class="tracking-tighter bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none" placeholder="Postal Code" /></div>
             </div>
-            <div className="py-6">
+
+            <div className="py-4">
                 <textarea onChange={(e) => { setEvent_description(e.target.value) }} rows="5" className="tracking-tighter bg-gray-100 rounded-md px-4 py-6 container focus:ring-purple-600 outline-none" id="search" type="search" placeholder="max. 175 characters" />
             </div>
 
-            <div ondrop="drop(event)" ondragover="allowDrop(event)" class=" flex justify-center container px-6 py-6 border-2 border-gray-300 border-dashed rounded-md">
-
+            <div {...getRootProps({ className: 'dropzone' })} class=" flex justify-center container px-6 py-6 border-2 border-gray-300 border-dashed rounded-md">
                 <div class="space-y-1 text-center">
                     <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                         <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     <div class="flex text-sm text-gray-600">
-                        <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                            <span>Upload a file</span>
-                            <input onChange={(e) => { setEvent_image(e.target.files[0]) }} id="file-upload" name="file-upload" type="file" class="sr-only" />
-                        </label>
-                        <p class="pl-1">or drag and drop</p>
+                        <div class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                            <input  {...getInputProps()} className="hidden" id="file-upload" name="file-upload" type="file" class="sr-only" />
+                            {
+                                isDragActive ?
+                                    <p>Drop the files here ...</p> :
+                                    <p>Drag 'n' drop some files here, or click to select files</p>
+                            }
+                        </div>
                     </div>
-                    <p class="text-xs text-gray-500">
-                        PNG, JPG, GIF up to 10MB
-                </p>
+                    <p class="text-xs text-center text-gray-500">JPG up to 10MB</p>
                 </div>
             </div>
+
+            <br />
+
+            <div class="flex justify-center container">
+                <img
+                    src={event_image.preview}
+                    style={{
+                        display: 'block',
+                        width: 'auto',
+                        height: 150
+                    }} />
+            </div>
+
             <div className="pt-6 pb-10 mb-10 ">
                 <button onClick={sendEventData} className="tracking-tighter px-6 py-2 float-right bg-indigo-900 text-white rounded-md ring-1 ring-gray-500" /* type="submit" */>Done</button>
             </div>
             {/* </form> */}
-        </div>
+        </div >
     )
 }
 export default HosteEventPage;
