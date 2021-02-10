@@ -7,13 +7,14 @@ import Logo from './Logo';
 import ProfilIcon from './ProfilIcon';
 
 
-function Navigation() {
+function Navigation(props) {
 
     /* isActive State for Navigation  */
 
     const [isActive, setIsActive] = useState(false);
     const [isActiveExplore, setIsActiveExplore] = useState(false);
     const [isActiveHost, setIsActiveHost] = useState(false); 
+
 
     const [activeMenu, setActiveMenu] = useState("Home");
 
@@ -98,19 +99,17 @@ function Navigation() {
                                 <div class="ml-4 flex items-center md:ml-6">
                                     <Notification />
                                     
-                                    <div className="dropdown" ref={drop} class="ml-3 relative">
+                                    <div id="nav-profil" className="dropdown" ref={drop} class="ml-3 relative">
                                         
                                             <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true"
                                                 onClick={()=> setShow(show => !show)} >
                                                 <ProfilIcon />
                                             </button>
-                                            {/* Click outside the ProfilDropdown -> close Dropdown*/}
-                                            {/* <button onClick={() => setShow(show => !show)} className={(show ? "block" : "hidden")} class="fixed left-0 h-full w-full cursor-default"></button> */}
-                                            {/* Show Profil Dropdown*/}
-                                            {<ProfilDropdownLogin show={show} /> }  
+                                    {<ProfilDropdownLogin show={show} openLoginModal={props.openLoginModal} setOpenLoginModal={props.setOpenLoginModal} openRegisterModal={props.openRegisterModal} setOpenRegisterModal={props.setOpenRegisterModal} />}  
                                     </div>
                                 </div>
-                            </div>
+                        </div>
+                        
                         {/* MobileMenu */}
                         <div class="md:hidden flex"> 
                             <MobileMenu /> 
@@ -118,7 +117,9 @@ function Navigation() {
                     </div>
                 </div>
         </nav>
+           
     </div>
+   
     )
 }
 

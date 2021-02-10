@@ -1,12 +1,8 @@
 import React, {useState} from 'react';
 import { Transition } from '@headlessui/react';
-import LoginModal from '../LoginModal/LoginModal';
-import RegisterModal from '../RegisterModal/RegisterModal';
+
 
 const ProfilDropdown = (props) => {
-
-    const [openLoginModal, setOpenLoginModal] = useState(false);
-    const [openRegisterModal, setOpenRegisterModal] = useState(false); 
 
     return (
 
@@ -20,22 +16,22 @@ const ProfilDropdown = (props) => {
             leaveTo="opacity-0 scale-95"
         >
             <div 
-                class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5" 
+                id="nav-profil-dropdown"
+                class="relative" 
                 role="menu" 
                 aria-orientation="vertical" 
                 aria-labelledby="user-menu"
+                className={(props.openLoginModal ? "hidden" : "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5") + (props.openRegisterModal ? "hidden" : "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5")}
                 >
                 <div class="max-w-lg mx-auto text-center mt-4 mb-2">
                     <button
                         class="" 
                         type="button"
-                        onClick={() => setOpenLoginModal(true)}
-                        className={(openLoginModal ? "hidden" : "bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200")}
-                        /* type="submit" */
+                        onClick={() => props.setOpenLoginModal(true) + props.setOpenRegisterModal(false)}
+                        className={(props.openLoginModal ? "hidden" : "bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200")}
                         data-toggle="modal">
                         Login
                     </button>
-                    
                 </div>
                 
                 <div class="max-w-lg mx-auto text-center mt-4 mb-2"
@@ -44,16 +40,13 @@ const ProfilDropdown = (props) => {
                     <button 
                         class="font-bold text-sm hover:underline hover:bg-gray-100"
                         type="button"
-                        onClick={() => setOpenRegisterModal(true)}
-                        className={openRegisterModal? "hidden" : ""}
+                        onClick={() => props.setOpenRegisterModal(true)}
+                        className={props.openRegisterModal? "hidden" : ""}
                         >
                         Sign up
                     </button>
                 </div>
             </div>
-            
-            {openLoginModal ? <LoginModal /> : null} 
-            {openRegisterModal ? <RegisterModal /> : null}
             
         </Transition>
     )

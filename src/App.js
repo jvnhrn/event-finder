@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import ReduxResetPage from './components/ReduxResetPage/ReduxResetPage';
 import TopNav from './components/Navigation/TopNav';
-import SearchPage from './components/SearchPage/SearchPage';
 import HostEventPage from './components/HostEventPage/HosteEventPage';
 import ExplorePage from './components/ExplorePage/ExplorePage';
 import LandingPage from './components/LandingPage/LandingPage';
@@ -15,10 +14,15 @@ import LoginModal from './components/LoginModal/LoginModal';
 
 
 function App() {
+    const [openLoginModal, setOpenLoginModal] = useState(false);
+    const [openRegisterModal, setOpenRegisterModal] = useState(false); 
+
     return (
         <div class='flex flex-col h-full' >
             <Router>
-                <TopNav />
+                <TopNav openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} openRegisterModal={openRegisterModal} setOpenRegisterModal={setOpenRegisterModal} />
+                {openLoginModal ? <LoginModal /> : null}
+                {openRegisterModal ? <RegisterModal /> : null}
                 <Switch >
                     <Route exact path="/" component={LandingPage} />
                     <Route path="/resetredux" component={ReduxResetPage} />
