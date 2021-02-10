@@ -1,0 +1,19 @@
+search inpt field:
+<form className="content-center pl-8 ml-12 pt-6" onSubmit="event.preventDefault();" role="search">
+                    <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" id="search" type="search" placeholder="find out what's popping" />  
+</form>
+
+
+
+
+text input field:
+<div className="py-6">
+                <textarea onChange={(e) => { setEvent_description(e.target.value) }} rows="5" className="tracking-tighter bg-gray-100 rounded-md px-4 py-6 container focus:ring-purple-600 outline-none" id="search" type="search" placeholder="max. 175 characters" />
+</div>
+
+
+
+
+button:
+<button onClick={confirmUserCredentials} class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" /* type="submit" */>Sign In</button>
+                    
