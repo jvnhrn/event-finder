@@ -27,8 +27,8 @@ function ProfilCard(props) {
 
 
     return (
-        <div class="px-1 py-6 flex-wrap flex">
-            <div id="profilCard" class="sm:w-96 rounded-3xl overflow-hidden shadow-lg m-auto">
+        <div>
+            <div id="profilCard" class="container m-auto py-6">
                 
                 <img class="h-24 w-24 mx-auto rounded-full" src={hotpodyoga} alt="hotpodyoga" />
                 <div className="px-10 py-4">
@@ -89,7 +89,7 @@ function ProfilCard(props) {
                 </div>
                 <div class="flex">
                     <button 
-                        className="bg-pink-500 text-white active:bg-blue-600 font-bold uppercase text-base px-8 py-3 rounded shadow-md hover:shadow-lg outline-none focus:outline-none m-auto my-4" 
+                        className="border-gray-500 text-gray-500 font-bold text-base flex items-center justify-center rounded-full border-2 px-8 py-3 rounded shadow-sm hover:shadow-lg outline-none focus:outline-none m-auto my-4" 
                         type="button"  
                         onClick={logout}
                         style={{ transition: "all .15s ease" }}>

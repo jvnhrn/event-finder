@@ -16,12 +16,24 @@ const MobileMenuDropDown = (props) =>{
                 <Link to='/' 
                     onClick={() => setActiveMenu("Home")} 
                     className={(activeMenu === "Home" ? "bg-gray-900 text-white rounded-md text-sm font-medium px-3 py-2 " : "text-gray-300 text-sm rounded-md font-medium px-3 py-2")}  
-                    class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
-                    Home</Link>
+                    class="text-gray-300 text-m rounded-md font-medium px-3 py-2">
+                    Home
+                </Link>
 
-                <Link to="/explore" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Explore</Link>
+                <Link to="/explore" 
+                    onClick={() => setActiveMenu("Explore")}
+                    className={(activeMenu === "Explore" ? "bg-gray-900 text-white rounded-md text-sm font-medium px-3 py-2 " : "text-gray-300 text-sm rounded-md font-medium px-3 py-2")}
+                    class="text-gray-300 text-m rounded-md font-medium px-3 py-2">
+                    Explore
+                </Link>
 
-                <Link to="/hostevent" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Host an Event</Link>
+                <Link 
+                    to="/hostevent" 
+                    onClick={() => setActiveMenu("HostEvent")}
+                    className={(activeMenu === "HostEvent" ? "bg-gray-900 text-white rounded-md text-sm font-medium px-3 py-2 " : "text-gray-300 text-sm rounded-md font-medium px-3 py-2")}
+                    class="text-gray-300 text-m rounded-md font-medium px-3 py-2">
+                    Host an Event
+                </Link>
 
             </div>
 
