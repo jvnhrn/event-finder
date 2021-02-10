@@ -58,7 +58,7 @@ function LoginModal(props) {
                         <input value={user_password} onChange={(e) => set_user_password(e.target.value)} type="password" id="password" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3" />
                     </div>
                     <div class="flex justify-end my-4">
-                        <a href="#" class="text-sm text-purple-600 hover:text-purple-700 hover:underline mb-6">Forgot your password?</a>
+                        <a href="#" class="text-sm text-gray-400 hover:text-purple-700 hover:underline mb-6">Forgot your password?</a>
                     </div>
                     <div class="flex justify-center">
                         <button onClick={confirmUserCredentials} class="bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */>Sign In</button>
