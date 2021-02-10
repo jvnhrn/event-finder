@@ -27,7 +27,7 @@ function LoginModal(props) {
 
 
     return (
-        <div class="bg-red-500 bg-opacity-50 fixed top-16 left-0 min-w-full min-h-screen">
+        <div class="fixed z-10 inset-0 overflow-y-auto bg-blue-100 bg-opacity-50 min-w-full min-h-screen">
 
             <div class="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
                 <div class="h-10 w-10 ml-auto text-gray-400 hover:text-gray-900"> 
