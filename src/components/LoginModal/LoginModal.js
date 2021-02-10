@@ -27,7 +27,7 @@ function LoginModal(props) {
 
 
     return (
-        <div class="fixed z-10 inset-0 overflow-y-auto bg-blue-100 bg-opacity-50 min-w-full min-h-screen">
+        <div class="fixed z-10 inset-0 overflow-y-auto bg-gray-800 bg-opacity-60 min-w-full min-h-screen">
 
             <div class="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
                 <div class="h-10 w-10 ml-auto text-gray-400 hover:text-gray-900"> 
@@ -51,7 +51,7 @@ function LoginModal(props) {
                         <input value={user_password} onChange={(e) => set_user_password(e.target.value)} type="password" id="password" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-purple-600 transition duration-500 px-3 pb-3" />
                     </div>
                     <div class="flex justify-end my-4">
-                        <a href="#" class="text-sm text-gray-400 hover:text-purple-700 hover:underline mb-6">Forgot your password?</a>
+                        <a href="#" class="text-sm text-gray-400 hover:text-gray-800 hover:underline mb-6">Forgot your password?</a>
                     </div>
                     <div class="flex justify-center">
                         <button onClick={confirmUserCredentials} class="bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */>Sign In</button>
@@ -61,13 +61,13 @@ function LoginModal(props) {
             </div>
 
             <div class="max-w-lg mx-auto text-center mt-12 mb-6">
-                <button class="text-white">Don't have an account? <a href="#" class="font-bold hover:underline">Sign up</a></button>
+                <button class="text-gray-100">Don't have an account? <a href="#" class="font-bold hover:underline">Sign up</a></button>
             </div>
 
             <footer class="max-w-lg mx-auto flex justify-center text-white">
-                <a href="#" class="hover:underline">Contact</a>
-                <span class="mx-3">•</span>
-                <a href="#" class="hover:underline">Privacy</a>
+                <a href="#" class="text-sm text-gray-200 hover:text-purple-700 hover:underline mb-6">Contact</a>
+                <span class="mx-3 text-gray-200">•</span>
+                <a href="#" class="text-sm text-gray-200 hover:text-purple-700 hover:underline mb-6">Privacy</a>
             </footer>
         </div>
 
