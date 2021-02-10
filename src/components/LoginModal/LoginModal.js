@@ -27,14 +27,7 @@ function LoginModal(props) {
 
 
     return (
-        <div class="body-bg min-h-screen pt-12 md:pt-20 pb-6 px-2 md:px-0">
-
-            <header class="max-w-lg mx-auto">
-                <a href="#">
-                    <h1 class="text-4xl font-bold text-white text-center">Startup</h1>
-                </a>
-                
-            </header>
+        <div class="bg-red-500 bg-opacity-50 fixed top-16 left-0 min-w-full min-h-screen">
 
             <div class="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
                 <div class="h-10 w-10 ml-auto text-gray-400 hover:text-gray-900"> 
