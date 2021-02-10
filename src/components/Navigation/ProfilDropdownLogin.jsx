@@ -21,14 +21,14 @@ const ProfilDropdown = (props) => {
                 role="menu" 
                 aria-orientation="vertical" 
                 aria-labelledby="user-menu"
-                className={(props.openLoginModal ? "hidden" : "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5") + (props.openRegisterModal ? "hidden" : "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5")}
+                className={(props.openLoginModal ? "hidden" : "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white") + (props.openRegisterModal ? "hidden" : "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white")}
                 >
                 <div class="max-w-lg mx-auto text-center mt-4 mb-2">
                     <button
                         class="" 
                         type="button"
                         onClick={() => props.setOpenLoginModal(true) + props.setOpenRegisterModal(false)}
-                        className={(props.openLoginModal ? "hidden" : "bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200")}
+                        className={(props.openLoginModal ? "bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" : "bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200") + (props.openRegisterModal ? "hidden" : "bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200") }
                         data-toggle="modal">
                         Login
                     </button>
@@ -40,8 +40,8 @@ const ProfilDropdown = (props) => {
                     <button 
                         class="font-bold text-sm hover:underline hover:bg-gray-100"
                         type="button"
-                        onClick={() => props.setOpenRegisterModal(true)}
-                        className={props.openRegisterModal? "hidden" : ""}
+                        onClick={() => props.setOpenRegisterModal(true) + props.setOpenLoginModal(false)}
+                        className={(props.openRegisterModal ? "hidden" : "font-bold text-sm hover:underline hover:bg-gray-100") + (props.openLoginModal ? "hidden" : "font-bold text-sm hover:underline hover:bg-gray-100")}
                         >
                         Sign up
                     </button>
