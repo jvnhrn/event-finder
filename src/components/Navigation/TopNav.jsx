@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import ProfilDropdownLogin from './ProfilDropdownLogin';
 import Notification from './Notification';
-import MobileMenu from './MobileMenu';
+import MobileHamburgerMenu from './MobileHamburgerMenu';
 import Logo from './Logo';
 import ProfilIcon from './ProfilIcon';
 
@@ -11,30 +11,8 @@ function Navigation(props) {
 
     /* isActive State for Navigation  */
 
-    const [isActive, setIsActive] = useState(false);
-    const [isActiveExplore, setIsActiveExplore] = useState(false);
-    const [isActiveHost, setIsActiveHost] = useState(false); 
-
-
     const [activeMenu, setActiveMenu] = useState("Home");
 
-    /* Handle the isActive State for Navigation  */
-
-    function handleNavigation(e){
-        if(e.target){
-            setIsActive(false);
-            setIsActiveHost(false);
-            setIsActiveExplore(false); 
-        }
-    }
-
-    useEffect(() => {
-        document.addEventListener("click", handleNavigation);
-        return () => {
-            document.removeEventListener("click", handleNavigation);
-        };
-    }); 
-    
     /* show State for Dropdown */ 
     const [show, setShow] = useState(false); 
 
@@ -112,7 +90,7 @@ function Navigation(props) {
                         
                         {/* MobileMenu */}
                         <div class="md:hidden flex"> 
-                            <MobileMenu /> 
+                            <MobileHamburgerMenu /> 
                         </div>
                     </div>
                 </div>

@@ -6,12 +6,6 @@ import MobileUserInfo from './MobileUserInfo';
 
 const MobileMenuDropDown = (props) =>{
 
-    /* const [showMobile, setShowMobile] = useState (false);
-
-    const hide = () => {
-        setShowMobile(!showMobile)
-    }; */
-
     const [activeMenu, setActiveMenu] = useState("Home");
     
     return (
