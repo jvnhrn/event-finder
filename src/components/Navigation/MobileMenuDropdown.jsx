@@ -3,26 +3,31 @@ import { Link } from 'react-router-dom';
 import MobileProfilIcon from './MobileProfil';
 import MobileProfilLinks from './MobileProfilLinks';
 import MobileUserInfo from './MobileUserInfo';
-import { Transition } from '@headlessui/react'
 
-const MobileMenuDropDown = () =>{
+const MobileMenuDropDown = (props) =>{
 
-    const [showMobile, setShowMobile] = useState (false);
+    /* const [showMobile, setShowMobile] = useState (false);
 
     const hide = () => {
         setShowMobile(!showMobile)
-    };
+    }; */
+
+    const [activeMenu, setActiveMenu] = useState("Home");
     
     return (
 
         <div class="block bg-gray-800">
             <div class="pt-14 pb-3">
 
-                <Link to='/' onClick={hide} class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">Home</Link>
+                <Link to='/' 
+                    onClick={() => setActiveMenu("Home")} 
+                    className={(activeMenu === "Home" ? "bg-gray-900 text-white rounded-md text-sm font-medium px-3 py-2 " : "text-gray-300 text-sm rounded-md font-medium px-3 py-2")}  
+                    class="bg-gray-900 text-white block px-3 py-2 rounded-md text-base font-medium">
+                    Home</Link>
 
-                <Link to="/explore" onClick={hide} class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Explore</Link>
+                <Link to="/explore" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Explore</Link>
 
-                <Link to="/hostevent" onClick={hide} class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Host an Event</Link>
+                <Link to="/hostevent" class="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Host an Event</Link>
 
             </div>
 

@@ -1,8 +1,10 @@
 [
     {
         "userid": 1,
+        "username": "johndoe",
         "firstname": "John",
         "lastname": "Doe",
+        "phonenumber": "0123456",
         "email": "test@testmail.com",
         "password":"test",
         "img": "https://www.vecteezy.com/vector-art/1833963-woman-profile-faceless-portrait", 

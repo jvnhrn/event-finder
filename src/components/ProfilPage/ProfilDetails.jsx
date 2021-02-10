@@ -14,10 +14,10 @@ const EyeClosed = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0
 const Details = () => {
 
     const [formdata, setformdata] = useState({
-
+        username: '',
         email: '',
+        phonenumber: '', 
         password: '',
-
 
     })
 

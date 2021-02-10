@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 
-function LoginModal() {
+function LoginModal(props) {
 
     const [user_name, set_user_name] = useState('');
     const [user_password, set_user_password] = useState('');

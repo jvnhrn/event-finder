@@ -21,35 +21,40 @@ function ProfilCard(props) {
 
     const [logedIn, setLogedIn] = useState(true); 
 
+    const logout = () => {
+        window.location.reload();
+    };
 
-    const signout = e =>{
-
-        e.preventDefault();
-
-        setLogedIn(false)
-
-    }
-
-    
 
     return (
         <div class="px-1 py-6 flex-wrap flex">
-            <div id="profilCard" class="lg:w-3/12 rounded-3xl overflow-hidden shadow-lg m-auto">
+            <div id="profilCard" class="sm:w-96 rounded-3xl overflow-hidden shadow-lg m-auto">
                 
                 <img class="h-24 w-24 mx-auto rounded-full" src={hotpodyoga} alt="hotpodyoga" />
                 <div className="px-10 py-4">
-                    <div className="font-bold text-gray-600 text-xl my-4 text-center tracking-tighter">
+                    <div className="font-bold text-gray-600 text-l my-4 text-center tracking-tighter">
                         Hallo
                     </div>
                     <div className="font-bold text-purple-600 text-xl my-4 text-center tracking-tighter">
                         {props.firstname} {props.lastname}
                     </div>
 
-                    <ul className="py-4 text-left tracking-tighter">
+                    <ul id="details" className="py-4 text-left tracking-tighter">
                         <li>
                             <strong className="text-gray-400 ">Details</strong>
                         </li>
-                        <li class="flex mt-4">
+                        <li class="flex mt-5">
+                            <div id="phone" class="h-6 w-6 mr-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </div>
+                        <div>
+                                {props.phonenumber}
+                        </div>
+
+                        </li>
+                        <li class="flex mt-5">
                             <div id="email" class="h-6 w-6 mr-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
@@ -59,33 +64,34 @@ function ProfilCard(props) {
                                 {props.email}
                             </div>
                         </li>
-                        <li class="flex mt-4">
+                        <li class="flex mt-5">
                             <div class="h-6 w-6 mr-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                                 </svg> 
                             </div>
-                            <p class="ml-2">{passwordShown ? <i onClick={togglePasswordVisiblity}>Password</i> : <i onClick={togglePasswordVisiblity}>{props.password}</i>}</p>
+                            <p>{passwordShown ? <p onClick={togglePasswordVisiblity}>Password</p> : <p onClick={togglePasswordVisiblity}>{props.password}</p>}</p>
                             <button class="h6 w-6 ml-auto"> 
                                 {passwordShown ? <i onClick={togglePasswordVisiblity}>{Eye}</i> : <i onClick={togglePasswordVisiblity}>{EyeClosed}</i>}
                             </button>
                         </li>
                         <li class="flex mt-8">
-                            <div class="m-auto">
+                            <div class="m-auto inline-flex text-center justify-items-center">
                                 <button class="m-auto my-4 flex inline-flex justify-items-center text-base">
                                     <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                </svg> Edit
-                            </button>
+                                    </svg> Edit your details
+                                </button>
                             </div>
                         </li>
                     </ul>
+
                 </div>
                 <div class="flex">
                     <button 
                         className="bg-pink-500 text-white active:bg-blue-600 font-bold uppercase text-base px-8 py-3 rounded shadow-md hover:shadow-lg outline-none focus:outline-none m-auto my-4" 
                         type="button"  
-                        onClick={signout}
+                        onClick={logout}
                         style={{ transition: "all .15s ease" }}>
                             Sign Out
                     </button>

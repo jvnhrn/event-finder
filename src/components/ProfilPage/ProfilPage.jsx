@@ -13,6 +13,7 @@ function ProfilPage (){
                         userid={loggedinUser.userid}
                         firstname={loggedinUser.firstname}
                         lastname={loggedinUser.lastname}
+                        phonenumber={loggedinUser.phonenumber}
                         email={loggedinUser.email}
                         password={loggedinUser.password}
                         img={loggedinUser.img}
