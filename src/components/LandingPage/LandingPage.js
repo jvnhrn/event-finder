@@ -39,7 +39,7 @@ function LandingPage() {
       }
    
     return (
-        <div class="container">
+        <div class="container pr-2">
 
             <div>
                 <form className="content-center pl-8 ml-12 pt-6" onSubmit="event.preventDefault();" role="search">
