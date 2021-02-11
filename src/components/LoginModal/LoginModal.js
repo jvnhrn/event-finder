@@ -75,7 +75,7 @@ function LoginModal(props) {
                 </div>
 
                 <div class="max-w-lg mx-auto text-center mt-12 mb-6">
-                <button class="text-gray-100">Don't have an account? <a href="#" onClick={toggleRegisterModal} class="font-bold hover:text-blue-600 hover:underline">Sign up</a></button>
+                <button class="text-gray-100">Don't have an account? <a href="#" onClick={toggleRegisterModal} class="font-bold px-1 py-1 rounded hover:text-blue-600 hover:underline hover:bg-gray-100">Sign up</a></button>
                 </div>
 
                 <footer class="max-w-lg mx-auto flex justify-center text-white">

@@ -48,6 +48,13 @@ function RegisterModal(props) {
     const toggleModalVisiblity = () => {
         props.setOpenRegisterModal(false); 
     };
+  
+    const toggleLoginModal = () => {
+        props.setOpenRegisterModal(false);
+        props.setOpenLoginModal(true);
+       
+    };
+
 
 
     return (
@@ -117,6 +124,10 @@ function RegisterModal(props) {
                         </div> {/* </form> */}
                     </section>
                 </div>
+                <div class="max-w-lg mx-auto text-center mt-12 mb-6">
+                <button class="text-gray-100">Do you have an account? <a href="#" onClick={toggleLoginModal} class="font-bold px-1 py-1 rounded hover:text-purple-600 hover:underline hover:bg-gray-100">Login</a></button>
+                </div>
+
             </div>
 
     )
