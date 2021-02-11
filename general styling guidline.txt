@@ -15,5 +15,5 @@ text input field:
 
 
 button:
-<button onClick={confirmUserCredentials} class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" /* type="submit" */>Sign In</button>
+<button onClick={confirmUserCredentials} class="text-white rounded-md ring-1 ring-gray-500 tracking-tighter float-right bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */>Done</button>
                     
