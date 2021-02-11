@@ -32,7 +32,7 @@ function App() {
                     <Route path="/register" component={RegisterModal} />
                     <Route path="/login" component={LoginModal} />
                 </Switch>
-                {/* <Footer /> */}
+                <Footer openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} openRegisterModal={openRegisterModal} setOpenRegisterModal={setOpenRegisterModal} />
             </Router>
         </div>
 
