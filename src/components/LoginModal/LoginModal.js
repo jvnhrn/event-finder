@@ -7,7 +7,7 @@ function LoginModal() {
     const [modalShown, setModalShown] = useState(true);
 
     const toggleModalVisiblity = () => {
-        setModalShown(modalShown ? false: true);
+            setModalShown(!modalShown);
     };
 
     const [user_name, set_user_name] = useState('');
@@ -35,10 +35,10 @@ function LoginModal() {
 
     return (
         <>
-            {modalShown ? <div class="fixed z-10 inset-0 overflow-y-auto bg-gray-800 bg-opacity-60 min-w-full min-h-screen">
+            { modalShown ? <div class="fixed z-10 inset-0 overflow-y-auto bg-gray-800 bg-opacity-60 min-w-full min-h-screen">
                 <div class="bg-white max-w-lg mx-auto p-8 md:p-12 my-14 rounded-lg shadow-2xl">
-                    <div class="ml-auto">
-                        <button class="h-10 w-10 text-gray-400 hover:text-gray-900"
+                    <div class="flex">
+                        <button class="h-10 w-10 text-gray-400 hover:text-gray-900 ml-auto"
                             onClick={toggleModalVisiblity}>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
