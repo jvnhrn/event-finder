@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import RegisterModal from '../RegisterModal/RegisterModal';
 
 
-function LoginModal() {
-
-    const [modalShown, setModalShown] = useState(true);
+function LoginModal(props) {
 
     const toggleModalVisiblity = () => {
-            setModalShown(!modalShown);
+        props.setOpenLoginModal(false); 
+    };
+
+    const toggleRegisterModal = () => {
+        props.setOpenLoginModal(false); 
+        props.setOpenRegisterModal(true);
     };
 
     const [user_name, set_user_name] = useState('');
@@ -34,8 +38,7 @@ function LoginModal() {
 
 
     return (
-        <>
-            { modalShown ? <div class="fixed z-10 inset-0 overflow-y-auto bg-gray-800 bg-opacity-60 min-w-full min-h-screen">
+            <div class="fixed z-10 inset-0 overflow-y-auto bg-gray-800 bg-opacity-60 min-w-full min-h-screen">
                 <div class="bg-white max-w-lg mx-auto p-8 md:p-12 my-14 rounded-lg shadow-2xl">
                     <div class="flex">
                         <button class="h-10 w-10 text-gray-400 hover:text-gray-900 ml-auto"
@@ -48,7 +51,7 @@ function LoginModal() {
 
                     <section>
                         <h3 class="font-bold text-2xl">Welcome to eventi</h3>
-                        <p class="text-gray-600 pt-2">Sign in to your account.</p>
+                        <p class="text-gray-600 pt-2">Login to your account.</p>
                     </section>
 
                     <section class="mt-10">
@@ -65,14 +68,14 @@ function LoginModal() {
                             <a href="#" class="text-sm text-gray-400 hover:text-gray-800 hover:underline mb-6">Forgot your password?</a>
                         </div>
                         <div class="flex justify-center">
-                            <button onClick={confirmUserCredentials} class="bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */>Sign In</button>
+                            <button onClick={confirmUserCredentials} class="bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */>Login</button>
                         </div>
                         {/* </form> */}
                     </section>
                 </div>
 
                 <div class="max-w-lg mx-auto text-center mt-12 mb-6">
-                    <button class="text-gray-100">Don't have an account? <a href="#" class="font-bold hover:underline">Sign up</a></button>
+                <button class="text-gray-100">Don't have an account? <a href="#" onClick={toggleRegisterModal} class="font-bold hover:text-blue-600 hover:underline">Sign up</a></button>
                 </div>
 
                 <footer class="max-w-lg mx-auto flex justify-center text-white">
@@ -81,9 +84,7 @@ function LoginModal() {
                     <a href="#" class="text-sm text-gray-200 hover:text-purple-700 hover:underline mb-6">Privacy</a>
                 </footer>
 
-            </div> : null }
-        
-        </>
+            </div> 
     )
 }
 
