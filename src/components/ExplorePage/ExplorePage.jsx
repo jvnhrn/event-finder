@@ -57,19 +57,21 @@ function ExplorePage() {
 
     return (
         <div>
-            <div>
-                <form className="content-center px-24 pt-6" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
+            <div className="container">
+
+                <form className="content-center pl-8 ml-12 pt-6" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
+
                     <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" /* id="search" type="search" */ placeholder="find out what's popping" />
                     <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
                 </form>
             </div>
 
-            <div class="container hidden md:block md:ml-24 md:pr-12 md:space-x-8 py-6 font-bold text-gray-600 text-center tracking-tighter" >
-                <button onClick={() => setCategory('All')} class="text-md font-light text-grey-500 hover:text-gray-900" >All</button>{''}
-                <button onClick={() => setCategory('Yoga')} class="text-md font-light text-grey-500 hover:text-gray-900" >Yoga</button>{''}
-                <button onClick={() => setCategory('Festival')} class="text-md font-light text-grey-500 hover:text-gray-900" >Festival</button>{''}
-                <button onClick={() => setCategory('Literature')} class="text-md font-light text-grey-500 hover:text-gray-900" >Literature</button>{''}
-                <button onClick={() => setCategory('Restaurant')} class="text-md font-light text-grey-500 hover:text-gray-900" >Restaurant</button>
+            <div class="container hidden md:block md:ml-12 md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
+                <button onClick={() => setCategory('All')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >All</button>{''}
+                <button onClick={() => setCategory('Yoga')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Yoga</button>{''}
+                <button onClick={() => setCategory('Festival')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Festival</button>{''}
+                <button onClick={() => setCategory('Literature')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Literature</button>{''}
+                <button onClick={() => setCategory('Restaurant')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Restaurant</button>
             </div>
 
             < div className="grid grid-cols-3 gap-2" >

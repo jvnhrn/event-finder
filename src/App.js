@@ -21,8 +21,8 @@ function App() {
         <div class='flex flex-col h-full' >
             <Router>
                 <TopNav openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} openRegisterModal={openRegisterModal} setOpenRegisterModal={setOpenRegisterModal} />
-                {openLoginModal ? <LoginModal /> : null}
-                {openRegisterModal ? <RegisterModal /> : null}
+                {openLoginModal ? <LoginModal openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} openRegisterModal={openRegisterModal} setOpenRegisterModal={setOpenRegisterModal}/> : null}
+                {openRegisterModal ? <RegisterModal openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} openRegisterModal={openRegisterModal} setOpenRegisterModal={setOpenRegisterModal} /> : null}
                 <Switch >
                     <Route exact path="/" component={LandingPage} />
                     <Route path="/resetredux" component={ReduxResetPage} />
@@ -32,7 +32,7 @@ function App() {
                     <Route path="/register" component={RegisterModal} />
                     <Route path="/login" component={LoginModal} />
                 </Switch>
-                {/* <Footer /> */}
+                <Footer openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} openRegisterModal={openRegisterModal} setOpenRegisterModal={setOpenRegisterModal} />
             </Router>
         </div>
 

@@ -21,6 +21,7 @@ function LandingPage() {
   const [eventsData, setEventsData] = useState([]);
   const [searchText, setSearchText] = useState('');
 
+
   function LocationMarker() {
 
     const map = useMapEvents({

@@ -49,8 +49,9 @@ function ProfilCard(props) {
 
     return (
         <div>
-            <div id="profilCard" class="container m-auto py-6">
-
+            <div id="profilCard" class="container m-auto py-10">
+               <div>
+                  
                 <img class="h-24 w-24 mx-auto rounded-full" src={hotpodyoga} alt="hotpodyoga" />
                 <div className="px-10 py-4">
                     <div className="font-bold text-gray-600 text-l my-4 text-center tracking-tighter">
@@ -118,6 +119,7 @@ function ProfilCard(props) {
                         Sign Out
                     </button>
                 </div>
+               </div> 
             </div>
         </div>
     )

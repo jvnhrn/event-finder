@@ -38,10 +38,10 @@ const ProfilDropdown = (props) => {
                     >
                     <p class="block px-4 text-sm text-gray-700">Don't have an account?</p>
                     <button 
-                        class="font-bold text-sm hover:underline hover:bg-gray-100"
+                        class="font-bold text-sm px-1 rounded hover:text-blue-600 hover:underline hover:bg-blue-100"
                         type="button"
                         onClick={() => props.setOpenRegisterModal(true) + props.setOpenLoginModal(false)}
-                        className={(props.openRegisterModal ? "hidden" : "font-bold text-sm hover:underline hover:bg-gray-100") + (props.openLoginModal ? "hidden" : "font-bold text-sm hover:underline hover:bg-gray-100")}
+                        className={(props.openRegisterModal ? "hidden" : "font-bold text-sm px-1 rounded hover:text-blue-600 hover:underline hover:bg-blue-100") + (props.openLoginModal ? "hidden" : "font-bold text-sm px-1 rounded hover:underline hover:bg-blue-100")}
                         >
                         Sign up
                     </button>
