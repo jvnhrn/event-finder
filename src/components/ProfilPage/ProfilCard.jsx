@@ -1,8 +1,21 @@
-import React, {useState, useRef} from 'react';
+import React, { useState, useRef } from 'react';
+import { useHistory } from "react-router-dom";
 import hotpodyoga from '../Categories/Yoga/hotpodyoga.png';
 import ProfilDetails from './ProfilDetails';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/app.actions'
+
+
+
 function ProfilCard(props) {
+
+    let history = useHistory();
+
+    function handleClick() {
+        history.push("/");
+    }
 
     const Eye = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -19,17 +32,25 @@ function ProfilCard(props) {
         setPasswordShown(passwordShown ? false : true);
     };
 
-    const [logedIn, setLogedIn] = useState(true); 
+    /* const [logedIn, setLogedIn] = useState(true); */
 
-    const logout = () => {
-        window.location.reload();
-    };
+    /*    const logout = () => {
+           window.location.reload();
+       }; */
+
+    const signOut = async () => {
+        await props.actions.storeUserData(false, 0)
+        console.log(props.applicationState.appReducer.canUserLogin)
+        console.log(props.applicationState.appReducer.user_id)
+        handleClick()
+        await window.location.reload()
+    }
 
 
     return (
         <div>
             <div id="profilCard" class="container m-auto py-6">
-                
+
                 <img class="h-24 w-24 mx-auto rounded-full" src={hotpodyoga} alt="hotpodyoga" />
                 <div className="px-10 py-4">
                     <div className="font-bold text-gray-600 text-l my-4 text-center tracking-tighter">
@@ -49,9 +70,9 @@ function ProfilCard(props) {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                                 </svg>
                             </div>
-                        <div>
+                            <div>
                                 {props.phonenumber}
-                        </div>
+                            </div>
 
                         </li>
                         <li class="flex mt-5">
@@ -68,10 +89,10 @@ function ProfilCard(props) {
                             <div class="h-6 w-6 mr-2">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg> 
+                                </svg>
                             </div>
                             <p>{passwordShown ? <p onClick={togglePasswordVisiblity}>Password</p> : <p onClick={togglePasswordVisiblity}>{props.password}</p>}</p>
-                            <button class="h6 w-6 ml-auto"> 
+                            <button class="h6 w-6 ml-auto">
                                 {passwordShown ? <i onClick={togglePasswordVisiblity}>{Eye}</i> : <i onClick={togglePasswordVisiblity}>{EyeClosed}</i>}
                             </button>
                         </li>
@@ -79,7 +100,7 @@ function ProfilCard(props) {
                             <div class="m-auto inline-flex text-center justify-items-center">
                                 <button class="m-auto my-4 flex inline-flex justify-items-center text-base">
                                     <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                     </svg> Edit your details
                                 </button>
                             </div>
@@ -88,16 +109,20 @@ function ProfilCard(props) {
 
                 </div>
                 <div class="flex">
-                    <button 
-                        className="border-gray-500 text-gray-500 font-bold text-base flex items-center justify-center rounded-full border-2 px-8 py-3 rounded shadow-sm hover:shadow-lg outline-none focus:outline-none m-auto my-4" 
-                        type="button"  
-                        onClick={logout}
+                    <button
+                        className="border-gray-500 text-gray-500 font-bold text-base flex items-center justify-center rounded-full border-2 px-8 py-3 rounded shadow-sm hover:shadow-lg outline-none focus:outline-none m-auto my-4"
+                        type="button"
+                        onClick={signOut}
+
                         style={{ transition: "all .15s ease" }}>
-                            Sign Out
+                        Sign Out
                     </button>
-                </div> 
+                </div>
             </div>
         </div>
     )
 }
-export default ProfilCard;
+
+const mapStateToProps = state => ({ applicationState: state });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actions, dispatch) });
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilCard);

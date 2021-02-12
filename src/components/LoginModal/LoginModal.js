@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as actions from '../actions/app.actions'
+
 
 function LoginModal(props) {
 
@@ -22,6 +26,15 @@ function LoginModal(props) {
         const sendUserCredentials = await axios.get(`http://localhost:7777/userlogin/?user_name=${user_name}&user_password=${user_password}`)
         console.log(sendUserCredentials)
         console.log(sendUserCredentials.data)
+        const { canUserLogin, user_id } = await sendUserCredentials.data
+        await props.actions.storeUserData(canUserLogin, user_id)
+        console.log(props.applicationState.appReducer.canUserLogin)
+        console.log(props.applicationState.appReducer.user_id)
+
+
+        if (!!sendUserCredentials.data.canUserLogin) {
+            window.location.reload()
+        }
 
     };
 
@@ -73,4 +86,6 @@ function LoginModal(props) {
     )
 }
 
-export default LoginModal
+const mapStateToProps = state => ({ applicationState: state });
+const mapDispatchToProps = dispatch => ({ actions: bindActionCreators(actions, dispatch) });
+export default connect(mapStateToProps, mapDispatchToProps)(LoginModal);

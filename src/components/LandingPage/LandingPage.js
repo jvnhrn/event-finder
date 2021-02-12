@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import { React, useState, useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMapEvents, LayersControl } from 'react-leaflet';
 import markerYoureHerePng from "../LandingPage/map_markers/youre-here.png";
 import yoga from "../LandingPage/map_markers/yoga.png";
@@ -8,129 +8,150 @@ import architecture from "../LandingPage/map_markers/architecture.png";
 import music from "../LandingPage/map_markers/music.png";
 import pottery from "../LandingPage/map_markers/pottery.png";
 import random from "../LandingPage/map_markers/random.png";
-import {Icon} from 'leaflet';
+import { Icon } from 'leaflet';
 
-
+import axios from 'axios';
+import EventMarker from './EventMarker';
+const mapboxgl = require('mapbox-gl/dist/mapbox-gl.js');
 
 
 function LandingPage() {
 
+  const [position, setPosition] = useState(null)
+  const [eventsData, setEventsData] = useState([]);
+  const [searchText, setSearchText] = useState('');
 
-    function LocationMarker() {
-        const [position, setPosition] = useState(null)
-        const map = useMapEvents({
-          click() {
-            map.locate()
-          },
-          locationfound(e) {
-            setPosition(e.latlng)
-            map.flyTo(e.latlng, map.getZoom())
-          },
-        })
-      
-        return position === null ? null : (
-          <Marker
-          position={position}
-          icon={new Icon({iconUrl: markerYoureHerePng})}
-          >
-            <Popup>You are here</Popup>
-          </Marker>
-        )
+  function LocationMarker() {
+
+    const map = useMapEvents({
+
+      click() {
+        map.locate()
+      },
+
+      locationfound(e) {
+        setPosition(e.latlng)
+        map.flyTo(e.latlng, map.getZoom())
+      },
+    })
+
+    return position === null ? null : (
+      <Marker
+        position={position}
+        icon={new Icon({ iconUrl: markerYoureHerePng })}
+      >
+        <Popup>You are here</Popup>
+      </Marker>
+    )
+  }
+
+  useEffect(() => {
+    const getAllEvents = async () => {
+      try {
+        const allEventsData = await axios.get('http://localhost:7777/explore');
+        setEventsData(allEventsData.data);
+        /* console.log(allEventsData.data) */
+      } catch (error) {
+        console.error(error);
       }
-   
-    return (
-        <div class="container">
+    }
+    getAllEvents()
+  }, []);
 
-            <div>
-                <form className="content-center pl-8 ml-12 pt-6" onSubmit="event.preventDefault();" role="search">
-                    <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" id="search" type="search" placeholder="find out what's popping" />  
-                </form>
-            </div>
-    
-        <MapContainer
-            className="map"
-            center={{ lat:  48.210033, lng: 16.363449}} 
-            zoom={13}
-             scrollWheelZoom={false}>
-            
-            <LayersControl position="topright">
-            <LayersControl.BaseLayer checked name="OpenStreetMap.Mapnik">
-                    <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                    />
-            </LayersControl.BaseLayer>
+  useEffect(() => {
+    const getSearch = async () => {
+      try {
+        const searchData = await axios.get(`http://localhost:7777/search/?searchtext=${searchText}`);
+        setEventsData(searchData.data);
+        /* console.log(searchData.data) */
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getSearch()
+  }, [searchText]);
 
-            <LayersControl.BaseLayer name="OpenStreetMap.BlackAndWhite">
-                    <TileLayer
-                    attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                    url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
-                    />
-            </LayersControl.BaseLayer>
+  return (
+    <div class="container">
 
-        <LocationMarker />
+      <div>
+        <form className="content-center px-24 pt-6" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
+          <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" /* id="search" type="search" */ placeholder="find out what's popping" />
+          <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
+        </form>
+      </div>
 
-        <Marker position={[48.177412, 16.366777]}
-        icon={new Icon({iconUrl: yoga})}> 
-          <Popup className="bbg-gray-100">
-          on Click the Event Card pops up
-          </Popup>
-        </Marker>
+      <MapContainer
+        className="map"
+        center={{ lat: 48.210033, lng: 16.363449 }}
+        zoom={13}
+        scrollWheelZoom={true}
+      >
 
-        <Marker position={[48.216470, 16.399818]}
-        icon={new Icon({iconUrl: literature})}>
-          <Popup className="bbg-gray-100">
-          on Click the Event Card pops up
-          </Popup>
-        </Marker>
+        <LayersControl position="topright">
 
-        <Marker position={[48.196035, 16.341517]}
-        icon={new Icon({iconUrl: food})}>
-          <Popup className="bbg-gray-100">
-          on Click the Event Card pops up
-          </Popup>
-        </Marker>
+          <LayersControl.BaseLayer checked name="Light">
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
+              url='https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png'
+            />
+          </LayersControl.BaseLayer>
 
-        <Marker position={[48.178375, 16.384094]}
-        icon={new Icon({iconUrl: architecture})}>
-          <Popup className="bbg-gray-100">
-          on Click the Event Card pops up
-          </Popup>
-        </Marker>
+          <LayersControl.BaseLayer name="Descriptive">
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
 
-        <Marker position={[48.185205, 16.408147]}
-        icon={new Icon({iconUrl: music})}>
-          <Popup className="bbg-gray-100">
-          on Click the Event Card pops up
-          </Popup>
-        </Marker>
 
-        <Marker position={[48.216470, 16.399818]}
-        icon={new Icon({iconUrl: pottery})}>
-          <Popup className="bbg-gray-100">
-            on Click the Event Card pops up
-          </Popup>
-        </Marker>
+          <LayersControl.BaseLayer name="Light 02">
+            <TileLayer
+              attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+              url="https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.png"
+            />
+          </LayersControl.BaseLayer>
 
-        <Marker position={[48.208484, 16.438796]}
-        icon={new Icon({iconUrl: random})}>
-          <Popup className="bbg-gray-100">
-          on Click the Event Card pops up
-          </Popup>
-        </Marker>
+          <LayersControl.BaseLayer name="BlackAndWhite">
+            <TileLayer
+              attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+              url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
+            />
+          </LayersControl.BaseLayer>
+
+          <LocationMarker />
+
+          {eventsData.map((event) => {
+            return (
+              <EventMarker
+                event_id={event.event_id}
+                event_category={event.event_category}
+                event_title={event.event_title}
+                event_description={event.event_description}
+                event_location={event.event_location}
+                event_country={event.event_country}
+                event_city={event.event_city}
+                event_postalcode={event.event_postalcode}
+                event_address={event.event_address}
+                event_gps_latitude={event.event_gps_latitude}
+                event_gps_longitude={event.event_gps_longitude}
+                event_host_phone={event.event_host_phone}
+                event_host_email={event.event_host_email}
+                event_price={event.event_price}
+                event_start_date={event.event_start_date}
+                event_end_date={event.event_end_date}
+                open_spots={event.open_spots}
+              />
+            )
+          }
+          )
+          }
 
         </LayersControl>
-        </MapContainer>
+      </MapContainer>
 
-                    
-            
-        </div>
-    )
+    </div>
+  )
 }
 
-
 export default LandingPage
-
-
-
-
