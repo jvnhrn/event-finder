@@ -92,14 +92,60 @@ function HosteEventPage() {
     }
 
     return (
-        <div className="pl-10 container">
+        <div className="px-10 ">
             {/* <form className="content-center px-24 pt-6"  onSubmit="event.preventDefault();"  role="search"> */}
             {/*             <h1 class="tracking-tighter font-light text-3xl text-grey-500 hover:text-gray-900 py-6">
                 Host an Event
             </h1> */}
 
+
             {/* grid starts here */}
+
+            <p class="pt-10 container tracking-tighter text-2xl text-gray-500 font-semibold">
+                    How it works 
+                    </p>
             <div class="grid grid-cols-4 gap-4 object-center">
+
+                <div className="pt-6 text-center">
+                    <h1 class="bg-gradient-to-br from-blue-900 to-pink-900 bg-clip-text text-transparent tracking-tighter font-bold text-9xl py-24">
+                        1
+                    </h1>
+                    <p>👤</p>
+                    <span class="px-4 tracking-tighter font-normal">
+                        in order to host an event, you will need an <strong>eventi account</strong> , just so we can verify you as a host and contact person. Host the next big event on eventi 
+                    </span>
+                </div>
+
+                <div className="py-6 text-center">
+                    <h1 class="bg-gradient-to-br from-purple-700 to-red-500 bg-clip-text text-transparent tracking-tighter font-bold text-9xl py-24">
+                        2
+                    </h1>
+                    <p>📝</p>
+                    <span class="px-4 tracking-tighter font-normal">
+                       let the eventi <strong>form</strong> guide you through the next steps. For audience attention retention, upload a banging image paired with a banging description
+                    </span>
+                </div>
+
+                <div className="py-6 text-center">
+                    <h1 class="bg-gradient-to-br from-blue-900 via-pink-600 to-red-500 bg-clip-text text-transparent tracking-tighter font-bold text-9xl py-24">
+                        3
+                    </h1>
+                    <p>👀</p>
+                    <span class="px-4 tracking-tighter font-normal">
+                       <strong>corss-check</strong> for mistakes (but dont worry, you can always edit details after you publish an event)
+                    </span>
+                </div>
+
+                <div className="py-6 text-center">
+                    <h1 class="bg-gradient-to-br from-red-500 via-pink-600 to-yellow-500 bg-clip-text text-transparent tracking-tighter font-bold text-9xl py-24">
+                        4
+                    </h1>
+                    <p>🚀</p>
+                    <span class="px-4 tracking-tighter font-normal">
+                       share share and share on all your social media platforms. Dont forget to <strong> tell your friends </strong>about eventi.
+                    </span>
+                </div>
+
                 <div className="pt-14">
                     <input onChange={(e) => { setEvent_title(e.target.value) }} type="text" name="postal_code" id="event_name" class="tracking-tighter bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none" placeholder="Event name" />
                 </div>
