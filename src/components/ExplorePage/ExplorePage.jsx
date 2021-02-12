@@ -8,7 +8,14 @@ function ExplorePage() {
     const [category, setCategory] = useState('All');
     const [searchText, setSearchText] = useState('');
 
-    const [yogaActive, setYogaActive] = useState('py-2 px-4 focus:outline-none text-md font-light text-grey-500 hover:text-gray-400');
+    const activeStyled = "py-2 px-4 focus:outline-none text-md font-light text-grey-500 hover:text-gray-400";
+
+    const inactiveStyled = "font-bold text-md text-red-500 bg-red-500";
+
+    const [yogaActive, setYogaActive] = useState(inactiveStyled);
+    const [allActive, setAllActive] = useState(inactiveStyled);
+
+    
 
     useEffect(() => {
         const getAllCards = async () => {
@@ -70,12 +77,12 @@ function ExplorePage() {
 
             <div class="container hidden md:block md:ml-12 md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
                 <button 
-                    onClick={() => setCategory('All')} 
-                    class={(category === "All" ? "font-bold text-md bg-gray-500 px-1 border-2 bg-gray-200 py-2 px-4 rounded" : "py-2 px-4 bg-red-500 focus:outline-none text-md font-light text-grey-500 hover:text-gray-400")}
+                    onClick={() => setCategory('All') + setAllActive(activeStyled) + setYogaActive(inactiveStyled)} 
+                    class={(allActive)}
                     >All
                 </button>
                 <button 
-                    onClick={() => setCategory('Yoga') + setYogaActive('font-bold text-md text-red-500 bg-red-500')} 
+                    onClick={() => setCategory('Yoga') + setYogaActive(activeStyled) + setAllActive(inactiveStyled)} 
                     className={(yogaActive)}
                  >Yoga
                 </button>{''}
