@@ -13,6 +13,8 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/app.actions'
+import MobileMenuDropdown from './MobileMenuDropdown';
+import MobileMenuDropdownLogin from './MobileMenuDropdownLogin';
 
 
 function Navigation(props) {
@@ -25,7 +27,7 @@ function Navigation(props) {
     const [show, setShow] = useState(false);
     const [showLogin, setShowLogin] = useState(props.applicationState.appReducer.canUserLogin);  
 
-    const drop = useRef(null);
+    /* const drop = useRef(null);
 
     function handleClick(e) {
         if (!e.target.closest(`.${drop.current.className}`) && show) {
@@ -39,6 +41,8 @@ function Navigation(props) {
             document.removeEventListener("click", handleClick);
         };
     });
+ */
+    const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
     return (
         <div>
@@ -87,10 +91,10 @@ function Navigation(props) {
                             <div class="ml-4 flex items-center md:ml-6">
                                 <Notification />
 
-                                <div id="nav-profil" className="dropdown" ref={drop} class="ml-3 relative">
+                                <div id="nav-profil" id="dropdown" /* ref={drop} */ class="ml-3 relative">
 
                                     <button class="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white" id="user-menu" aria-haspopup="true"
-                                        onClick={() => setShow(show => !show)}   >
+                                        onClick={() => setShow(show => !show)}>
                                         <ProfilIcon />
                                     </button>
                                      {
@@ -104,9 +108,17 @@ function Navigation(props) {
                         </div>
 
                         {/* MobileMenu */}
-                        <div class="md:hidden flex">
-                            <MobileHamburgerMenu />
+                        <div class="md:hidden">
+                            <MobileHamburgerMenu hamburgerOpen={hamburgerOpen} setHamburgerOpen={setHamburgerOpen}/>
                         </div>
+                    </div>
+                    {/* Open Mobile Menu Dropdown */}
+                    <div class="md:hidden">
+                    {hamburgerOpen ?
+                        <MobileMenuDropdownLogin openLoginModal={props.openLoginModal} setOpenLoginModal={props.setOpenLoginModal} openRegisterModal={props.openRegisterModal} setOpenRegisterModal={props.setOpenRegisterModal} />
+                        :
+                        ""
+                    }
                     </div>
                 </div>
             </nav>

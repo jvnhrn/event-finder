@@ -67,8 +67,17 @@ function ExplorePage() {
             </div>
 
             <div class="container hidden md:block md:ml-12 md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
-                <button onClick={() => setCategory('All')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >All</button>{''}
-                <button onClick={() => setCategory('Yoga')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Yoga</button>{''}
+                <button 
+                    onClick={() => setCategory('All')} 
+                    className={(setCategory === "All" ? "font-bold text-md bg-gray-500 px-1 border-2 bg-gray-200 py-2 px-4 rounded" : "py-2 px-4 focus:outline-none text-md font-light text-grey-500 hover:text-gray-400")}
+                    class="py-2 px-4 focus:outline-none text-md font-light text-grey-500 hover:text-gray-400"
+                    >All
+                </button>
+                <button 
+                    onClick={() => setCategory('Yoga')} 
+                    className={(setCategory === "All" ? "font-bold text-md text-red-500" : "py-2 px-4 focus:outline-none text-md font-light text-grey-500 hover:text-gray-400")}
+                    class="py-2 px-4 focus:outline-none text-md font-light text-grey-500 hover:text-gray-400"
+                    class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Yoga</button>{''}
                 <button onClick={() => setCategory('Festival')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Festival</button>{''}
                 <button onClick={() => setCategory('Literature')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Literature</button>{''}
                 <button onClick={() => setCategory('Restaurant')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Restaurant</button>
