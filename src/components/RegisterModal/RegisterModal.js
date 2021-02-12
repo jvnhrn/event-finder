@@ -120,7 +120,7 @@ function RegisterModal(props) {
                         </div>
                         {!!userRegistered ? <div class="mb-6 rounded bg-red-200"> User (username, email or phone number) already exists</div> : <div></div>}
                         <div class="flex justify-center">
-                            <button onClick={registerUser} class="bg-blue-600 hover:bg-blue-800 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */>Register</button>
+                            <button onClick={registerUser} class="bg-blue-600 hover:bg-blue-800 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */>Sign Up</button>
                         </div> {/* </form> */}
                     </section>
                 </div>
