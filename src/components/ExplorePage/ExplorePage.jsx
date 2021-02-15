@@ -10,7 +10,7 @@ function ExplorePage() {
 
     const activeStyled = "px-3 border-2 border-blue-700 rounded-2xl focus:outline-none font-bold text-blue-700";
 
-    const inactiveStyled = "px-3 border-2 border-white rounded-2xl font-bold text-gray-400 focus:outline-none hover:text-blue-800 hover:font-bold";
+    const inactiveStyled = "px-3 border-2 border-white rounded-2xl font-bold text-gray-400 focus:outline-none hover:text-blue-800 hover:font-bold active:bg-none";
 
     const [yogaActive, setYogaActive] = useState(inactiveStyled);
     const [allActive, setAllActive] = useState(inactiveStyled);
@@ -72,14 +72,14 @@ function ExplorePage() {
     return (
         <div className="container mx-auto">
             <div>
-                <form className="content-center pl-8 ml-12 pt-6" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
-
-                    <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" /* id="search" type="search" */ placeholder="find out what's popping" />
+                <form className="content-center md:flex lg:pt-24 xl:mx-2 lg:mx-4 md:mx-6 md:p-4 mx-5 block p-4" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
+                    <p class="2xl:text-5xl xl:text-3xl lg:text-xl md:text-lg text-3xl font-bold text-gray-800 2xl:w-2/3 xl:w-2/5 lg:w-2/5 md:w-2/4 md:pb-0 pb-6">Find out what's popping</p>
+                    <input className="bg-gray-100 rounded-2xl px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" /* id="search" type="search" */ placeholder="Search" />
                     <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
                 </form>
             </div>
 
-            <div class="container hidden md:block md:ml-12 md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
+            <div class="container hidden md:block md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
                 <button 
                     onClick={() => setCategory('All') + setAllActive(activeStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)}
                     class={(allActive)}
