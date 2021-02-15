@@ -1,12 +1,9 @@
 import React, { useState, useRef } from 'react';
 import { useHistory } from "react-router-dom";
 import hotpodyoga from '../Categories/Yoga/hotpodyoga.png';
-import ProfilDetails from './ProfilDetails';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/app.actions'
-
 
 
 function ProfilCard(props) {
@@ -32,11 +29,6 @@ function ProfilCard(props) {
         setPasswordShown(passwordShown ? false : true);
     };
 
-    /* const [logedIn, setLogedIn] = useState(true); */
-
-    /*    const logout = () => {
-           window.location.reload();
-       }; */
 
     const signOut = async () => {
         await props.actions.storeUserData(false, 0)

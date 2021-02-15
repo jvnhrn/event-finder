@@ -95,17 +95,13 @@ function Navigation(props) {
 
                         {/* MobileMenu */}
                         <div class="md:hidden">
-                            <MobileHamburgerMenu hamburgerOpen={hamburgerOpen} setHamburgerOpen={setHamburgerOpen} onClick={() => setShow(show => !show)}/>
+                            <MobileHamburgerMenu hamburgerOpen={hamburgerOpen} setHamburgerOpen={setHamburgerOpen}/>
                         </div>
                     </div>
                     {/* Open Mobile Menu Dropdown */}
-                    <div class="md:hidden">
-                    {hamburgerOpen ?
-                            <MobileMenuDropdownLogin show={show} openLoginModal={props.openLoginModal} setOpenLoginModal={props.setOpenLoginModal} openRegisterModal={props.openRegisterModal} setOpenRegisterModal={props.setOpenRegisterModal} />   
-                        :
-                            <MobileMenuDropdown setShowLogin={setShowLogin}/> 
-                    }
-                    </div>
+                        <div class="md:hidden">
+                        {hamburgerOpen ? <MobileMenuDropdown show={hamburgerOpen} /> : null}     
+                        </div>
                 </div>
             </nav>
 

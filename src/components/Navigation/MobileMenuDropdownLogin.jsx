@@ -1,37 +1,23 @@
 import React, {useState} from 'react';
-import { Link } from 'react-router-dom';
+import { Transition } from '@headlessui/react';
 
 const MobileMenuDropdownLogin = (props) => {
 
-    const [activeMenu, setActiveMenu] = useState("Home");
-
     return(
+
+        <Transition
+            show={props.show}
+            enter="transition ease-out duration-100 transform"
+            enterFrom="opacity-0 scale-95"
+            enterTo="opacity-100 scale-100"
+            leave="transition ease-in duration-75 transform"
+            leaveFrom="opacity-100 scale-100"
+            leaveTo="opacity-0 scale-95"
+        > 
 
         <div class="bg-gray-800">
             <div class="pt-12 pb-3">
-                <div class="mb-6"> 
-                    <Link to='/'
-                        onClick={() => setActiveMenu("Home")}
-                        className={(activeMenu === "Home" ? "block bg-gray-900 text-white rounded-md text-md font-medium px-3 py-3 w-full" : "block text-gray-300 text-md rounded-md font-medium px-3 py-3 w-full")}
-                        class="block text-gray-300 text-md rounded-md font-medium px-3 py-3 w-full">
-                        Home
-                    </Link>
-
-                    <Link to="/explore"
-                        onClick={() => setActiveMenu("Explore")}
-                        className={(activeMenu === "Explore" ? "block bg-gray-900 text-white rounded-md text-md font-medium px-3 py-3 w-full" : "block text-gray-300 text-md rounded-md font-medium px-3 py-3 w-full")}
-                        class="block text-gray-300 text-md rounded-md font-medium px-3 py-3 w-full">
-                        Explore
-                    </Link>
-
-                    <Link
-                        to="/hostevent"
-                        onClick={() => setActiveMenu("HostEvent")}
-                        className={(activeMenu === "HostEvent" ? "block bg-gray-900 text-white rounded-md text-md font-medium px-3 py-3 w-full" : "block text-gray-300 text-md rounded-md font-medium px-3 py-3 w-full")}
-                        class="block text-gray-300 text-md rounded-md font-medium px-3 py-3 w-full">
-                        Host an Event
-                    </Link>
-                </div>
+                
                 <div
                     className={(props.openLoginModal ? "hidden" : "mx-auto mt-2 w-60 rounded-md shadow-lg py-2 bg-white") + (props.openRegisterModal ? "hidden" : "mx-auto mt-2 w-48 rounded-md shadow-lg py-2 bg-white")}
                 >
@@ -62,10 +48,9 @@ const MobileMenuDropdownLogin = (props) => {
                     </div>
                 </div>
 
-            </div>
-
-        
+            </div> 
         </div>
+        </Transition>
     )
 }
 
