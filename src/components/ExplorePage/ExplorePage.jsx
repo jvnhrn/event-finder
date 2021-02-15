@@ -10,13 +10,16 @@ function ExplorePage() {
 
     const activeStyled = "px-3 border-2 border-blue-700 rounded-2xl focus:outline-none font-bold text-blue-700";
 
-    const inactiveStyled = "px-3 border-2 border-white rounded-2xl font-light text-gray-500 hover:text-gray-400 focus:outline-none hover:text-blue-800 hover:font-bold";
+    const inactiveStyled = "px-3 border-2 border-white rounded-2xl font-bold text-gray-400 focus:outline-none hover:text-blue-800 hover:font-bold";
 
     const [yogaActive, setYogaActive] = useState(inactiveStyled);
     const [allActive, setAllActive] = useState(inactiveStyled);
-    const [festivalActive, setFestivalActive] = useState(inactiveStyled);
+    const [musicActive, setMusicActive] = useState(inactiveStyled);
     const [literatureActive, setLiteratureActive] = useState(inactiveStyled);
-    const [restaurantActive, setRestaurantActive] = useState(inactiveStyled);
+    const [foodActive, setFoodActive] = useState(inactiveStyled);
+    const [architectureActive, setArchitectureActive] = useState(inactiveStyled);
+    const [potteryActive, setPotteryActive] = useState(inactiveStyled);
+    const [randomActive, setRandomActive] = useState(inactiveStyled);
 
 
     useEffect(() => {
@@ -79,26 +82,45 @@ function ExplorePage() {
 
             <div class="container hidden md:block md:ml-12 md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
                 <button 
-                    onClick={() => setCategory('All') + setAllActive(activeStyled) + setYogaActive(inactiveStyled) + setFestivalActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setRestaurantActive(inactiveStyled)} 
+                    onClick={() => setCategory('All') + setAllActive(activeStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)}
                     class={(allActive)}
                     >All
                 </button>
+                <button
+                    onClick={() => setCategory('Architecture') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(activeStyled)}
+                    className={(architectureActive)}
+                >Architecture
+                </button>
                 <button 
-                    onClick={() => setCategory('Yoga') + setAllActive(inactiveStyled) + setYogaActive(activeStyled) + setFestivalActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setRestaurantActive(inactiveStyled)} 
+                    onClick={() => setCategory('Yoga') + setAllActive(inactiveStyled) + setYogaActive(activeStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)} 
                     className={(yogaActive)}
                  >Yoga
                 </button>
                 <button 
-                    onClick={() => setCategory('Festival') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setFestivalActive(activeStyled) + setLiteratureActive(inactiveStyled) + setRestaurantActive(inactiveStyled)}
-                    className={(festivalActive)}
-                    >Festival
+                    onClick={() => setCategory('Music') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(activeStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)}
+                    className={(musicActive)}
+                    >Music
                 </button>
                 <button 
-                    onClick={() => setCategory('Literature') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setFestivalActive(inactiveStyled) + setLiteratureActive(activeStyled) + setRestaurantActive(inactiveStyled)} 
+                    onClick={() => setCategory('Literature') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(activeStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)} 
                     className={(literatureActive)}
                     >Literature
                 </button>
-                <button onClick={() => setCategory('Restaurant')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Restaurant</button>
+                <button 
+                    onClick={() => setCategory('Food') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(activeStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)} 
+                    className={(foodActive)}
+                    >Food
+                </button>
+                <button
+                    onClick={() => setCategory('Pottery') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(activeStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)}
+                    className={(potteryActive)}
+                >Pottery
+                </button>
+                <button
+                    onClick={() => setCategory('Random') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(activeStyled) + setArchitectureActive(inactiveStyled)}
+                    className={(randomActive)}
+                >Random
+                </button>
             </div>
 
             < div className="grid grid-cols-3 gap-2" >
