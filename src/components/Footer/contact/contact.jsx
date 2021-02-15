@@ -19,33 +19,33 @@ function contact() {
                 <div class="text-center justify-items-center align-items-center">
                     <img class="w-32 h-32 md:w-48 md:h-auto rounded-full mx-auto" src={claudio} alt="" width="384" height="512"></img>
                     <p class="tracking-tighter pb-4">
-                    Claudio
+                    <strong>Claudio</strong> 
                     </p>
-                    <a href="mailto:jessynnebs@gmail.com" target="_blank" rel="nofollow noopener noreferrer" className="text-gray-500 rounded-md tracking-tighter float-center bg-white-600 hover:bg-purple-100 font-bold uppercase py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200">Email</a>
+                    <a href="mailto:jessynnebs@gmail.com" target="_blank" rel="nofollow noopener noreferrer" className="text-gray-400 rounded-md tracking-tighter float-center bg-white-600 hover:bg-purple-100 font-semibold py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200">Email</a>
                 </div>
 
                 <div class="text-center justify-items-center align-items-center">
                     <img class="w-32 h-32 md:w-48 md:h-auto rounded-full mx-auto" src={johanna} alt="" width="384" height="512"></img>
                     <p class="tracking-tighter pb-4">
-                    Johanna
+                    <strong>Johanna</strong>
                     </p>
-                    <a href="mailto:jessynnebs@gmail.com" target="_blank" rel="nofollow noopener noreferrer" className="text-gray-500 rounded-md tracking-tighter float-center bg-white-600 hover:bg-purple-100 font-bold uppercase py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200">Email</a>
+                    <a href="mailto:jessynnebs@gmail.com" target="_blank" rel="nofollow noopener noreferrer" className="text-gray-400 rounded-md tracking-tighter float-center bg-white-600 hover:bg-purple-100 font-semibold py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200">Email</a>
                 </div>
 
                 <div class="text-center justify-items-center align-items-center">
                     <img class="w-32 h-32 md:w-48 md:h-auto rounded-full mx-auto" src={jessica} alt="" width="384" height="512"></img>
                     <p class="tracking-tighter pb-4">
-                    Jessica
+                    <strong>Jessica</strong>
                     </p>
-                    <a href="mailto:jessynnebs@gmail.com" target="_blank" rel="nofollow noopener noreferrer" className="text-gray-500 rounded-md tracking-tighter float-center bg-white-600 hover:bg-purple-100 font-bold uppercase py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200">Email</a>
+                    <a href="mailto:jessynnebs@gmail.com" target="_blank" rel="nofollow noopener noreferrer" className="text-gray-400 rounded-md tracking-tighter float-center bg-white-600 hover:bg-purple-100 font-semibold py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200">Email</a>
                 </div>
 
                 <div class="text-center justify-items-center align-items-center">
                     <img class="w-32 h-32 md:w-48 md:h-auto rounded-full mx-auto" src={alex} alt="" width="384" height="512"></img>
                     <p class="tracking-tighter pb-4">
-                    Alex
+                    <strong>Alex</strong>
                     </p>
-                    <a href="mailto:jessynnebs@gmail.com" target="_blank" rel="nofollow noopener noreferrer" className="text-gray-500 rounded-md tracking-tighter float-center bg-white-600 hover:bg-purple-100 font-bold uppercase py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200">Email</a>
+                    <a href="mailto:jessynnebs@gmail.com" target="_blank" rel="nofollow noopener noreferrer" className="text-gray-400 rounded-md tracking-tighter float-center bg-white-600 hover:bg-purple-100 font-semibold py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200">Email</a>
                 </div>
             </div>
 
