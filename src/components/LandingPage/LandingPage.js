@@ -76,11 +76,14 @@ function LandingPage() {
     <div class="container content-center mx-auto">
 
       <div>
-        <form className="content-center px-24 pt-6" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
-          <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" /* id="search" type="search" */ placeholder="find out what's popping" />
+        <p class="2xl:text-6xl xl:text-6xl lg:text-6xl md:text-6xl text-3xl font-bold text-gray-800 lg:mt-32 md:mt-24 mt-12 md:pb-0">eventi</p>
+        <p class="2xl:text-3xl xl:text-3xl lg:text-3xl md:text-3xl text-xl font-light text-gray-500 mt-2 md:pb-0 mb-6">the new way of finding and hosting events</p>
+        <form className="content-center md:flex lg:pt-24 xl:mx-2 lg:mx-4 md:mx-6 md:p-4 mx-5 block p-4" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
+          <input className="bg-gray-100 rounded-2xl px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" /* id="search" type="search" */ placeholder="Search" />
           <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
         </form>
       </div>
+
 
       <MapContainer
         className="map"
