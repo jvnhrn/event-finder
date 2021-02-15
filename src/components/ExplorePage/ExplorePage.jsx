@@ -8,14 +8,16 @@ function ExplorePage() {
     const [category, setCategory] = useState('All');
     const [searchText, setSearchText] = useState('');
 
-    const activeStyled = "py-2 px-4 focus:outline-none text-md font-light text-grey-500 hover:text-gray-400";
+    const activeStyled = "px-3 border-2 border-blue-700 rounded-2xl focus:outline-none font-bold text-blue-700";
 
-    const inactiveStyled = "font-bold text-md text-red-500 bg-red-500";
+    const inactiveStyled = "px-3 border-2 border-white rounded-2xl font-light text-gray-500 hover:text-gray-400 focus:outline-none hover:text-blue-800 hover:font-bold";
 
     const [yogaActive, setYogaActive] = useState(inactiveStyled);
     const [allActive, setAllActive] = useState(inactiveStyled);
+    const [festivalActive, setFestivalActive] = useState(inactiveStyled);
+    const [literatureActive, setLiteratureActive] = useState(inactiveStyled);
+    const [restaurantActive, setRestaurantActive] = useState(inactiveStyled);
 
-    
 
     useEffect(() => {
         const getAllCards = async () => {
@@ -77,12 +79,12 @@ function ExplorePage() {
 
             <div class="container hidden md:block md:ml-12 md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
                 <button 
-                    onClick={() => setCategory('All') + setAllActive(activeStyled) + setYogaActive(inactiveStyled)} 
+                    onClick={() => setCategory('All') + setAllActive(activeStyled) + setYogaActive(inactiveStyled) + setFestivalActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setRestaurantActive(inactiveStyled)} 
                     class={(allActive)}
                     >All
                 </button>
                 <button 
-                    onClick={() => setCategory('Yoga') + setYogaActive(activeStyled) + setAllActive(inactiveStyled)} 
+                    onClick={() => setCategory('Yoga') + setAllActive(inactiveStyled) + setYogaActive(activeStyled) + setFestivalActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setRestaurantActive(inactiveStyled)} 
                     className={(yogaActive)}
                  >Yoga
                 </button>{''}
