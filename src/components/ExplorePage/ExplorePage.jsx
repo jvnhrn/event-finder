@@ -70,9 +70,8 @@ function ExplorePage() {
     }, [searchText]);
 
     return (
-        <div>
-            <div className="container">
-
+        <div className="container mx-auto">
+            <div>
                 <form className="content-center pl-8 ml-12 pt-6" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
 
                     <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" /* id="search" type="search" */ placeholder="find out what's popping" />
