@@ -73,7 +73,7 @@ function LandingPage() {
   }, [searchText]);
 
   return (
-    <div class="container">
+    <div class="container content-center mx-auto">
 
       <div>
         <form className="content-center px-24 pt-6" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
