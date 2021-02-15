@@ -87,9 +87,17 @@ function ExplorePage() {
                     onClick={() => setCategory('Yoga') + setAllActive(inactiveStyled) + setYogaActive(activeStyled) + setFestivalActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setRestaurantActive(inactiveStyled)} 
                     className={(yogaActive)}
                  >Yoga
-                </button>{''}
-                <button onClick={() => setCategory('Festival')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Festival</button>{''}
-                <button onClick={() => setCategory('Literature')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Literature</button>{''}
+                </button>
+                <button 
+                    onClick={() => setCategory('Festival') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setFestivalActive(activeStyled) + setLiteratureActive(inactiveStyled) + setRestaurantActive(inactiveStyled)}
+                    className={(festivalActive)}
+                    >Festival
+                </button>
+                <button 
+                    onClick={() => setCategory('Literature') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setFestivalActive(inactiveStyled) + setLiteratureActive(activeStyled) + setRestaurantActive(inactiveStyled)} 
+                    className={(literatureActive)}
+                    >Literature
+                </button>
                 <button onClick={() => setCategory('Restaurant')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Restaurant</button>
             </div>
 
