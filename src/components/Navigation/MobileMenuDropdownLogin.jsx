@@ -16,14 +16,14 @@ const MobileMenuDropdownLogin = (props) => {
         > 
 
         <div class="bg-gray-800">
-            <div class="pt-12 pb-3">
+            <div class="py-3">
                 
                 <div
                     className={(props.openLoginModal ? "hidden" : "mx-auto mt-2 w-60 rounded-md shadow-lg py-2 bg-white") + (props.openRegisterModal ? "hidden" : "mx-auto mt-2 w-48 rounded-md shadow-lg py-2 bg-white")}
                 >
 
                     {/* Login/ Sign Up*/}
-                    <div class="text-center mt-4 mb-2">
+                    <div class="text-center mb-2">
                         <button
                             class=""
                             type="button"

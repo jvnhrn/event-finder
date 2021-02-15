@@ -4,7 +4,9 @@ import { Transition } from '@headlessui/react';
 import axios from 'axios';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import * as actions from '../actions/app.actions'
+import * as actions from '../actions/app.actions';
+import MobileMenuDropdownLogin from './MobileMenuDropdownLogin';
+import MobileMenuDropdownSignedin from './MobileMenuDropdownSignedIn';
 
 
 const MobileMenuDropDown = (props) => {
@@ -65,7 +67,15 @@ const MobileMenuDropDown = (props) => {
                     </Link>
                 </div>
 
-            <div class="pt-4 pb-3 border-t border-gray-700">
+            <div class="border-t border-gray-700">
+
+                    {
+                        props.showLogin ?
+                            <MobileMenuDropdownSignedin show={props.show} setShowLogin={props.setShowLogin} />
+                            :
+                            <MobileMenuDropdownLogin show={props.show} openLoginModal={props.openLoginModal} setOpenLoginModal={props.setOpenLoginModal} openRegisterModal={props.openRegisterModal} setOpenRegisterModal={props.setOpenRegisterModal} />
+                    } 
+
             </div>
         </div>
         </Transition>
