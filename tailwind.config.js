@@ -177,6 +177,7 @@ module.exports = {
                 '"Segoe UI Emoji"',
                 '"Segoe UI Symbol"',
                 '"Noto Color Emoji"',
+
             ],
             serif: ['ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
             mono: [
@@ -189,6 +190,7 @@ module.exports = {
                 '"Courier New"',
                 'monospace',
             ],
+
         },
         fontSize: {
             xs: ['0.75rem', { lineHeight: '1rem' }],

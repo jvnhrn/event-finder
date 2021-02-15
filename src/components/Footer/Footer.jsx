@@ -5,7 +5,7 @@ import LogoFooter from './LogoFooter';
 function Footer(props) {
     return (
         <div id="" class="relative w-full mx-auto px-4 py-6 sm:h-auto static bottom-0 left-0">
-            <div class="md:flex items-center max-w-7xl mx-auto rounded-3xl mt-12 mb-20 bg-gradient-to-r from-blue-900 via-pink-600 to-red-500 lg:h-80 h-auto">
+            <div class="md:flex items-center max-w-7xl mx-auto rounded-3xl mt-12 mb-20 bg-gradient-to-r from-blue-900 via-pink-600 to-red-500 opacity-80 lg:h-40 h-auto">
                 <div class="text-white font-bold lg:text-5xl text-4xl lg:py-12 py-6 px-6 mx-auto sm:text-center">
                     Become a member of eventi
                 </div>
@@ -36,8 +36,10 @@ function Footer(props) {
             <div class="flex items-center justify-between max-w-7xl mx-auto space-x-8">
             <div class="grid md:grid-cols-3 md:gap-4 mx-auto text-gray-400 my-4 lg:w-full lg:px-10 md:w-full sm:grid-cols-none">
                 <div class="..."> <LogoFooter/> </div>
-                <div class="... text-center hidden md:block">Contact</div>
-                <div class="... text-right hidden md:block ">Navigate</div>
+                <div class="... text-center hidden md:block">
+                <Link to='/contact' class="text-gray-400 hover:text-gray-200 py-2 rounded-md text-md font-regular">Contact</Link> 
+                </div>
+                <div class="... text-right hidden md:block text-md">Navigate</div>
                 <div class="..."> 
                         <div class="text-left hidden md:block items-center"> 
                         eventi:
@@ -49,11 +51,11 @@ function Footer(props) {
 
                     <div class="grid grid-cols-1 gap-4 text-right flex items-baseline">
 
-                        <Link to='/' class="text-gray-400 hover:text-gray-100 py-2 rounded-md text-sm font-regular">Home</Link>
+                        <Link to='/' class="text-gray-400 hover:text-gray-200 py-2 rounded-md text-md font-regular">Home</Link>
 
-                        <Link to='/explore' class="text-gray-400 hover:text-gray-100 py-2 rounded-md text-sm font-regular">Explore</Link>
+                        <Link to='/explore' class="text-gray-400 hover:text-gray-200 py-2 rounded-md text-md font-regular">Explore</Link>
 
-                        <Link to='/hostevent' class="text-gray-400 hover:text-gray-100 py-2 rounded-md text-sm font-regular">Host an Event</Link>
+                        <Link to='/hostevent' class="text-gray-400 hover:text-gray-200 py-2 rounded-md text-md font-regular">Host an Event</Link>
                     </div>
                 </div>
             </div>
