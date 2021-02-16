@@ -4,13 +4,13 @@ import LogoFooter from './LogoFooter';
 
 function Footer(props) {
     return (
-        <div class="relative w-full mx-auto px-4 py-6 sm:h-auto static bottom-0 left-0">
-            <div class="flex items-center max-w-7xl mx-auto rounded-3xl mt-12 mb-20 bg-gradient-to-r from-blue-900 via-pink-600 to-red-500 h-80">
-                <div class="text-white font-bold text-5xl mx-auto">
+        <div id="" class="relative w-full mx-auto px-4 py-6 sm:h-auto static bottom-0 left-0">
+            <div class="md:flex items-center max-w-7xl mx-auto rounded-3xl mt-12 mb-20 bg-gradient-to-r from-blue-900 via-pink-600 to-red-500 lg:h-80 h-auto">
+                <div class="text-white font-bold lg:text-5xl text-4xl lg:py-12 py-6 px-6 mx-auto sm:text-center">
                     Become a member of eventi
                 </div>
-                <div class="max-w-lg ml-6 mr-auto text-center mt-4 mb-2"> 
-                    <div class="mt-4 mb-2">
+                <div class="md:mr-auto text-center py-4"> 
+                    <div class="my-4">
                     <button
                         class=""
                         type="button"
@@ -20,12 +20,12 @@ function Footer(props) {
                         Login
                     </button>
                 </div>
-                    <div class="mt-4 mb-2">
+                    <div class="my-4">
                     <button
                         class="font-bold text-sm px-1 rounded hover:text-blue-600 hover:underline hover:bg-blue-100"
                         type="button"
                         onClick={() => props.setOpenRegisterModal(true) + props.setOpenLoginModal(false)}
-                            className={(props.openRegisterModal ? "hidden" : "font-bold text-white text-sm px-1 border-2 py-2 px-4 rounded hover:text-blue-600 hover:bg-blue-100 outline-none focus:outline-none") + (props.openLoginModal ? "hidden" : "font-bold text-white text-sm px-1 border-2 py-2 px-4 rounded hover:text-blue-600 hover:bg-blue-100 outline-none focus:outline-none")}
+                            className={(props.openRegisterModal ? "hidden" : "font-bold text-white text-sm border-2 py-2 px-4 rounded hover:text-blue-600 hover:bg-blue-100 outline-none focus:outline-none") + (props.openLoginModal ? "hidden" : "font-bold text-white text-sm px-1 border-2 py-2 px-4 rounded hover:text-blue-600 hover:bg-blue-100 outline-none focus:outline-none")}
                     >
                         Sign up
                     </button>

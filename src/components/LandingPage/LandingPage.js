@@ -108,6 +108,11 @@ function LandingPage() {
 
   return (
     <div>
+      <div>
+          <p class="2xl:text-6xl xl:text-6xl lg:text-6xl md:text-6xl text-3xl font-bold text-gray-800 lg:mt-32 md:mt-24 mt-12 md:pb-0">eventi</p>
+          <p class="2xl:text-3xl xl:text-3xl lg:text-3xl md:text-3xl text-xl font-light text-gray-500 mt-2 md:pb-0 mb-6">the new way of finding and hosting events</p>
+       </div>
+    
       <div className="relative z-50 grid grid-cols-2 gap-4">
         <div>
           <form className="content-center px-24 pt-6">
@@ -156,7 +161,7 @@ function LandingPage() {
             value={searchText}
             onChange={(e) => { setSearchText(e.target.value) }}
           >
-            <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter"
+            <input className="content-center md:flex lg:pt-24 xl:mx-2 lg:mx-4 md:mx-6 md:p-4 mx-5 block p-4"
               placeholder="find out what's popping"
               type="text"
             />

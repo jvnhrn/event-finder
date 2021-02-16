@@ -10,6 +10,7 @@ function ExplorePage() {
     const [category, setCategory] = useState('All');
     const [searchText, setSearchText] = useState('');
 
+
     const [searchAddress, setSearchAddress] = useState('');
     const [newAdddressGPSCoordinates, setNewAdddressGPSCoordinates] = useState({ lat: 0, lng: 0 })
     const [listAddresses, setListAddresses] = useState([])
@@ -44,6 +45,20 @@ function ExplorePage() {
         }
     }, [searchAddress])
 
+    const activeStyled = "px-3 border-2 border-blue-700 rounded-2xl focus:outline-none font-bold text-blue-700";
+
+    const inactiveStyled = "px-3 border-2 border-white rounded-2xl font-bold text-gray-400 focus:outline-none hover:text-blue-800 hover:font-bold active:bg-none";
+
+    const [yogaActive, setYogaActive] = useState(inactiveStyled);
+    const [allActive, setAllActive] = useState(inactiveStyled);
+    const [musicActive, setMusicActive] = useState(inactiveStyled);
+    const [literatureActive, setLiteratureActive] = useState(inactiveStyled);
+    const [foodActive, setFoodActive] = useState(inactiveStyled);
+    const [architectureActive, setArchitectureActive] = useState(inactiveStyled);
+    const [potteryActive, setPotteryActive] = useState(inactiveStyled);
+    const [randomActive, setRandomActive] = useState(inactiveStyled);
+
+
     useEffect(() => {
         const getAllCards = async () => {
             try {
@@ -62,7 +77,7 @@ function ExplorePage() {
         const getCategory = async () => {
             let categoryData = false
             try {
-                if (category == 'All') {
+                if (category === 'All') {
                     categoryData = await axios.get('http://localhost:7777/explore');
                 } else {
                     categoryData = await axios.get(`http://localhost:7777/category/?category=${category}`);
@@ -179,10 +194,12 @@ function ExplorePage() {
 
 
     return (
-        <div>
-            <div className="container">
-                <form className="content-center pl-8 ml-12 pt-6" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
-                    <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" /* id="search" type="search" */ placeholder="find out what's popping" />
+
+        <div className="container mx-auto">
+            <div>
+                <form className="content-center md:flex lg:mt-32 md:mt-24 mt-12 block" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
+                    <p class="2xl:text-5xl xl:text-3xl lg:text-xl md:text-lg text-3xl font-bold text-gray-800 2xl:w-2/3 xl:w-2/5 lg:w-2/5 md:w-2/4 md:pb-0 pb-6">find out what's popping</p>
+                    <input className="bg-gray-100 rounded-2xl px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" /* id="search" type="search" */ placeholder="search" />
                     <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
                 </form>
             </div>
@@ -253,12 +270,47 @@ function ExplorePage() {
                 </form>
             </div>
 
-            <div class="container hidden md:block md:ml-12 md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
-                <button onClick={() => setCategory('All')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >All</button>{''}
-                <button onClick={() => setCategory('Yoga')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Yoga</button>{''}
-                <button onClick={() => setCategory('Festival')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Festival</button>{''}
-                <button onClick={() => setCategory('Literature')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Literature</button>{''}
-                <button onClick={() => setCategory('Restaurant')} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Restaurant</button>
+            <div class="container hidden md:block md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
+                <button 
+                    onClick={() => setCategory('All') + setAllActive(activeStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)}
+                    class={(allActive)}
+                    >All
+                </button>
+                <button
+                    onClick={() => setCategory('Architecture') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(activeStyled)}
+                    className={(architectureActive)}
+                >Architecture
+                </button>
+                <button 
+                    onClick={() => setCategory('Yoga') + setAllActive(inactiveStyled) + setYogaActive(activeStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)} 
+                    className={(yogaActive)}
+                 >Yoga
+                </button>
+                <button 
+                    onClick={() => setCategory('Music') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(activeStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)}
+                    className={(musicActive)}
+                    >Music
+                </button>
+                <button 
+                    onClick={() => setCategory('Literature') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(activeStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)} 
+                    className={(literatureActive)}
+                    >Literature
+                </button>
+                <button 
+                    onClick={() => setCategory('Food') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(activeStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)} 
+                    className={(foodActive)}
+                    >Food
+                </button>
+                <button
+                    onClick={() => setCategory('Pottery') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(activeStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)}
+                    className={(potteryActive)}
+                >Pottery
+                </button>
+                <button
+                    onClick={() => setCategory('Random') + setAllActive(inactiveStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(activeStyled) + setArchitectureActive(inactiveStyled)}
+                    className={(randomActive)}
+                >Random
+                </button>
             </div>
 
             <div class="container hidden md:block md:ml-12 md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
