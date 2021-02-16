@@ -91,7 +91,7 @@ function LoginModal(props) {
                 </div>
 
                 <footer class="max-w-lg mx-auto flex justify-center text-white">
-                    <a href="#" class="text-sm text-gray-200 hover:text-purple-700 hover:underline mb-6">Contact</a>
+                    <a href="/contact" class="text-sm text-gray-200 hover:text-purple-700 hover:underline mb-6">Contact</a>
                     <span class="mx-3 text-gray-200">•</span>
                     <a href="#" class="text-sm text-gray-200 hover:text-purple-700 hover:underline mb-6">Privacy</a>
                 </footer>
