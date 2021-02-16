@@ -84,7 +84,6 @@ const ProfilDetails = (props) =>{
                         </button>
                     </div>
 
-
                     <div class="container mx-auto justify-center bg-white">
                         <div {...getRootProps({ className: 'dropzone' })} class=" flex justify-center container px-6 py-6 border-2 border-gray-300 border-dashed rounded-full" >
                             <div class="space-y-1 text-center">
@@ -110,7 +109,7 @@ const ProfilDetails = (props) =>{
                         <div class="mx-4">
                             <ul id="details" className="py-4 text-left tracking-tighter">
                                 <li class="md:flex mt-5">
-                                    <strong className="text-gray-400 text-2xl">Details</strong>
+                                    <strong className="text-gray-400 text-2xl">change your details</strong>
                                 </li>
                                 <li class="md:flex mt-5 justify-center">
                                     <div class="flex">
