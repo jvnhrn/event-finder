@@ -1,4 +1,4 @@
-# Project made by the Team Avangers Initiative 
+# Project made by the Team Avengers Initiative 
 This project is developed within the Codemaster Bootcamp from Talent Garden Austria. 
 
 ## Team Avangers Initiative
