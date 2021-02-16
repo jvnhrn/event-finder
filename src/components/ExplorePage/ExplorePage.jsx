@@ -112,7 +112,11 @@ function ExplorePage() {
 
     const smallInactiveStyled = "px-3 font-light text-gray-400 focus:outline-none hover:text-purple-800 hover:underline hover:font-bold active:bg-none";
 
-    const [orderByTitleState, setOrderByTitleState] = useState(smallInactiveStyled);
+    const [orderStyleOne, setOrderStyleOne] = useState(null); 
+    const [orderStyleTow, setOrderStyleTow] = useState(null);
+    const [orderStyleThree, setOrderStyleThree] = useState(null); 
+
+    const [orderByTitleState, setOrderByTitleState] = useState(false);
 
     useEffect(() => {
         const orderByTitle = () => {
@@ -145,7 +149,7 @@ function ExplorePage() {
 
 
 
-    const [orderByDateState, setOrderByDateState] = useState(smallInactiveStyled);
+    const [orderByDateState, setOrderByDateState] = useState(false);
 
     useEffect(() => {
         const orderByDate = () => {
@@ -176,7 +180,7 @@ function ExplorePage() {
         orderByDate()
     }, [orderByDateState])
 
-    const [orderByPriceState, setOrderByPriceState] = useState(smallInactiveStyled);
+    const [orderByPriceState, setOrderByPriceState] = useState(false);
 
     useEffect(() => {
         const orderByPrice = () => {
@@ -211,15 +215,14 @@ function ExplorePage() {
                 </form>
             </div>
 
-            <div className="container">
-                <form className="content-left pl-8 ml-12 pt-6" value={selectionStartDate} onChange={(e) => { setSelectionStartDate(e.target.value) }} role="search">
+            <div className="flex my-12">
+                <p class="text-lg text-gray-600">Start Date</p>
+                <form className="content-left pl-8" value={selectionStartDate} onChange={(e) => { setSelectionStartDate(e.target.value) }} role="search">
                     <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" type="datetime-local" placeholder="Start" />
                     <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
                 </form>
-            </div>
-
-            <div className="container">
-                <form className="content-left pl-8 ml-12 pt-6" value={selectionEndDate} onChange={(e) => { setSelectionEndDate(e.target.value) }} role="search">
+                <p class="text-lg text-gray-600">End Date</p>
+                <form className="content-left pl-8" value={selectionEndDate} onChange={(e) => { setSelectionEndDate(e.target.value) }} role="search">
                     <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" type="datetime-local" placeholder="Final" />
                     <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
                 </form>
@@ -278,7 +281,7 @@ function ExplorePage() {
             </div>
 
             <div class="container hidden md:block md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
-                <p class="2xl:text-3xl xl:text-xl lg:text-xl md:text-lg text-3xl font-bold text-gray-800 pb-6">sort it like it's hot</p>
+                <p class="2xl:text-3xl xl:text-xl lg:text-xl md:text-lg text-3xl font-bold text-gray-800 mb-12">sort it like it's hot</p>
                 <button 
                     onClick={() => setCategory('All') + setAllActive(activeStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)}
                     class={(allActive)}
@@ -323,18 +326,18 @@ function ExplorePage() {
 
             <div class="container hidden md:block md:ml-12 md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
                 <button 
-                    onClick={() => setOrderByTitleState(!orderByTitleState) + setOrderByTitleState(smallActiveStyled) + setOrderByDateState(smallInactiveStyled) + setOrderByPriceState (smallInactiveStyled)} 
-                    className={(orderByTitleState)}
+                    onClick={() => setOrderByTitleState(!orderByTitleState) + setOrderStyleOne(!orderStyleOne) + setOrderStyleTow(false) + setOrderStyleThree(false)} 
+                    className={orderStyleOne ? (smallActiveStyled) : (smallInactiveStyled)}
                     >Title
                 </button>
                 <button 
-                    onClick={() => setOrderByDateState(!orderByDateState) + setOrderByTitleState(smallInactiveStyled) + setOrderByDateState(smallActiveStyled) + setOrderByPriceState(smallInactiveStyled)} 
-                    className={(orderByDateState)} 
+                    onClick={() => setOrderByDateState(!orderByDateState) + setOrderStyleOne(false) + setOrderStyleTow(!orderStyleTow) + setOrderStyleThree(false)} 
+                    className={orderStyleTow ? (smallActiveStyled) : (smallInactiveStyled)}
                     >Date
                 </button>
                 <button 
-                    onClick={() => setOrderByPriceState(!orderByPriceState) + setOrderByTitleState(smallInactiveStyled) + setOrderByDateState(smallInactiveStyled) + setOrderByPriceState(smallActiveStyled)} 
-                    className={(orderByPriceState)}
+                    onClick={() => setOrderByPriceState(!orderByPriceState) + setOrderStyleOne(false) + setOrderStyleTow(false) + setOrderStyleThree(!orderStyleThree)} 
+                    className={orderStyleThree ? (smallActiveStyled) : (smallInactiveStyled)}
                     >Price
                 </button>
             </div>
