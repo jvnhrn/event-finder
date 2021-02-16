@@ -101,7 +101,7 @@ function HosteEventPage() {
 
             {/* grid starts here */}
 
-            <p class="pt-10 container tracking-tighter text-xl text-gray-500 font-medium">
+            <p class="pt-12 container tracking-tighter font-bold text-4xl">
                     How this works:
                     </p>
             <div class="grid grid-cols-4 gap-4 object-center">
@@ -110,9 +110,9 @@ function HosteEventPage() {
                     <h1 class="bg-gradient-to-br from-blue-900 to-pink-900 bg-clip-text text-transparent tracking-tighter font-bold text-9xl py-20">
                         1
                     </h1>
-                    <p className="pb-2">👤</p>
+                    <p>👤</p>
                     <span class="px-4 tracking-tightertext-md font-light text-grey-500">
-                        in order to host an event, you will need an  <strong class="font-semibold">eventi account</strong> , just so we can verify you as a host and contact person. Host the next big event on eventi 
+                        in order to host an event, you will need an  <strong class="font-semibold">eventi account</strong> , just so we can verify you as a host and contact person. 
                     </span>
                 </div>
 
@@ -120,9 +120,9 @@ function HosteEventPage() {
                     <h1 class="bg-gradient-to-br from-purple-700 to-red-500 bg-clip-text text-transparent tracking-tighter font-bold text-9xl py-20">
                         2
                     </h1>
-                    <p className="pb-2">📝</p>
+                    <p>📝</p>
                     <span class="px-4 tracking-tightertext-md font-light text-grey-500">
-                       fill out the  <strong class="font-semibold">form</strong> with your event details. For audience attention retention, upload a banging image paired with a banging description
+                    <strong class="font-semibold">fill out the form</strong> below with your event details. For audience attention retention, upload a banging image paired with a banging description
                     </span>
                 </div>
 
@@ -130,9 +130,9 @@ function HosteEventPage() {
                     <h1 class="bg-gradient-to-br from-blue-900 via-pink-600 to-red-500 bg-clip-text text-transparent tracking-tighter font-bold text-9xl py-20">
                         3
                     </h1>
-                    <p className="pb-2">👀</p>
+                    <p>👀</p>
                     <span class="px-4 tracking-tightertext-md font-light text-grey-500">
-                    <strong class="font-semibold">cross-check</strong> for mistakes (but dont worry, you can always edit details after you publish an event)
+                    <strong class="font-semibold">cross-check</strong> for mistakes. Don't worry, you can always edit details after you publish an event
                     </span>
                 </div>
 
@@ -140,9 +140,9 @@ function HosteEventPage() {
                     <h1 class="bg-gradient-to-br from-red-500 via-pink-600 to-yellow-500 bg-clip-text text-transparent tracking-tighter font-bold text-9xl py-20">
                         4
                     </h1>
-                    <p className="pb-2">🚀</p>
+                    <p>🚀</p>
                     <span class="px-4 tracking-tightertext-md font-light text-grey-500">
-                       share share and share on all your social media platforms. Dont forget to <strong class="font-semibold"> tell your friends </strong>about eventi.
+                       share share share on all your social media platforms. Remember to <strong class="font-semibold"> tell your friends </strong>about eventi.
                     </span>
                 </div>
 
@@ -254,13 +254,14 @@ function HosteEventPage() {
                 <img
                     src={event_image.preview}
                     style={{
+                        
                         display: 'block',
                         width: 'auto',
                         height: 150
                     }} />
             </div>
 
-            <div className="pb-10 mb-10 ">
+            <div className=" mb-10 ">
                 <button onClick={sendEventData} className="text-white rounded-md ring-1 ring-gray-500 tracking-tighter float-right bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */>Done</button>
             </div>
             {/* </form> */}
