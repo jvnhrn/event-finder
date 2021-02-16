@@ -11363,6 +11363,30 @@ video {
   height: 24rem;
 }
 
+.h-280 {
+  height: 28rem;
+}
+
+.h-320 {
+  height: 32rem;
+}
+
+.h-360 {
+  height: 36rem;
+}
+
+.h-400 {
+  height: 40rem;
+}
+
+.h-440 {
+  height: 44rem;
+}
+
+.h-480 {
+  height: 48rem;
+}
+
 .h-auto {
   height: auto;
 }
