@@ -108,9 +108,9 @@ function ExplorePage() {
     }, [searchText, distanceRange, selectionStartDate, selectionEndDate, searchAddress, newAdddressGPSCoordinates]);
 
 
-    const smallActiveStyled = "px-3 py-1 rounded text-purple-700 underline bg-purple-100 focus:outline-none";
+    const smallActiveStyled = "px-2 py-1 rounded-md text-purple-700 underline bg-purple-100 focus:outline-none";
 
-    const smallInactiveStyled = "px-3 font-light text-gray-400 focus:outline-none hover:text-purple-800 hover:underline hover:font-bold active:bg-none";
+    const smallInactiveStyled = "px-2 py-1 font-light text-gray-400 focus:outline-none hover:text-purple-800 hover:underline hover:font-bold active:bg-none";
 
     const [orderStyleOne, setOrderStyleOne] = useState(null); 
     const [orderStyleTow, setOrderStyleTow] = useState(null);
@@ -214,32 +214,39 @@ function ExplorePage() {
                     <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
                 </form>
             </div>
-
-            <div className="flex my-12">
-                <p class="text-lg text-gray-600">Start Date</p>
+            <div className="flex my-6 text-gray-600 font-light justify-end">
+                <p class="text-lg text-gray-600 my-auto">Start Date</p>
                 <form className="content-left pl-8" value={selectionStartDate} onChange={(e) => { setSelectionStartDate(e.target.value) }} role="search">
-                    <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" type="datetime-local" placeholder="Start" />
+                    <input className="bg-gray-100 rounded-2xl px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" type="datetime-local" placeholder="Start" />
                     <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
                 </form>
-                <p class="text-lg text-gray-600">End Date</p>
+                <p class="text-lg text-gray-600 my-auto ml-16">End Date</p>
                 <form className="content-left pl-8" value={selectionEndDate} onChange={(e) => { setSelectionEndDate(e.target.value) }} role="search">
-                    <input className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" type="datetime-local" placeholder="Final" />
+                    <input className="bg-gray-100 rounded-2xl px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" type="datetime-local" placeholder="Final" />
                     <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
                 </form>
             </div>
 
-            <div>
-                <form className="content-left pl-8 ml-12 pt-6">
+            <div class="container flex justify-items-center justify-end">
+                <p class="text-lg font-light text-gray-600 md:pb-0 pb-6 my-auto">Drop your location</p>
+
+                <form className="content-center md:flex pl-8 w-2/4">
                     <input value={searchAddress}
                         onChange={(e) => { setSearchAddress(e.target.value) }}
-                        className="bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter"
+                        className="bg-gray-100 rounded-2xl px-4 py-2 container ml-auto focus:ring-purple-600 outline-none tracking-tighter"
                         placeholder="address, city, country"
                         type="text"
                     />
                     <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
                 </form>
 
-                <div class="origin-top-right absolute left-0 mt-2 w-auto rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+                <form className="content-left inline-flex justify-items-center font-light text-lg text-gray-600 ml-12 my-auto" >
+                    <div class="mr-4">Ditance from address</div>
+                    <input class="mr-4" value={distanceRange} onChange={(e) => { setDistanceRange(e.target.value) }} type="range" min="2" max="20" step="2" />
+                    <div>{distanceRange} km</div>
+                </form>
+
+               <div class="origin-top-right absolute left-0 mt-2 w-auto rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                     <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
                         {
                             listAddresses.map((address) => {
@@ -271,17 +278,8 @@ function ExplorePage() {
                 </div>
             </div>
 
-
-            <div className="container">
-                <form className="content-left pl-8 ml-12 pt-6" >
-                    <div>Ditance from address</div>
-                    <input value={distanceRange} onChange={(e) => { setDistanceRange(e.target.value) }} type="range" min="2" max="20" step="2" />
-                    <div>{distanceRange} Km</div>
-                </form>
-            </div>
-
             <div class="container hidden md:block md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
-                <p class="2xl:text-3xl xl:text-xl lg:text-xl md:text-lg text-3xl font-bold text-gray-800 mb-12">sort it like it's hot</p>
+                <p class="2xl:text-3xl xl:text-xl lg:text-xl md:text-lg text-3xl font-bold text-gray-800 my-12">sort it like it's hot</p>
                 <button 
                     onClick={() => setCategory('All') + setAllActive(activeStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)}
                     class={(allActive)}
