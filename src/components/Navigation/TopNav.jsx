@@ -25,7 +25,7 @@ function Navigation(props) {
 
     /* show State for Dropdown */
     const [show, setShow] = useState(false);
-    const [showLogin, setShowLogin] = useState(props.applicationState.appReducer.canUserLogin);  
+    const [showLogin, setShowLogin] = useState(props.applicationState.appReducer.canUserLogin);
 
     /* Mobile Menu Button - Hamburger - Open/ Close */
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
@@ -66,9 +66,13 @@ function Navigation(props) {
                                     <NavLink to='/hostevent'
                                         onClick={() => setActiveMenu("HostEvent")}
                                         className={(activeMenu === "HostEvent" ? "bg-gray-900 text-white rounded-md text-sm font-medium px-3 py-2 " : "text-gray-300 text-sm rounded-md font-medium px-3 py-2")}
-                                        class="text-gray-300 hover:bg-gray-700 hover:text-white visited:text-gray-300 px-3 py-2 rounded-md text-sm">
+                                        class={showLogin ?
+                                            "text-gray-300 hover:bg-gray-700 hover:text-white visited:text-gray-300 px-3 py-2 rounded-md text-sm"
+                                            :
+                                            "hidden text-gray-300 hover:bg-gray-700 hover:text-white visited:text-gray-300 px-3 py-2 rounded-md text-sm"}>
                                         Host an Event
                                         </NavLink>
+
                                 </div>
                             </div>
                         </div>
@@ -83,25 +87,25 @@ function Navigation(props) {
                                         onClick={() => setShow(show => !show)}>
                                         <ProfilIcon />
                                     </button>
-                                     {
+                                    {
                                         showLogin ?
                                             <ProfilDropdownSignedIn show={show} setShowLogin={setShowLogin} />
                                             :
                                             <ProfilDropdownLogin show={show} openLoginModal={props.openLoginModal} setOpenLoginModal={props.setOpenLoginModal} openRegisterModal={props.openRegisterModal} setOpenRegisterModal={props.setOpenRegisterModal} />
-                                    } 
+                                    }
                                 </div>
                             </div>
                         </div>
 
                         {/* MobileMenu */}
                         <div class="md:hidden">
-                            <MobileHamburgerMenu hamburgerOpen={hamburgerOpen} setHamburgerOpen={setHamburgerOpen}/>
+                            <MobileHamburgerMenu hamburgerOpen={hamburgerOpen} setHamburgerOpen={setHamburgerOpen} />
                         </div>
                     </div>
                     {/* Open Mobile Menu Dropdown */}
-                        <div class="md:hidden">
-                        {hamburgerOpen ? <MobileMenuDropdown show={hamburgerOpen} setShowLogin={setShowLogin} showLogin={props.showLogin} openLoginModal={props.openLoginModal} setOpenLoginModal={props.setOpenLoginModal} openRegisterModal={props.openRegisterModal} setOpenRegisterModal={props.setOpenRegisterModal}/> : null}     
-                        </div>
+                    <div class="md:hidden">
+                        {hamburgerOpen ? <MobileMenuDropdown show={hamburgerOpen} setShowLogin={setShowLogin} showLogin={props.showLogin} openLoginModal={props.openLoginModal} setOpenLoginModal={props.setOpenLoginModal} openRegisterModal={props.openRegisterModal} setOpenRegisterModal={props.setOpenRegisterModal} /> : null}
+                    </div>
                 </div>
             </nav>
 

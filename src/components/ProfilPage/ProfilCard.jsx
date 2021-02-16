@@ -49,82 +49,92 @@ function ProfilCard(props) {
                 <div class="w-2/4 mx-auto text-gray-600">
                     <div class="h-24 w-24 mx-auto ">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
                     </div>
-                <div className="px-10 py-4">
-                    <div className="font-bold text-gray-600 text-l my-4 text-center tracking-tighter">
-                        Hallo
+                    <div className="px-10 py-4">
+                        <div className="font-bold text-gray-600 text-l my-4 text-center tracking-tighter">
+                            Hallo
                     </div>
-                    <div className="font-bold text-purple-600 text-xl my-4 text-center tracking-tighter">
-                        {props.firstname} {props.lastname}
-                    </div>
+                        <div className="font-bold text-purple-600 text-xl my-4 text-center tracking-tighter">
+                            {props.firstname} {props.lastname}
+                        </div>
 
-                    <ul id="details" className="py-4 text-left tracking-tighter">
-                        <li>
-                            <strong className="text-gray-400 ">Details</strong>
-                        </li>
-                        <li class="flex mt-5">
-                            <div id="phone" class="h-6 w-6 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                                </svg>
-                            </div>
-                            <div>
-                                {props.phonenumber}
-                            </div>
+                        <ul id="details" className="py-4 text-left tracking-tighter">
+                            <li>
+                                <strong className="text-gray-400 ">Details</strong>
+                            </li>
+                            <li class="flex mt-5">
+                                <div id="phone" class="h-6 w-6 mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    {props.phonenumber}
+                                </div>
 
-                        </li>
-                        <li class="flex mt-5">
-                            <div id="email" class="h-6 w-6 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
-                                </svg>
-                            </div>
-                            <div>
-                                {props.email}
-                            </div>
-                        </li>
-                        <li class="flex mt-5">
-                            <div class="h-6 w-6 mr-2">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </div>
-                            <p>{passwordShown ? <p onClick={togglePasswordVisiblity}>Password</p> : <p onClick={togglePasswordVisiblity}>{props.password}</p>}</p>
-                            <button class="h6 w-6 ml-auto">
-                                {passwordShown ? <i onClick={togglePasswordVisiblity}>{Eye}</i> : <i onClick={togglePasswordVisiblity}>{EyeClosed}</i>}
-                            </button>
-                        </li>
-                        <li class="flex mt-8">
+                            </li>
+                            <li class="flex mt-5">
+                                <div id="email" class="h-6 w-6 mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    {props.email}
+                                </div>
+                            </li>
+                            <li class="flex mt-5">
+                                <div class="h-6 w-6 mr-2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                </div>
+                                <p>{passwordShown ? <p onClick={togglePasswordVisiblity}>Password</p> : <p onClick={togglePasswordVisiblity}>{props.password}</p>}</p>
+                                <button class="h6 w-6 ml-auto">
+                                    {passwordShown ? <i onClick={togglePasswordVisiblity}>{Eye}</i> : <i onClick={togglePasswordVisiblity}>{EyeClosed}</i>}
+                                </button>
+                            </li>
+                            <li class="flex mt-8">
                                 <div class="m-auto">
                                     <button class="font-bold text-base uppercase flex items-center justify-center border-blue-600 border-2 py-2 px-4 rounded outline-none shadow-lg focus:outline-none text-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white hover:shadow-xl"
-                                    onClick={() => setShow(show => !show)}>
-                                    <svg class="h-8 w-8 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                                    </svg> Edit your details
+                                        onClick={() => setOpenEditModal(true)}>
+                                        <svg class="h-8 w-8 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                        </svg> Edit your details
                                 </button>
-                            </div>
-                        </li>
-                    </ul>
-                
-                        {show ? <ProfilDetails openEditModal={openEditModal} setOpenEditModal={setOpenEditModal} /> : null}
+                                </div>
+                            </li>
+                        </ul>
 
-                </div>
-                <div class="flex">
-                    <button
+                        {openEditModal ?
+                            <ProfilDetails
+                                setOpenEditModal={setOpenEditModal}
+                                userid={props.userid}
+                                firstname={props.firstname}
+                                lastname={props.lastname}
+                                phonenumber={props.phonenumber}
+                                email={props.email}
+                                password={props.password}
+                            />
+                            : null}
+
+                    </div>
+                    <div class="flex">
+                        <button
                             className="border-gray-400 text-gray-500 text-base flex items-center justify-center border-2 py-2 px-4 rounded shadow-sm hover:shadow-md outline-none hover:bg-gray-300 hover:text-white hover:border-gray-300 focus:outline-none m-auto my-4"
-                        type="button"
-                        onClick={signOut}
+                            type="button"
+                            onClick={signOut}
 
-                        style={{ transition: "all .15s ease" }}>
-                        Sign Out
+                            style={{ transition: "all .15s ease" }}>
+                            Sign Out
                     </button>
+                    </div>
                 </div>
-               </div> 
             </div>
-        </div> 
-            
+        </div>
+
     )
 }
 
