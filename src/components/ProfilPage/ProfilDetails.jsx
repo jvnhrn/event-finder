@@ -66,7 +66,7 @@ const ProfilDetails = () =>{
     }, [profil_image])
 
     return(
-        <div class="container fixed justify-center top-16 py-12 bg-white">
+        <div class="container mx-auto justify-center bg-white">
             <div {...getRootProps({ className: 'dropzone' }) } class=" flex justify-center container px-6 py-6 border-2 border-gray-300 border-dashed rounded-full" >
                 <div class="space-y-1 text-center">
                     <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
