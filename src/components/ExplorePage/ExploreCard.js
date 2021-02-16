@@ -40,9 +40,9 @@ function ExploreCard(props) {
         }, [props.event_category]) */
 
     return (
-        <div class="px-10 py-6 flex-wrap flex ">
+        <div class="px-10 py-6 flex-wrap flex">
             <div class="max-w-sm rounded-3xl overflow-hidden shadow-lg mr-10 mb-10">
-                <img src={`http://localhost:7777/events/${props.event_id}.jpg`} />
+                <img src={`http://localhost:7777/events/${props.event_id}.png`} />
                 <div className="px-10 py-4">
 
                     <div className="font-bold text-gray-600 my-4 text-left tracking-tighter">

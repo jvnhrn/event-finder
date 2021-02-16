@@ -1,15 +1,15 @@
 import React, { useState, useRef } from 'react';
 import { useHistory } from "react-router-dom";
 import hotpodyoga from '../Categories/Yoga/hotpodyoga.png';
-import ProfilDetails from './ProfilDetails';
-
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/app.actions'
-
+import ProfilDetails from './ProfilDetails';
 
 
 function ProfilCard(props) {
+
+    const [show, setShow] = useState(false);
 
     let history = useHistory();
 
@@ -32,11 +32,6 @@ function ProfilCard(props) {
         setPasswordShown(passwordShown ? false : true);
     };
 
-    /* const [logedIn, setLogedIn] = useState(true); */
-
-    /*    const logout = () => {
-           window.location.reload();
-       }; */
 
     const signOut = async () => {
         await props.actions.storeUserData(false, 0)
@@ -49,9 +44,8 @@ function ProfilCard(props) {
 
     return (
         <div>
-            <div id="profilCard" class="container m-auto py-10">
-               <div>
-                  
+            <div id="profilCard" class="container mx-auto py-10">
+                <div class="w-2/4 mx-auto">
                 <img class="h-24 w-24 mx-auto rounded-full" src={hotpodyoga} alt="hotpodyoga" />
                 <div className="px-10 py-4">
                     <div className="font-bold text-gray-600 text-l my-4 text-center tracking-tighter">
@@ -98,9 +92,10 @@ function ProfilCard(props) {
                             </button>
                         </li>
                         <li class="flex mt-8">
-                            <div class="m-auto inline-flex text-center justify-items-center">
-                                <button class="m-auto my-4 flex inline-flex justify-items-center text-base">
-                                    <svg class="h-8 w-8" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <div class="m-auto">
+                                    <button class="font-bold text-base flex items-center justify-center border-blue-600 border-2 py-2 px-4 rounded outline-none shadow-lg focus:outline-none text-blue-600 hover:bg-blue-100 hover:border-blue-100 hover:shadow-xl"
+                                    onClick={() => setShow(show => !show)}>
+                                    <svg class="h-8 w-8 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                     </svg> Edit your details
                                 </button>
@@ -111,7 +106,7 @@ function ProfilCard(props) {
                 </div>
                 <div class="flex">
                     <button
-                        className="border-gray-500 text-gray-500 font-bold text-base flex items-center justify-center rounded-full border-2 px-8 py-3 rounded shadow-sm hover:shadow-lg outline-none focus:outline-none m-auto my-4"
+                            className="border-gray-400 text-gray-500 text-base flex items-center justify-center border-2 py-2 px-4 rounded shadow-sm hover:shadow-md outline-none hover:bg-gray-200 focus:outline-none m-auto my-4"
                         type="button"
                         onClick={signOut}
 
@@ -121,6 +116,8 @@ function ProfilCard(props) {
                 </div>
                </div> 
             </div>
+            {show ? <ProfilDetails /> : ""}
+            
         </div>
     )
 }

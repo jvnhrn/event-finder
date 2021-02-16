@@ -12,6 +12,7 @@ import ProfilPage from './components/ProfilPage/ProfilPage';
 import RegisterModal from './components/RegisterModal/RegisterModal';
 import LoginModal from './components/LoginModal/LoginModal';
 import contact from './components/Footer/contact/contact';
+import ProfilDetails from './components/ProfilPage/ProfilDetails';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
                     <Route path="/register" component={RegisterModal} />
                     <Route path="/login" component={LoginModal} />
                     <Route path="/contact" component={contact} />
+                    <Route path="/edit" component={ProfilDetails} />
                 </Switch>
                 <Footer openLoginModal={openLoginModal} setOpenLoginModal={setOpenLoginModal} openRegisterModal={openRegisterModal} setOpenRegisterModal={setOpenRegisterModal} />
             </Router>

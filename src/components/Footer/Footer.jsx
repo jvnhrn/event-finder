@@ -9,7 +9,7 @@ function Footer(props) {
                 <div class="text-white font-bold lg:text-5xl text-4xl lg:py-12 py-6 px-6 mx-auto sm:text-center">
                     Become a member of eventi
                 </div>
-                <div class="max-w-lg md:mr-auto text-center py-4"> 
+                <div class="md:mr-auto text-center py-4"> 
                     <div class="my-4">
                     <button
                         class=""

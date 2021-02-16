@@ -27,21 +27,7 @@ function Navigation(props) {
     const [show, setShow] = useState(false);
     const [showLogin, setShowLogin] = useState(props.applicationState.appReducer.canUserLogin);  
 
-    /* const drop = useRef(null);
-
-    function handleClick(e) {
-        if (!e.target.closest(`.${drop.current.className}`) && show) {
-            setShow(false);
-        }
-    }
-
-    useEffect(() => {
-        document.addEventListener("click", handleClick);
-        return () => {
-            document.removeEventListener("click", handleClick);
-        };
-    });
- */
+    /* Mobile Menu Button - Hamburger - Open/ Close */
     const [hamburgerOpen, setHamburgerOpen] = useState(false);
 
     return (
@@ -113,13 +99,9 @@ function Navigation(props) {
                         </div>
                     </div>
                     {/* Open Mobile Menu Dropdown */}
-                    <div class="md:hidden">
-                    {hamburgerOpen ?
-                        <MobileMenuDropdownLogin openLoginModal={props.openLoginModal} setOpenLoginModal={props.setOpenLoginModal} openRegisterModal={props.openRegisterModal} setOpenRegisterModal={props.setOpenRegisterModal} />
-                        :
-                        ""
-                    }
-                    </div>
+                        <div class="md:hidden">
+                        {hamburgerOpen ? <MobileMenuDropdown show={hamburgerOpen} setShowLogin={setShowLogin} showLogin={props.showLogin} openLoginModal={props.openLoginModal} setOpenLoginModal={props.setOpenLoginModal} openRegisterModal={props.openRegisterModal} setOpenRegisterModal={props.setOpenRegisterModal}/> : null}     
+                        </div>
                 </div>
             </nav>
 
