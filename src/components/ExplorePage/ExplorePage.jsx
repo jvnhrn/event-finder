@@ -73,8 +73,8 @@ function ExplorePage() {
         <div className="container mx-auto">
             <div>
                 <form className="content-center md:flex lg:mt-32 md:mt-24 mt-12 block" value={searchText} onChange={(e) => { setSearchText(e.target.value) }} role="search">
-                    <p class="2xl:text-5xl xl:text-3xl lg:text-xl md:text-lg text-3xl font-bold text-gray-800 2xl:w-2/3 xl:w-2/5 lg:w-2/5 md:w-2/4 md:pb-0 pb-6">Find out what's popping</p>
-                    <input className="bg-gray-100 rounded-2xl px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" /* id="search" type="search" */ placeholder="Search" />
+                    <p class="2xl:text-5xl xl:text-3xl lg:text-xl md:text-lg text-3xl font-bold text-gray-800 2xl:w-2/3 xl:w-2/5 lg:w-2/5 md:w-2/4 md:pb-0 pb-6">find out what's popping</p>
+                    <input className="bg-gray-100 rounded-2xl px-4 py-2 container focus:ring-purple-600 outline-none tracking-tighter" /* id="search" type="search" */ placeholder="search" />
                     <button className="hidden absolute inset-0 rounded-md" type="submit">Go</button>
                 </form>
             </div>
