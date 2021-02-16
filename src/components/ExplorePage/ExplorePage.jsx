@@ -108,7 +108,12 @@ function ExplorePage() {
     }, [searchText, distanceRange, selectionStartDate, selectionEndDate, searchAddress, newAdddressGPSCoordinates]);
 
 
-    const [orderByTitleState, setOrderByTitleState] = useState(false)
+    const smallActiveStyled = "px-3 py-1 rounded text-purple-700 underline bg-purple-100 focus:outline-none";
+
+    const smallInactiveStyled = "px-3 font-light text-gray-400 focus:outline-none hover:text-purple-800 hover:underline hover:font-bold active:bg-none";
+
+    const [orderByTitleState, setOrderByTitleState] = useState(smallInactiveStyled);
+
     useEffect(() => {
         const orderByTitle = () => {
             const newCardsData = [...cardsData];
@@ -140,7 +145,8 @@ function ExplorePage() {
 
 
 
-    const [orderByDateState, setOrderByDateState] = useState(false)
+    const [orderByDateState, setOrderByDateState] = useState(smallInactiveStyled);
+
     useEffect(() => {
         const orderByDate = () => {
             const newCardsData = [...cardsData];
@@ -170,7 +176,8 @@ function ExplorePage() {
         orderByDate()
     }, [orderByDateState])
 
-    const [orderByPriceState, setOrderByPriceState] = useState(false)
+    const [orderByPriceState, setOrderByPriceState] = useState(smallInactiveStyled);
+
     useEffect(() => {
         const orderByPrice = () => {
             const newCardsData = [...cardsData];
@@ -271,6 +278,7 @@ function ExplorePage() {
             </div>
 
             <div class="container hidden md:block md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
+                <p class="2xl:text-3xl xl:text-xl lg:text-xl md:text-lg text-3xl font-bold text-gray-800 pb-6">sort it like it's hot</p>
                 <button 
                     onClick={() => setCategory('All') + setAllActive(activeStyled) + setYogaActive(inactiveStyled) + setMusicActive(inactiveStyled) + setLiteratureActive(inactiveStyled) + setFoodActive(inactiveStyled) + setPotteryActive(inactiveStyled) + setRandomActive(inactiveStyled) + setArchitectureActive(inactiveStyled)}
                     class={(allActive)}
@@ -314,9 +322,21 @@ function ExplorePage() {
             </div>
 
             <div class="container hidden md:block md:ml-12 md:pr-12 md:space-x-8 py-6 text-center tracking-tighter" >
-                <button onClick={() => { setOrderByTitleState(!orderByTitleState) }} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Title</button>{''}
-                <button onClick={() => { setOrderByDateState(!orderByDateState) }} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Date</button>{''}
-                <button onClick={() => { setOrderByPriceState(!orderByPriceState) }} class="focus:outline-none text-md font-light text-grey-500 hover:text-gray-400" >Price</button>{''}
+                <button 
+                    onClick={() => setOrderByTitleState(!orderByTitleState) + setOrderByTitleState(smallActiveStyled) + setOrderByDateState(smallInactiveStyled) + setOrderByPriceState (smallInactiveStyled)} 
+                    className={(orderByTitleState)}
+                    >Title
+                </button>
+                <button 
+                    onClick={() => setOrderByDateState(!orderByDateState) + setOrderByTitleState(smallInactiveStyled) + setOrderByDateState(smallActiveStyled) + setOrderByPriceState(smallInactiveStyled)} 
+                    className={(orderByDateState)} 
+                    >Date
+                </button>
+                <button 
+                    onClick={() => setOrderByPriceState(!orderByPriceState) + setOrderByTitleState(smallInactiveStyled) + setOrderByDateState(smallInactiveStyled) + setOrderByPriceState(smallActiveStyled)} 
+                    className={(orderByPriceState)}
+                    >Price
+                </button>
             </div>
 
             < div className="grid grid-cols-3 gap-2" >
