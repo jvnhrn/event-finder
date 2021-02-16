@@ -49,19 +49,9 @@ function Footer(props) {
                 <div class="... text-center hidden md:block">
                     
                 </div>
-                    <div class="... hidden md:block">
-
-                    {/* <div class="grid grid-cols-1 gap-4 text-right flex items-baseline">
-
-                        <Link to='/' class="text-gray-400 hover:text-gray-200 py-2 rounded-md text-md font-regular">Home</Link>
-
-                        <Link to='/explore' class="text-gray-400 hover:text-gray-200 py-2 rounded-md text-md font-regular">Explore</Link>
-
-                        <Link to='/hostevent' class="text-gray-400 hover:text-gray-200 py-2 rounded-md text-md font-regular">Host an Event</Link>
-                    </div>  */}
-
-                        <p class="text-left mb-3">Do you have a question about eventi?? Or you just wanna say hi</p>
-                        <Link to='/contact' class=" py-1 text-gray-600 font-bold rounded-md text-md hover:underline hover:bg-red-100 hover:text-red-800">Get in touch with us!</Link>
+                    <div class="... hidden md:block text-right">
+                        <p>Do you have a question about eventi?</p>
+                        <Link to='/contact' class="px-1 py-1 text-gray-600 font-bold rounded-md text-md hover:underline hover:bg-red-100 hover:text-red-800">Get in touch with us!</Link>
                 </div> 
             </div>
             </div>
