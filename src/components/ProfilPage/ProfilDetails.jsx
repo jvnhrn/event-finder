@@ -2,44 +2,37 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 import { Transition } from '@headlessui/react';
 import axios from 'axios';
+import FormData from 'form-data'
 
 const ProfilDetails = (props) => {
-
-
 
     const [user_name, set_user_name] = useState('');
     const [user_first_name, set_user_first_name] = useState('');
     const [user_last_name, set_user_last_name] = useState('');
-    const [user_birthdate, set_user_birthdate] = useState('');
     const [user_email, set_user_email] = useState('');
     const [user_phone, set_user_phone] = useState('');
     const [user_password, set_user_password] = useState('');
     const [user_password_repeat, set_user_password_repeat] = useState('');
 
     const [wrongPassword, setWrongPassword] = useState('');
-    const [userRegistered, setUserRegistered] = useState(false);
 
-
-    /* const changeUserDetails = async () => {
-
+    const changeUserDetails = async () => {
         try {
             if (user_password == user_password_repeat) {
                 setWrongPassword('')
-                const newUserDeatilsData = {
+                const newDataForUser = {
+                    user_id: props.userid,
                     user_name,
                     user_first_name,
                     user_last_name,
-                    user_birthdate,
                     user_email,
                     user_phone,
                     user_password
                 }
-                console.log(newUserDeatilsData)
-                const sendUserCredentials = await axios.post(`http://localhost:7777/registeruser`, newUserDeatilsData)
+                console.log(newDataForUser)
+                const sendUserCredentials = await axios.patch(`http://localhost:7777/userdata`, newDataForUser)
                 console.log(sendUserCredentials)
                 console.log(sendUserCredentials.data)
-                setUserRegistered(sendUserCredentials.data.userRegistered)
-
             } else {
                 setWrongPassword('Passwords are not the same')
             }
@@ -47,7 +40,7 @@ const ProfilDetails = (props) => {
         catch (error) {
             console.error(error);
         }
-    }; */
+    };
 
     //////////////////////////////////////////////////////////
     // Drag and Drop
@@ -64,16 +57,16 @@ const ProfilDetails = (props) => {
     const { getRootProps, getInputProps, isDragActive } = useDropzone({ accept: 'image/*', onDrop })
     //Send image
     const sendTestImage = async () => {
+        const user_id = props.userid
+        console.log(props.userid)
         const formData = new FormData();
         formData.append('userimage', profil_image, profil_image.name)
         const config = {
             headers: {
                 'content-type': 'multipart/form-data'
-            }/* ,
-            body: {
-                props.userid
-            } */
+            },
         }
+        formData.append('user_id', user_id);
         const sendImage = await axios.post('http://localhost:7777/userimage', formData, config, {
             onUploadProgress: progressEvent => {
                 console.log('Upload progress: ' + (Math.round(progressEvent.loaded / progressEvent.total) * 100) + '%')
@@ -82,15 +75,11 @@ const ProfilDetails = (props) => {
         console.log(sendImage);
     }
 
+    // Password length and make it secret
+    const pass = props.password;
+    const passwordLength = pass.length
+    const hiddenPass = '*'.repeat(passwordLength)
 
-    // Check event in console
-    useEffect(() => {
-        console.log(profil_image)
-    }, [profil_image])
-
-    const toggleModalVisiblity = () => {
-        props.setOpenEditModal(false);
-    };
 
     return (
 
@@ -99,7 +88,7 @@ const ProfilDetails = (props) => {
 
                 <div class="flex">
                     <button class="h-10 w-10 text-gray-400 hover:text-gray-900 ml-auto"
-                        onClick={toggleModalVisiblity}>
+                        onClick={() => props.setOpenEditModal(false)}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -155,7 +144,7 @@ const ProfilDetails = (props) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <input onChange={(e) => set_user_name(e.target.value)} type="text" name="postal_code" id="event_name" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" placeholder="Username" />
+                                    <input onChange={(e) => set_user_name(e.target.value)} type="text" name="postal_code" id="event_name" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" placeholder={props.username} />
                                 </div>
                             </li>
                             <li class="md:flex mt-5 justify-center">
@@ -170,7 +159,7 @@ const ProfilDetails = (props) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <input onChange={(e) => set_user_phone(e.target.value)} type="text" id="password2" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" />
+                                    <input onChange={(e) => set_user_phone(e.target.value)} type="text" id="password2" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" placeholder={props.phonenumber} />
                                 </div>
 
                             </li>
@@ -186,7 +175,7 @@ const ProfilDetails = (props) => {
                                     </div>
                                 </div>
                                 <div class="">
-                                    <input onChange={(e) => set_user_email(e.target.value)} type="email" id="password2" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" />
+                                    <input onChange={(e) => set_user_email(e.target.value)} type="email" id="password2" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" placeholder={props.email} />
                                 </div>
                             </li>
                             <li class="md:flex mt-5 justify-center">
@@ -201,7 +190,7 @@ const ProfilDetails = (props) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <input onChange={(e) => set_user_first_name(e.target.value)} type="email" id="password2" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" />
+                                    <input onChange={(e) => set_user_first_name(e.target.value)} type="email" id="password2" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" placeholder={props.firstname} />
                                 </div>
                             </li>
                             <li class="md:flex mt-5 justify-center">
@@ -216,7 +205,7 @@ const ProfilDetails = (props) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <input onChange={(e) => set_user_last_name(e.target.value)} type="email" id="password2" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" />
+                                    <input onChange={(e) => set_user_last_name(e.target.value)} type="email" id="password2" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" placeholder={props.lastname} />
                                 </div>
                             </li>
                             <li class="md:flex mt-5 justify-center">
@@ -231,7 +220,7 @@ const ProfilDetails = (props) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <input onChange={(e) => set_user_password(e.target.value)} type="password" id="password1" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" />
+                                    <input onChange={(e) => set_user_password(e.target.value)} type="password" id="password1" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" placeholder={hiddenPass} />
                                 </div>
                             </li>
                             <li class="md:flex mt-5 justify-center">
@@ -246,7 +235,7 @@ const ProfilDetails = (props) => {
                                     </div>
                                 </div>
                                 <div>
-                                    <input onChange={(e) => set_user_password_repeat(e.target.value)} type="password" id="password1" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" />
+                                    <input onChange={(e) => set_user_password_repeat(e.target.value)} type="password" id="password1" class="tracking-tighter bg-gray-100 text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 py-2" placeholder={hiddenPass} />
                                 </div>
                             </li>
                         </ul>
@@ -256,9 +245,8 @@ const ProfilDetails = (props) => {
                     <div class="mb-6 rounded bg-red-200">
                         {wrongPassword}
                     </div>
-                    {!!userRegistered ? <div class="mb-6 rounded bg-red-200"> User (username, email or phone number) already exists</div> : <div></div>}
                     <div class="flex justify-center">
-                        <button onClick={sendTestImage} class="font-bold text-base uppercase flex items-center justify-center border-blue-600 border-2 py-2 px-4 rounded outline-none shadow-lg focus:outline-none text-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white hover:shadow-xl" /* type="submit" */>
+                        <button onClick={() => sendTestImage() + changeUserDetails() + props.setOpenEditModal(false) + window.location.reload()} class="font-bold text-base uppercase flex items-center justify-center border-blue-600 border-2 py-2 px-4 rounded outline-none shadow-lg focus:outline-none text-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white hover:shadow-xl" /* type="submit" */>
                             <svg class="h-8 w-8 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                             </svg> Edit

@@ -1,11 +1,11 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useHistory } from "react-router-dom";
 import hotpodyoga from '../Categories/Yoga/hotpodyoga.png';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../actions/app.actions'
 import ProfilDetails from './ProfilDetails';
-
+import axios from 'axios';
 
 function ProfilCard(props) {
 
@@ -13,7 +13,6 @@ function ProfilCard(props) {
     const [openEditModal, setOpenEditModal] = useState(false);
 
     let history = useHistory();
-
     function handleClick() {
         history.push("/");
     }
@@ -27,13 +26,34 @@ function ProfilCard(props) {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
     </svg>
 
-    const [passwordShown, setPasswordShown] = useState(false);
 
+    const [passwordShown, setPasswordShown] = useState(false);
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
     };
 
+    // Profile image confimation
+    const userImagePrifileURL = `http://localhost:7777/usersimages/${props.userid}.png`
+    const [userImagePrifieState, setUserImagePrifileState] = useState(false)
 
+    useEffect(() => {
+        const checkIfUserhasAndImageAvailable = async () => {
+            try {
+                const userImageProfile = await fetch(userImagePrifileURL)
+                console.log(userImageProfile)
+                console.log(userImageProfile.status)
+                setUserImagePrifileState(!!userImageProfile)
+            }
+            catch (error) {
+                console.error(error);
+                console.log('Found an error')
+                setUserImagePrifileState(false)
+            }
+        }
+        checkIfUserhasAndImageAvailable()
+    }, [])
+
+    // SIGNOUT for user
     const signOut = async () => {
         await props.actions.storeUserData(false, 0)
         console.log(props.applicationState.appReducer.canUserLogin)
@@ -42,15 +62,25 @@ function ProfilCard(props) {
         await window.location.reload()
     }
 
-
     return (
         <div>
             <div id="profilCard" class="container mx-auto py-10">
                 <div class="w-2/4 mx-auto text-gray-600">
                     <div class="h-24 w-24 mx-auto ">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
+                        {
+                            userImagePrifieState
+                                ?
+                                <div class="flex flex-wrap justify-center" >
+                                    <div >
+                                        <img src={userImagePrifileURL} alt="user image" class="shadow-lg rounded-full h-24 w-24 object-cover object-center align-middle border-none" />
+                                    </div>
+                                </div>
+                                :
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                        }
+
                     </div>
                     <div className="px-10 py-4">
                         <div className="font-bold text-gray-600 text-l my-4 text-center tracking-tighter">
@@ -110,16 +140,16 @@ function ProfilCard(props) {
 
                         {openEditModal ?
                             <ProfilDetails
-                                setOpenEditModal={setOpenEditModal}
                                 userid={props.userid}
+                                username={props.username}
                                 firstname={props.firstname}
                                 lastname={props.lastname}
                                 phonenumber={props.phonenumber}
                                 email={props.email}
                                 password={props.password}
+                                setOpenEditModal={setOpenEditModal}
                             />
                             : null}
-
                     </div>
                     <div class="flex">
                         <button
@@ -133,7 +163,7 @@ function ProfilCard(props) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }
