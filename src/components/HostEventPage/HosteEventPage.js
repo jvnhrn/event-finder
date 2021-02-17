@@ -172,7 +172,7 @@ function HosteEventPage() {
 
 
 
-      <div class=" px-10 pb-10 bg-white shadow-2xl rounded-2xl">
+      <div class=" px-10 pb-10 bg-yellow-50 bg-opacity-5 shadow-2xl rounded-2xl">
         <p class="pt-24 mt-2 text-gray-800 font-bold 2xl:text-5xl xl:text-3xl lg:text-3xl md:text-3xl text-3xl text-center">
           create your event
       </p>
