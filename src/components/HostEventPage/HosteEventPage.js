@@ -482,10 +482,10 @@ function HosteEventPage() {
           />
         </div>
 
-        <div className=" pb-10 ">
+        <div className="pb-10">
           <button
             onClick={sendEventData}
-            className="text-white rounded-md ring-1 ring-gray-500 tracking-tighter float-right bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */
+            className="text-white text-xl rounded ring-1 ring-gray-500 tracking-tighter float-right bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */
           > Done
           </button>
         </div>
