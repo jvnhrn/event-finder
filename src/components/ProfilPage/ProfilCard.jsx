@@ -40,14 +40,19 @@ function ProfilCard(props) {
         const checkIfUserhasAndImageAvailable = async () => {
             try {
                 const userImageProfile = await fetch(userImagePrifileURL)
-                console.log(userImageProfile)
-                console.log(userImageProfile.status)
-                setUserImagePrifileState(!!userImageProfile)
+
+                if (userImageProfile == 200) {
+                    console.log(userImageProfile)
+                    console.log(userImageProfile.status)
+                    setUserImagePrifileState(true)
+                } else {
+                    setUserImagePrifileState(false)
+                }
             }
+
             catch (error) {
                 console.error(error);
                 console.log('Found an error')
-                setUserImagePrifileState(false)
             }
         }
         checkIfUserhasAndImageAvailable()
