@@ -137,7 +137,7 @@ function LandingPage() {
 
       <div>
         <div className="relative z-50">
-          <div className="pt-4 content-center flex px-12 items-center">
+          <div className="pt-4 content-center flex items-center">
 
             <input
               value={searchAddress}
@@ -195,7 +195,7 @@ function LandingPage() {
         <br />
 
         <div className="relative z-0">
-          <div className="pt-4 content-center flex px-12 items-center">
+          <div className="pt-4 content-center flex items-center">
             <input
               value={searchText}
               onChange={(e) => {
