@@ -34,6 +34,7 @@ function ProfilPage(props) {
             {
                 < ProfilCard
                     userid={userData.user_id}
+                    username={userData.user_name}
                     firstname={userData.user_first_name}
                     lastname={userData.user_last_name}
                     phonenumber={userData.user_phone}
