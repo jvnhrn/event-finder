@@ -92,8 +92,8 @@ function Navigation(props) {
             {/* large Menu - Notification + Profil + ProfilDropdown*/}
             <div class="hidden md:block">
               <div class="ml-4 flex items-center md:ml-6">
-                <Notification />
-
+                
+                {/* <Notification /> */}
                 <div
                   id="nav-profil"
                   id="dropdown"
