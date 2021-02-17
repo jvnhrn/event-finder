@@ -76,7 +76,7 @@ function Footer(props) {
                         <p class="text-left mb-3"> Do you have a question about eventi?</p>
                         <Link
                             to="/contact"
-                            class=" py-1 text-gray-600 font-bold rounded-md text-md hover:underline hover:bg-red-100 hover:text-red-800"
+                            class="-ml-2 py-1 px-2 text-gray-600 font-bold rounded-md text-md hover:underline hover:bg-red-100 hover:text-red-800"
                         >
                             Get in touch with us!
                         </Link>
