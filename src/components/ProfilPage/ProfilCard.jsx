@@ -88,16 +88,16 @@ function ProfilCard(props) {
 
                     </div>
                     <div className="px-10 py-4">
-                        <div className="font-bold text-gray-600 text-l my-4 text-center tracking-tighter">
+                        <div className="font-bold text-gray-600 text-xl my-4 text-center tracking-tighter">
                             Hallo
                     </div>
-                        <div className="font-bold text-purple-600 text-xl my-4 text-center tracking-tighter">
+                        <div className="font-bold text-purple-600 text-5xl my-4 text-center tracking-tighter">
                             {props.firstname} {props.lastname}
                         </div>
 
-                        <ul id="details" className="py-4 text-left tracking-tighter">
-                            <li>
-                                <strong className="text-gray-400 ">Details</strong>
+                        <ul id="details" className="py-6 text-left tracking-tighter">
+                            <li class="mb-6">
+                                <strong className="text-gray-400 text-2xl">Details</strong>
                             </li>
                             <li class="flex mt-5">
                                 <div id="phone" class="h-6 w-6 mr-2">
@@ -120,7 +120,7 @@ function ProfilCard(props) {
                                     {props.email}
                                 </div>
                             </li>
-                            <li class="flex mt-5">
+                            <li class="flex mt-5 outline-none focus:outline-none">
                                 <div class="h-6 w-6 mr-2">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -133,7 +133,7 @@ function ProfilCard(props) {
                             </li>
                             <li class="flex mt-8">
                                 <div class="m-auto">
-                                    <button class="font-bold text-base uppercase flex items-center justify-center border-blue-600 border-2 py-2 px-4 rounded outline-none shadow-lg focus:outline-none text-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white hover:shadow-xl"
+                                    <button class="bg-blue-600 flex items-center justify-center hover:bg-blue-800 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200"
                                         onClick={() => setOpenEditModal(true)}>
                                         <svg class="h-8 w-8 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
@@ -156,14 +156,14 @@ function ProfilCard(props) {
                             />
                             : null}
                     </div>
-                    <div class="flex">
+                    <div class="flex -mt-4">
                         <button
-                            className="border-gray-400 text-gray-500 text-base flex items-center justify-center border-2 py-2 px-4 rounded shadow-sm hover:shadow-md outline-none hover:bg-gray-300 hover:text-white hover:border-gray-300 focus:outline-none m-auto my-4"
+                            className="border-gray-400 text-gray-500 text-base flex items-center justify-center border-2 py-2 px-4 rounded shadow-sm hover:shadow-md outline-none hover:bg-gray-300 hover:text-white hover:border-gray-300 focus:outline-none mx-auto"
                             type="button"
                             onClick={signOut}
 
                             style={{ transition: "all .15s ease" }}>
-                            Sign Out
+                            Sign out
                     </button>
                     </div>
                 </div>

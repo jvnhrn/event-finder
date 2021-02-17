@@ -86,7 +86,7 @@ const ProfilDetails = (props) => {
         <div class="fixed z-10 inset-0 overflow-y-auto bg-gray-800 bg-opacity-60 min-w-full min-h-screen" >
             <div class="bg-white max-w-lg mx-auto p-8 md:p-12 my-14 rounded-lg shadow-2xl">
 
-                <div class="flex">
+                <div class="flex mb-4">
                     <button class="h-10 w-10 text-gray-400 hover:text-gray-900 ml-auto"
                         onClick={() => props.setOpenEditModal(false)}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -129,7 +129,7 @@ const ProfilDetails = (props) => {
 
                     <div class="mx-4">
                         <ul id="details" className="py-4 text-left tracking-tighter">
-                            <li class="md:flex mt-5">
+                            <li class="md:flex">
                                 <strong className="text-gray-400 text-2xl">change your details</strong>
                             </li>
                             <li class="md:flex mt-5 justify-center">
@@ -246,7 +246,7 @@ const ProfilDetails = (props) => {
                         {wrongPassword}
                     </div>
                     <div class="flex justify-center">
-                        <button onClick={() => sendTestImage() + changeUserDetails() + props.setOpenEditModal(false) + window.location.reload()} class="font-bold text-base uppercase flex items-center justify-center border-blue-600 border-2 py-2 px-4 rounded outline-none shadow-lg focus:outline-none text-blue-600 hover:bg-blue-600 hover:border-blue-600 hover:text-white hover:shadow-xl" /* type="submit" */>
+                        <button onClick={() => sendTestImage() + changeUserDetails() + props.setOpenEditModal(false) + window.location.reload()} class="bg-blue-600 flex items-center justify-center hover:bg-blue-800 text-white font-bold uppercase py-2 px-4 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */>
                             <svg class="h-8 w-8 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                             </svg> Edit
