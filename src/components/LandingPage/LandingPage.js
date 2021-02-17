@@ -127,7 +127,7 @@ function LandingPage() {
   }
 
   return (
-    <div>
+    <div class="container mx-auto">
       <div class="px-12">
         <p class="text-6xl font-bold text-gray-800 mt-20">eventi</p>
         <p class="text-xl font-light mt-2 md:pb-0 mb-6 bg-gradient-to-r from-purple-900 via-pink-400 to-red-600 bg-clip-text text-transparent">
@@ -155,7 +155,7 @@ function LandingPage() {
             </button>
           </form>
 
-          <div class="origin-top-right absolute mt-2 w-auto rounded-2xl shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+          <div class="origin-top-right absolute mt-6 ml-12 w-auto rounded-2xl shadow-lg bg-white ring-1 ring-black ring-opacity-5">
             <div
               class="py-1"
               role="menu"
