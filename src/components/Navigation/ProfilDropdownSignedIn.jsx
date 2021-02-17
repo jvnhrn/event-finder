@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
 import { Transition } from "@headlessui/react";
 
@@ -12,6 +12,8 @@ const ProfilDropdown = (props) => {
     props.setShowLogin(false);
   };
 
+  const [activeProfil, setActiveProfil] = useState(false)
+
   return (
     <Transition
       show={props.show}
@@ -23,14 +25,20 @@ const ProfilDropdown = (props) => {
       leaveTo="opacity-0 scale-95"
     >
       <div
-        class="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5"
+        class="origin-top-right absolute right-0 mt-3 w-48 rounded-md shadow-lg py-1 bg-gray-50 ring-1 ring-black ring-opacity-5"
         role="menu"
         aria-orientation="vertical"
         aria-labelledby="user-menu"
       >
         <NavLink
           to="/profilpage"
-          class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          onClick={() => setActiveProfil(!activeProfil)}
+          className={
+            activeProfil
+              ? "block underline text-purple-700 px-4 py-2 rounded-md text-md font-medium"
+              : "block w-48 text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          }
+          class="block w-48 text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           role="menuitem"
         >
           Your Profile

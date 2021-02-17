@@ -127,8 +127,8 @@ function LandingPage() {
   }
 
   return (
-    <div>
-      <div class="px-12">
+    <div class="container mx-auto">
+      <div class="">
         <p class="text-6xl font-bold text-gray-800 mt-20">eventi</p>
         <p class="text-xl font-light mt-2 md:pb-0 mb-6 bg-gradient-to-r from-purple-900 via-pink-400 to-red-600 bg-clip-text text-transparent">
           the new way of finding and hosting events
@@ -138,6 +138,7 @@ function LandingPage() {
       <div>
         <div className="relative z-50">
           <div className="pt-4 content-center flex px-12 items-center">
+
             <input
               value={searchAddress}
               onChange={(e) => {
@@ -155,7 +156,7 @@ function LandingPage() {
             </button>
           </div>
 
-          <div class="origin-top-right absolute mt-2 w-auto rounded-2xl shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+          <div class="origin-top-right absolute mt-6 ml-12 w-auto rounded-2xl shadow-lg bg-white ring-1 ring-black ring-opacity-5">
             <div
               class="py-1"
               role="menu"

@@ -44,7 +44,7 @@ function LoginModal(props) {
 
   return (
     <div class="fixed relative z-100 inset-0 overflow-y-auto bg-gray-800 bg-opacity-60 min-w-full min-h-screen">
-      <div class="bg-white max-w-lg mx-auto p-8 md:p-12 my-14 rounded-lg shadow-2xl">
+      <div class="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
         <div class="flex">
           <button
             class="h-10 w-10 text-gray-400 hover:text-gray-900 ml-auto"

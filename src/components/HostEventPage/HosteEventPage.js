@@ -107,7 +107,7 @@ function HosteEventPage() {
   };
 
   return (
-    <div className="px-10 ">
+    <div className="px-10 container mx-auto">
       {/* <form className="content-center px-24 pt-6"  onSubmit="event.preventDefault();"  role="search"> */}
       {/*             <h1 class="tracking-tighter font-light text-3xl text-grey-500 hover:text-gray-900 py-6">
                 Host an Event
@@ -115,10 +115,10 @@ function HosteEventPage() {
 
       {/* grid starts here */}
 
-      <p class="pt-24 mt-2 container text-gray-800 font-bold text-3xl">
+      <p class="pt-24 mt-2 text-gray-800 font-bold 2xl:text-5xl xl:text-3xl lg:text-3xl md:text-3xl text-3xl">
         how this works:
       </p>
-      <div class="grid grid-cols-4 gap-4 object-center">
+      <div class="grid grid-cols-4 gap-6 object-center">
         <div className="pt-6 text-center">
           <h1 class="bg-gradient-to-br from-blue-900 to-pink-900 bg-clip-text text-transparent tracking-tighter font-bold text-9xl py-20">
             1
@@ -167,14 +167,20 @@ function HosteEventPage() {
         </div>
       </div>
 
-
-
-
-
-
-      <div class=" px-10 pb-10 bg-white shadow-lg rounded-md">
+      <div class="mt-20 px-10 pb-10 bg-yellow-50 bg-opacity-5 shadow-2xl rounded-2xl">
+        <p class="pt-24 mt-2 text-gray-800 font-bold 2xl:text-5xl xl:text-3xl lg:text-3xl md:text-3xl text-3xl text-center">
+          create your event
+      </p>
         <div class="grid grid-cols-4 gap-4 container py-4">
-          <div className="pt-14">
+          <div className="pt-20">
+            <p class="text-md font-bold text-gray-600 my-auto px-2">Most important details of your event</p>
+          </div>
+          <div id="empty"></div>
+          <div id="empty"></div>
+          <div id="empty"></div>
+          
+          <div className="">
+            <p class="text-sm text-gray-600 my-auto mb-2 px-2">Give your Event a name</p>
             <input
               onChange={(e) => {
                 setEvent_title(e.target.value);
@@ -186,7 +192,8 @@ function HosteEventPage() {
               placeholder="Event name"
             />
           </div>
-          <div class=" outline-none mt-7 pt-6 ">
+          <div class=" outline-none">
+            <p class="text-sm text-gray-600 my-auto mb-2 px-2">Select a category</p>
             <select
               onChange={(e) => {
                 setEvent_category(e.target.value);
@@ -194,9 +201,9 @@ function HosteEventPage() {
               id="country"
               name="country"
               autocomplete="country"
-              class="tracking-tighter bg-gray-100 container mt-1 block py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text"
+              class="tracking-tighter bg-gray-100 container mt-1 py-2 px-4 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text"
             >
-              <option> Choose category</option>
+              <option>Category</option>
               <option>Yoga</option>
               <option>Literature</option>
               <option>Food</option>
@@ -206,7 +213,8 @@ function HosteEventPage() {
               <option>Random</option>
             </select>
           </div>
-          <div className="pt-14">
+          <div className="">
+            <p class="text-sm text-gray-600 my-auto mb-2 px-2">Number of participants</p>
             <input
               onChange={(e) => {
                 setEvent_max_participants(e.target.value);
@@ -218,14 +226,15 @@ function HosteEventPage() {
               placeholder="Number of participants"
             />
           </div>
-          <div class=" outline-none mt-7 pt-6">
+          <div class=" outline-none">
+            <p class="text-sm text-gray-600 my-auto mb-2 px-2">Select your Location</p>
             <select
               onChange={(e) => {
                 setEvent_location(e.target.value);
               }}
               id="location"
               name=""
-              class="tracking-tighter bg-gray-100 container mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text"
+              class="tracking-tighter bg-gray-100 container mt-1 block w-full py-2 px-4 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text"
               placeholder="location"
             >
               <option>Location</option>
@@ -235,8 +244,8 @@ function HosteEventPage() {
             </select>
           </div>
 
-          <div class=" tracking-tighter container sm:text outline-none pb-6 relative text-gray-600">
-            event starts at{" "}
+          <div class=" tracking-tighter container sm:text outline-none relative text-gray-600">
+            <p class="text-sm text-gray-600 my-auto mb-2 px-2">Event starts at:</p>
             <input
               onChange={(e) => {
                 setEvent_start_date(e.target.value);
@@ -250,8 +259,8 @@ function HosteEventPage() {
               class="bg-gray-100 container rounded-md px-4 py-2 focus:ring-purple-600 outline-none "
             />
           </div>
-          <div class=" tracking-tighter container outline-none pb-6 relative text-gray-600">
-            event ends at{" "}
+          <div class=" tracking-tighter container outline-none relative text-gray-600">
+            <p class="text-sm text-gray-600 my-auto mb-2 px-2">Event ends at:</p>
             <input
               onChange={(e) => {
                 setEvent_end_date(e.target.value);
@@ -266,7 +275,8 @@ function HosteEventPage() {
             />
           </div>
 
-          <div class="container pt-6">
+          <div class="container">
+            <p class="text-sm text-gray-600 my-auto mb-2 px-2">Entry Fee:</p>
             <div class=" relative ">
               <div class="absolute left-0 pl-3 items-center pointer-events-auto "></div>
               <input
@@ -292,8 +302,17 @@ function HosteEventPage() {
               </div>
             </div>
           </div>
+          <div id="empty"></div>
 
-          <div className="py-6">
+          <div className="pt-4">
+            <p class="text-md font-bold text-gray-600 my-auto px-2">How to get in touch with you?</p>
+          </div>
+          <div id="empty"></div>
+          <div id="empty"></div>
+          <div id="empty"></div>
+
+          <div className="">
+            <p class="text-sm text-gray-600 my-auto mb-2 px-2">Phone number</p>
             <input
               onChange={(e) => {
                 setEvent_host_phone(e.target.value);
@@ -302,10 +321,11 @@ function HosteEventPage() {
               name="event_host_phone"
               id="event_host_phone"
               class="tracking-tighter bg-gray-100 rounded-md px-4 py-2 container focus:ring-purple-600 outline-none"
-              placeholder="Phone number"
+              placeholder="+01 234 567 89"
             />
           </div>
           <div className="">
+            <p class="text-sm text-gray-600 my-auto mb-2 px-2">Email address</p>
             <input
               onChange={(e) => {
                 setEvent_host_email(e.target.value);
@@ -318,13 +338,16 @@ function HosteEventPage() {
             />
           </div>
         </div>
+        <div className="pt-4 pb-2">
+          <p class="text-md font-bold text-gray-600 my-auto mb-2 px-2">Event address</p>
+        </div>
 
-        <div class="grid grid-cols-4 gap-4 container">
+        <div class="grid grid-cols-4 gap-4 container pb-2">
           <div
             onChange={(e) => {
               setEvent_country(e.target.value);
             }}
-            className="py-2"
+            className=""
           >
             <input
               type="text"
@@ -339,7 +362,7 @@ function HosteEventPage() {
             onChange={(e) => {
               setEvent_address(e.target.value);
             }}
-            className="py-2"
+            className=""
           >
             <input
               type="text"
@@ -354,7 +377,7 @@ function HosteEventPage() {
             onChange={(e) => {
               setEvent_city(e.target.value);
             }}
-            className="py-2"
+            className=""
           >
             <input
               type="text"
@@ -369,7 +392,7 @@ function HosteEventPage() {
             onChange={(e) => {
               setEvent_postalcode(e.target.value);
             }}
-            className="py-2"
+            className=""
           >
             <input
               type="text"
@@ -382,7 +405,8 @@ function HosteEventPage() {
           </div>
         </div>
 
-        <div className="py-4">
+        <div className="pt-4 pb-2">
+          <p class="text-md font-bold text-gray-600 my-auto mb-2 px-2">Event description</p>
           <textarea
             onChange={(e) => {
               setEvent_description(e.target.value);
@@ -393,6 +417,10 @@ function HosteEventPage() {
             type="search"
             placeholder="max. 175 characters"
           />
+        </div>
+
+        <div className="pt-4 pb-2">
+          <p class="text-md font-bold text-gray-600 my-auto mb-2 px-2">Event image</p>
         </div>
 
         <div
@@ -449,10 +477,10 @@ function HosteEventPage() {
           />
         </div>
 
-        <div className=" pb-10 ">
+        <div className="pb-10">
           <button
             onClick={sendEventData}
-            className="text-white rounded-md ring-1 ring-gray-500 tracking-tighter float-right bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */
+            className="text-white text-xl rounded ring-1 ring-gray-500 tracking-tighter float-right bg-purple-600 hover:bg-purple-800 active:bg-purple-900 text-white font-bold uppercase py-2 px-6 rounded shadow-lg hover:shadow-xl outline-none focus:outline-none transition duration-200" /* type="submit" */
           > Done
           </button>
         </div>
