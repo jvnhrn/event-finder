@@ -156,7 +156,7 @@ function LandingPage() {
             </button>
           </div>
 
-          <div class="origin-top-right absolute mt-6 ml-12 w-auto rounded-2xl shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+          <div class="origin-top-right absolute mt-3 ml-6 w-auto rounded-2xl shadow-lg bg-white ring-1 ring-black ring-opacity-5">
             <div
               class="py-1"
               role="menu"
