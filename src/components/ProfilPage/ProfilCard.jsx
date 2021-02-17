@@ -17,6 +17,29 @@ function ProfilCard(props) {
         history.push("/");
     }
 
+    const userImagePrifileURL = `http://localhost:7777/usersimages/${props.userid}.png`
+    const [userImagePrifileState, setUserImagePrifileState] = useState(false)
+
+    useEffect(() => {
+        const checkIfUserhasAndImageAvailable = async () => {
+            try {
+                let imageRequest = await fetch(userImagePrifileURL)
+                const doesTheUserHasAnImageSaved = !!(imageRequest.status == 200)
+                console.log(imageRequest)
+                console.log(imageRequest.status)
+                console.log(doesTheUserHasAnImageSaved)
+                if (doesTheUserHasAnImageSaved) {
+                    setUserImagePrifileState(true)
+                } else {
+                    setUserImagePrifileState(false)
+                }
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        checkIfUserhasAndImageAvailable()
+    }, [props.userid])
+
     const Eye = <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -26,37 +49,10 @@ function ProfilCard(props) {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
     </svg>
 
-
     const [passwordShown, setPasswordShown] = useState(false);
     const togglePasswordVisiblity = () => {
         setPasswordShown(passwordShown ? false : true);
     };
-
-    // Profile image confimation
-    const userImagePrifileURL = `http://localhost:7777/usersimages/${props.userid}.png`
-    const [userImagePrifieState, setUserImagePrifileState] = useState(false)
-
-    useEffect(() => {
-        const checkIfUserhasAndImageAvailable = async () => {
-            try {
-                const userImageProfile = await fetch(userImagePrifileURL)
-
-                if (userImageProfile == 200) {
-                    console.log(userImageProfile)
-                    console.log(userImageProfile.status)
-                    setUserImagePrifileState(true)
-                } else {
-                    setUserImagePrifileState(false)
-                }
-            }
-
-            catch (error) {
-                console.error(error);
-                console.log('Found an error')
-            }
-        }
-        checkIfUserhasAndImageAvailable()
-    }, [])
 
     // SIGNOUT for user
     const signOut = async () => {
@@ -73,7 +69,7 @@ function ProfilCard(props) {
                 <div class="w-2/4 mx-auto text-gray-600">
                     <div class="h-24 w-24 mx-auto ">
                         {
-                            userImagePrifieState
+                            userImagePrifileState
                                 ?
                                 <div class="flex flex-wrap justify-center" >
                                     <div >
