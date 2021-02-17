@@ -33,6 +33,7 @@ function ProfilPage(props) {
         <div>
             {
                 < ProfilCard
+                    key={userData.user_id}
                     userid={userData.user_id}
                     username={userData.user_name}
                     firstname={userData.user_first_name}

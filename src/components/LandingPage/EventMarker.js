@@ -25,7 +25,6 @@ import { Icon } from "leaflet";
 
 function EventMarker(props) {
   const [showActiveIcon, setShowActiveIcon] = useState(true);
-  const [test, setTest] = useState(true);
   const [categoryIcon, setCategoryIcon] = useState(random);
 
   useEffect(() => {
@@ -162,11 +161,17 @@ function EventMarker(props) {
               Do you want to join?
             </div>
 
-            <div>
+            <div className="text-sm text-gray-500 my-4 text-left tracking-tighter">
+              {props.event_host_phone}
+              <br />
+              {props.event_host_email}
+            </div>
+
+            {/*             <div>
               <button className="text-sm bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Register
               </button>
-            </div>
+            </div> */}
           </div>
         </Popup>
       </Marker>
