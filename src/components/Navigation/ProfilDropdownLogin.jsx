@@ -21,10 +21,10 @@ const ProfilDropdown = (props) => {
         className={
           (props.openLoginModal
             ? "hidden"
-            : "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white") +
+            : "origin-top-right absolute right-0 mt-5 w-48 rounded-md shadow-lg py-1 bg-white") +
           (props.openRegisterModal
             ? "hidden"
-            : "origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white")
+            : "origin-top-right absolute right-0 mt-5 w-48 rounded-md shadow-lg py-1 bg-white")
         }
       >
         <div class="max-w-lg mx-auto text-center mt-4 mb-2">
