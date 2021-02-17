@@ -128,7 +128,7 @@ function LandingPage() {
 
   return (
     <div class="container mx-auto">
-      <div class="px-12">
+      <div class="">
         <p class="text-6xl font-bold text-gray-800 mt-20">eventi</p>
         <p class="text-xl font-light mt-2 md:pb-0 mb-6 bg-gradient-to-r from-purple-900 via-pink-400 to-red-600 bg-clip-text text-transparent">
           the new way of finding and hosting events
@@ -137,7 +137,7 @@ function LandingPage() {
 
       <div className="relative z-50">
         <div>
-          <form className="pt-4 content-center flex px-12 items-center">
+          <form className="pt-4 content-center flex items-center">
             <input
               value={searchAddress}
               onChange={(e) => {
